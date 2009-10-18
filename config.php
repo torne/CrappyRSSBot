@@ -1,4 +1,9 @@
 <?php
+/**
+ * 
+ * Configuration loader and setter
+ * 
+ */
 class config
 {
 	private $defConfigFile = 'config.conf';
@@ -7,28 +12,21 @@ class config
 	private $configuration = array();
 	private $comment = '#';
 	
-	
+	/**
+	 * 
+	 * constructor
+	 * 
+	 */
 	public function __construct()
 	{
 		set_include_path(get_include_path() . PATH_SEPARATOR . $this->path);
 	}
 	
-	public function loadRequirements()
-	{
-		$curDir = getcwd();
-		$dirList = scandir($curDir);
-		$i=0;
-		foreach( $dirList as $file )
-		{
-			if ( preg_match("/.*\.php/", $file) && $file != "bot.php" && $file != "config.php" )
-			{
-				require($file);
-				$i++;
-			}
-		}
-		return $i;
-	}
-	
+	/**
+	 * 
+	 * load the specified configuration file (or a default) into memory
+	 * 
+	 */
 	public function loadConfig ( $confFile  = null )
 	{
 		if ( !$confFile )
@@ -41,19 +39,68 @@ class config
 			
 		if ( !is_readable($this->curConfigFile) )
 			return 'File is not readable';
-		
+
+			//get an array of lines of the config file
 		$file = file($this->curConfigFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+		//getting section outside of the loop to retain
+		$section = '';
 		foreach ( $file as $line )
 		{
+			//trim whitespace
 			$line = trim($line);
-			echo $line[0] . $line. "\r\n";
+
+			//if it's a comment
+			if ( strcasecmp($line[0], $this->comment) == 0 )
+			{
+				continue;
+			}
+
+			//it's a section header
+			if ( preg_match("/\[(.*)\]/", $line, $matches) )
+			{
+				$section = $matches[1];
+				continue;
+			}
+			
+			//it's a name=value pair
+			$namevalue = explode("=", $line);
+			$name = trim($namevalue[0]);
+			$value = trim($namevalue[1]);
+			if ( strcasecmp($section, 'channels') == 0 )
+			{
+				$this->setConfig($value, $value, $section);
+			}
+			$this->setConfig($name, $value);
 		}
 		
 	}
 	
-	public function setConfig ( $name, $value )
+	/**
+	 * 
+	 * Set configuration for $name to $value
+	 * 
+	 */
+	public function setConfig ( $name, $value, $section=null )
 	{
-		
+		if ( $section )
+			$this->configuration[$section][$name] = $value;
+		else
+			$this->configuration[$name] = $value;
+	}
+	
+	/**
+	 * 
+	 * Get a configuration item
+	 * @return string
+	 * 
+	 */
+	public function getConfig ( $name, $section=null )
+	{
+		if( $section )
+			return $this->configuration[$section][$name];
+		else
+			return $this->configuration[$name];
 	}
 }
 ?>
