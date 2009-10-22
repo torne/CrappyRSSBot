@@ -1,35 +1,68 @@
 <?php
-echo "I loaded ".loadRequirements()." modules.\r\n";
-$config = new config();
-$config->loadConfig();
-echo "Loaded modules are: ".listLoadedFiles()."\r\n";
-$logger = new botLogger();
-echo $logger->log('test', 'some text')."\r\n";
+$bot = new bot();
+echo "I loaded ".$bot->loadRequirements()." modules.\r\n";
+$bot->initialise();
+$bot->doConfigStuff('loadConfig');
+echo "Loaded modules are: ".$bot->listLoadedFiles()."\r\n";
+echo $bot ->doLoggerStuff('log', array('test', 'some text'))."\r\n";
 
-function listLoadedFiles()
+class bot
 {
-	$var = get_included_files();
-	$loadedFiles = array();
-	foreach ( $var as $file )
+	private $config;
+	private $logger;
+	
+	function __construct()
 	{
-		$tokens = explode("/", $file);
-		$loadedFiles[] = end($tokens);
 	}
-	return implode(', ', $loadedFiles);
-}
 
-function loadRequirements()
-{
-	$curDir = getcwd();
-	$dirList = scandir($curDir);
-	$i=0;
-	foreach( $dirList as $file )
+	public function initialise()
 	{
-		if ( preg_match("/.*\.php/", $file) && $file != "bot.php" )
+		$this->config = new config();
+		$this->logger = new botLogger();
+	}
+	
+	public function doConfigStuff( $method, $args=array() )
+	{
+		return call_user_func_array( array($this->config, $method), $args );
+	}
+	
+	public function doLoggerStuff( $method, $args=array() )
+	{
+		return call_user_func_array( array($this->logger, $method), $args );
+	}
+	
+	public function listLoadedFiles()
+	{
+		$var = get_included_files();
+		$loadedFiles = array();
+		foreach ( $var as $file )
 		{
-			require($file);
-			$i++;
+			$tokens = explode("/", $file);
+			$loadedFiles[] = end($tokens);
 		}
+		return implode(', ', $loadedFiles);
 	}
-	return $i;
+	
+	public function loadRequirements()
+	{
+		$curDir = getcwd();
+		$dirList = scandir($curDir);
+		$i=0;
+		foreach( $dirList as $file )
+		{
+			if ( preg_match("/.*\.php/", $file) && $file != "bot.php" )
+			{
+				require($file);
+				$i++;
+			}
+		}
+		return $i;
+	}
+	
+	public function server()
+	{
+//		$socket = fsockopen( $config->getConfig('server'), $config->getConfig('port'));
+//		fputs($socket,"USER ".$config->getConfig('user')." :".$config->getConfig('nick')."\r\n");
+//		fputs($socket,"NICK ".$config->getConfig('nick')."\r\n");
+	}
 }

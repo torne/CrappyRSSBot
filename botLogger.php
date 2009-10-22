@@ -62,7 +62,7 @@ class botLogger
 		{
 			return "Error, couldn't write to file."; 
 		}
-		return $line;
+		return "$time - $line\r\n";
 	}
 }
 
