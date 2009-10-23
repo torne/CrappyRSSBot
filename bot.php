@@ -68,6 +68,27 @@ class bot
 		fputs($this->socket,"NICK ".$config->getConfig('nick')."\r\n");
 	}
 
+	public function parseInput()
+	{
+		$explodedData = explode(" ", $this->data );
+		if ( $this->data[0] == ":" )
+		{
+			if ( function_exists("handle_" . $explodedData[1]) )
+			{
+				log_output("|\tCalled handle_$explodedData[1]\n");
+				call_user_func("handle_" . $explodedData[1]);
+			}
+		}
+		else
+		{
+			if ( function_exists("handle_" . $data[0]) )
+			{
+				log_output("|\tCalled handle_$data[0]\n");
+				call_user_func("handle_" . $data[0]);
+			}
+		}
+	}
+	
 	public function main()
 	{
 		while ( $this->getFromServer )
