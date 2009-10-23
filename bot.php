@@ -10,6 +10,8 @@ class bot
 {
 	private $config;
 	private $logger;
+	private $socket;
+	private $data;
 	
 	function __construct()
 	{
@@ -61,8 +63,22 @@ class bot
 	
 	public function server()
 	{
-//		$socket = fsockopen( $config->getConfig('server'), $config->getConfig('port'));
-//		fputs($socket,"USER ".$config->getConfig('user')." :".$config->getConfig('nick')."\r\n");
-//		fputs($socket,"NICK ".$config->getConfig('nick')."\r\n");
+		$this->socket = fsockopen( $config->getConfig('server'), $config->getConfig('port'));
+		fputs($this->socket,"USER ".$config->getConfig('user')." :".$config->getConfig('nick')."\r\n");
+		fputs($this->socket,"NICK ".$config->getConfig('nick')."\r\n");
+	}
+
+	public function main()
+	{
+		while ( $this->getFromServer )
+		{
+			//do stuff
+		}
+	}
+
+	public function getFromServer()
+	{
+		$this->data = fgets( $this->socket, 1024);
+		return $this->data;
 	}
 }
