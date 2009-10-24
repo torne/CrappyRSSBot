@@ -36,11 +36,12 @@ function handle_PRIVMSG( $bot )
 			$bot->sendMsg( $returnDest, 'limes');
 			break;
 		case "redeclare":
+			$rename = new privmsg();
+			$rename->retest();
 			echo "going to rename\r\n";
-			rename_function("handle_privmsg", "handle_privmsg_old");
-			echo "renamed going to require\r\n";
-			require("handle_PRIVMSG.php");
-			echo "required done\r\n";
+			rename_function("restest", "retestyourmum");
+			echo "renamed\r\n";
+			$rename->retest();
 			break;
 	}
 }
