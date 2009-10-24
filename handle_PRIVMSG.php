@@ -36,7 +36,7 @@ function handle_PRIVMSG( $bot )
 			$bot->sendMsg( $returnDest, 'limes');
 			break;
 		case "redeclare":
-			rename_function("handle_PRIVMSG");
+			rename_function("handle_privmsg", "handle_privmsg_old");
 			require("handle_PRIVMSG.php");
 			break;
 	}
