@@ -36,9 +36,13 @@ function handle_PRIVMSG( $bot )
 			$bot->sendMsg( $returnDest, 'limes');
 			break;
 		case "redeclare":
+			echo "instanciate\r\n";
 			$rename = new privmsg();
+			echo "method call\r\n";
 			$rename->retest();
+			echo "runkit_import\r\n";
 			runkit_import("privmsg.php");
+			echo "method call with new import\r\n";
 			$rename->retest();
 			break;
 	}

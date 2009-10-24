@@ -1,6 +1,7 @@
 <?php
 
-class privmsg {
+class privmsg
+{
 	
 	function __construct()
 	{
