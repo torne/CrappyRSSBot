@@ -40,8 +40,10 @@ function handle_PRIVMSG( $bot )
 			$rename = new privmsg();
 			echo "method call\r\n";
 			$rename->retest();
+			echo "sleep\r\n";
+			sleep(10);
 			echo "runkit_import\r\n";
-			runkit_import("privmsgwot.php");
+			runkit_import("privmsg.php");
 			echo "method call with new import\r\n";
 			$rename->retest();
 			break;
