@@ -10,7 +10,7 @@ class privmsg
 	
 	public function retest()
 	{
-		echo "lol\r\n";
+		return "lol";
 	}
 }
 
