@@ -39,7 +39,7 @@ function handle_PRIVMSG( $bot )
 			$rename = new privmsg();
 			$rename->retest();
 			echo "going to rename\r\n";
-			rename_function("restest", "retestyourmum");
+			rename_function("retest", "retestyourmum");
 			echo "renamed\r\n";
 			$rename->retest();
 			break;
