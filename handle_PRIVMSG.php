@@ -38,9 +38,7 @@ function handle_PRIVMSG( $bot )
 		case "redeclare":
 			$rename = new privmsg();
 			$rename->retest();
-			echo "going to rename\r\n";
-			rename_function("retest", "retestyourmum");
-			echo "renamed\r\n";
+			runkit_import("privmsg.php");
 			$rename->retest();
 			break;
 	}
