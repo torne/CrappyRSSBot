@@ -1,10 +1,13 @@
 <?php
 $bot = new bot();
+ob_implicit_flush(TRUE); 
 echo "I loaded ".$bot->loadRequirements()." modules.\r\n";
+//$bot->loadRequirements();
 $bot->initialise();
 $bot->doConfigStuff('loadConfig');
 echo "Loaded modules are: ".$bot->listLoadedFiles()."\r\n";
-echo $bot ->doLoggerStuff('log', array('test', 'some text'))."\r\n";
+//echo $bot ->doLoggerStuff('log', array('test', 'some text'))."\r\n";
+$bot->main();
 
 class bot
 {
@@ -63,9 +66,9 @@ class bot
 	
 	public function server()
 	{
-		$this->socket = fsockopen( $config->getConfig('server'), $config->getConfig('port'));
-		fputs($this->socket,"USER ".$config->getConfig('user')." :".$config->getConfig('nick')."\r\n");
-		fputs($this->socket,"NICK ".$config->getConfig('nick')."\r\n");
+		$this->socket = fsockopen( $this->config->getConfig('server'), $this->config->getConfig('port'));
+		fputs($this->socket,"USER ".$this->config->getConfig('user')." :".$this->config->getConfig('nick')."\r\n");
+		fputs($this->socket,"NICK ".$this->config->getConfig('nick')."\r\n");
 	}
 
 	public function parseInput()
@@ -73,33 +76,46 @@ class bot
 		$explodedData = explode(" ", $this->data );
 		if ( $this->data[0] == ":" )
 		{
+			$this->data = substr($this->data, 1);
 			if ( function_exists("handle_" . $explodedData[1]) )
 			{
-				log_output("|\tCalled handle_$explodedData[1]\n");
-				call_user_func("handle_" . $explodedData[1]);
+				call_user_func("handle_" . $explodedData[1], $this);
 			}
 		}
 		else
 		{
-			if ( function_exists("handle_" . $data[0]) )
+			if ( function_exists("handle_" . $explodedData[0]) )
 			{
-				log_output("|\tCalled handle_$data[0]\n");
-				call_user_func("handle_" . $data[0]);
+				call_user_func("handle_" . $explodedData[0], $this);
 			}
 		}
 	}
 	
 	public function main()
 	{
-		while ( $this->getFromServer )
+		$this->server();
+		while ( !feof($this->socket) )
 		{
-			//do stuff
+			$this->getFromServer();
+			$this->parseInput();
 		}
 	}
 
+	public function putToServer( $string )
+	{
+		echo "<=======\t\t$string\r\n";
+		fputs($this->socket, "$string\r\n");
+	}
+	
 	public function getFromServer()
 	{
-		$this->data = fgets( $this->socket, 1024);
+		$this->data =trim( fgets( $this->socket ) );
+		echo "========>\t\t".$this->data."\r\n";
+		return $this->data;
+	}
+	
+	public function getData()
+	{
 		return $this->data;
 	}
 }

@@ -73,7 +73,6 @@ class config
 			}
 			$this->setConfig($name, $value);
 		}
-		
 	}
 	
 	/**
