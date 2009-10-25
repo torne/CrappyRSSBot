@@ -153,8 +153,8 @@ class bot
 				$return = call_user_func( array($this->handle_functions, "handle_".$explodedData[1]), $this);
 				if ( preg_match("/reload (.+) (.+)/", $return, $matches) )
 				{
-					$filename = $matches[1];
-					$returnDest = $matches[2];
+					$filename = $matches[2];
+					$returnDest = $matches[1];
 					$reload = new classReloader();
 					$this->sendMsg($returnDest, $reload->reload($filename) );
 				}
