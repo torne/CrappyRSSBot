@@ -25,10 +25,9 @@ class bot
 	 */
 	function __construct()
 	{
-		$this->initialise();
 		$this->loadRequirements();
+		$this->initialise();
 		$this->config->loadConfig();
-		echo $this->countLoadedModules() . " | " . $this->listLoadedModules() . "\r\n";
 	}
 
 	/**
@@ -106,7 +105,7 @@ class bot
 		$i=0;
 		foreach( $dirList as $file )
 		{
-			if ( preg_match("/.*\.php/", $file) && $file != "bot.php" && $file != "privmsgwot.php" )
+			if ( preg_match("/.*\.php/", $file) && $file != "bot.php" )
 			{
 				require($file);
 				$i++;
