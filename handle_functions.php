@@ -39,10 +39,17 @@ class handle_functions
 				$bot->quit( $quitmessage );
 				break;
 			case "lemons":
-				$bot->sendMsg($returnDest, "bananas!" );
+				$bot->sendMsg( $returnDest, "bananas!" );
 				break;
 			case "reload":
 				return "reload ".$returnDest." ".$messageArray[1];
+				break;
+			case "modules":
+				$bot->sendMsg( $returnDest, "");
+				break;
+			case "methods":
+				$methods = get_class_methods($messageArray[1]);
+				$bot->sendMsg( $returnDest, implode( ",", $methods));
 				break;
 		}
 	}

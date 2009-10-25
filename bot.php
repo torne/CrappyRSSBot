@@ -41,7 +41,7 @@ class bot
 		$this->privmsg = new privmsg();
 		$this->handle_functions = new handle_functions($this);
 	}
-	
+
 	/**
 	 * 
 	 * @param $method
@@ -51,7 +51,7 @@ class bot
 	{
 		return call_user_func_array( array($this->config, $method), $args );
 	}
-	
+
 	/**
 	 * 
 	 * @param $thingToGet
@@ -60,7 +60,7 @@ class bot
 	{
 		return $this->config->getConfig( $thingToGet );
 	}
-	
+
 	/**
 	 * 
 	 * @param unknown_type $method
@@ -71,7 +71,7 @@ class bot
 	{
 		return call_user_func_array( array($this->logger, $method), $args );
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -82,11 +82,12 @@ class bot
 		foreach ( $var as $file )
 		{
 			$tokens = explode("/", $file);
-			$loadedFiles[] = end($tokens);
+			$module = explode( ".", end($tokens));
+			$loadedFiles[] = $module[0];
 		}
 		return implode(', ', $loadedFiles);
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -94,7 +95,7 @@ class bot
 	{
 		return count(get_included_files());
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -113,7 +114,7 @@ class bot
 		}
 		return $i;
 	}
-	
+
 	public function loadFile( $filename )
 	{
 		if ( file_exists($filename) )
@@ -126,7 +127,7 @@ class bot
 			$this->sendMsg();
 		}
 	}
-	
+
 	/**
 	 * 
 	 */
