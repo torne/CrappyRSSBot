@@ -35,6 +35,7 @@ class bot
 	 */
 	public function initialise()
 	{
+		echo $this->countLoadedModules() . " " . $this->listLoadedModules() . "\r\n";
 		$this->config = new config();
 		$this->logger = new botLogger();
 		$this->privmsg = new privmsg();
