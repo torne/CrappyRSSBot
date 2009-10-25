@@ -30,12 +30,6 @@ function handle_PRIVMSG( $bot )
 			$bot->quit( $quitmessage );
 			break;
 		case "reload":
-			$bot->loadRequirements();
-			break;
-		case "lemons":
-			$bot->sendMsg( $returnDest, 'limes');
-			break;
-		case "reload":
 			$reload = new classReloader();
 			$bot->sendMsg($returnDest, $reload->reload($messageArray[1]) );
 			break;
