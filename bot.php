@@ -150,7 +150,14 @@ class bot
 			$this->data = substr($this->data, 1);
 			if ( method_exists( $this->handle_functions, "handle_" . $explodedData[1]) )
 			{
-				call_user_func( array($this->handle_functions, "handle_".$explodedData[1]), $this);
+				$return = call_user_func( array($this->handle_functions, "handle_".$explodedData[1]), $this);
+				if ( preg_match("/reload (.+) (.+)/", $return, $matches) )
+				{
+					$filename = $matches[1];
+					$returnDest = $matches[2];
+					$reload = new classReloader();
+					$this->sendMsg($returnDest, $reload->reload($filename) );
+				}
 			}
 		}
 		else

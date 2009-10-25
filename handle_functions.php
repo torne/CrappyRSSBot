@@ -42,8 +42,7 @@ class handle_functions
 				$bot->sendMsg($returnDest, "or the coconuts!" );
 				break;
 			case "reload":
-				$reload = new classReloader();
-				$bot->sendMsg($returnDest, $reload->reload($messageArray[1]) );
+				return "reload ".$returnDest." ".$messageArray[1];
 				break;
 		}
 	}
