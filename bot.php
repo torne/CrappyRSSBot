@@ -1,11 +1,7 @@
 <?php
 $bot = new bot();
 ob_implicit_flush(TRUE); 
-echo "I loaded ".$bot->loadRequirements()." modules.\r\n";
-//$bot->loadRequirements();
-$bot->initialise();
-$bot->doConfigStuff('loadConfig');
-echo "Loaded modules are: ".$bot->listLoadedFiles()."\r\n";
+echo "I have loaded ".$bot->countLoadedModules." modules. Loaded modules are: ".$bot->listLoadedModules()."\r\n";
 //echo $bot ->doLoggerStuff('log', array('test', 'some text'))."\r\n";
 $bot->main();
 
@@ -22,12 +18,16 @@ class bot
 	private $socket;
 	private $data;
 	private $privmsg;
+	private $handle_functions;
 	
 	/**
 	 * 
 	 */
 	function __construct()
 	{
+		$this->initialise();
+		$this->loadRequirements();
+		$this->config->loadConfig();
 	}
 
 	/**
@@ -38,6 +38,7 @@ class bot
 		$this->config = new config();
 		$this->logger = new botLogger();
 		$this->privmsg = new privmsg();
+		$this->handle_functions = new handle_functions($this);
 	}
 	
 	/**
@@ -73,7 +74,7 @@ class bot
 	/**
 	 * 
 	 */
-	public function listLoadedFiles()
+	public function listLoadedModules()
 	{
 		$var = get_included_files();
 		$loadedFiles = array();
@@ -83,6 +84,14 @@ class bot
 			$loadedFiles[] = end($tokens);
 		}
 		return implode(', ', $loadedFiles);
+	}
+	
+	/**
+	 * 
+	 */
+	public function countLoadedModules()
+	{
+		return get_included_files();
 	}
 	
 	/**
@@ -138,16 +147,16 @@ class bot
 		if ( $this->data[0] == ":" )
 		{
 			$this->data = substr($this->data, 1);
-			if ( function_exists("handle_" . $explodedData[1]) )
+			if ( method_exists( $this->handle_functions, "handle_" . $explodedData[1]) )
 			{
-				call_user_func("handle_" . $explodedData[1], $this);
+				call_user_func( array($this->handle_functions, "handle_".$explodedData[1]), $this);
 			}
 		}
 		else
 		{
-			if ( function_exists("handle_" . $explodedData[0]) )
+			if ( method_exists( $this->handle_functions, "handle_" . $explodedData[0]) )
 			{
-				call_user_func("handle_" . $explodedData[0], $this);
+				call_user_func( array($this->handle_functions, "handle_".$explodedData[0]), $this);
 			}
 		}
 	}
