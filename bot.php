@@ -28,7 +28,7 @@ class bot
 		$this->initialise();
 		$this->loadRequirements();
 		$this->config->loadConfig();
-		echo $this->countLoadedModules() . " " . $this->listLoadedModules() . "\r\n";
+		echo $this->countLoadedModules() . " | " . $this->listLoadedModules() . "\r\n";
 	}
 
 	/**
