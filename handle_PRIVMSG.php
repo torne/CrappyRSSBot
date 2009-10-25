@@ -35,12 +35,9 @@ function handle_PRIVMSG( $bot )
 		case "lemons":
 			$bot->sendMsg( $returnDest, 'limes');
 			break;
-		case "redeclare":
-			$rename = new privmsg();
-			$bot->sendMsg($returnDest, $rename->retest());
-			sleep(10);
-			runkit_import("privmsg.php");
-			$bot->sendMsg($returnDest, $rename->retest());
+		case "reload":
+			$reload = new classReloader();
+			$bot->sendMsg($returnDest, $reload->reload($messageArray[1]) );
 			break;
 	}
 }
