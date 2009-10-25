@@ -29,6 +29,9 @@ function handle_PRIVMSG( $bot )
 				$quitmessage = implode( ' ', array_slice($messageArray, 1));
 			$bot->quit( $quitmessage );
 			break;
+		case "lemons":
+			$bot->sendMsg($returnDest, "what about a coconut?" );
+			break;
 		case "reload":
 			$reload = new classReloader();
 			$bot->sendMsg($returnDest, $reload->reload($messageArray[1]) );
