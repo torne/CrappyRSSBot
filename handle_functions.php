@@ -39,7 +39,7 @@ class handle_functions
 				$bot->quit( $quitmessage );
 				break;
 			case "lemons":
-				$bot->sendMsg($returnDest, "or the coconuts!" );
+				$bot->sendMsg($returnDest, "your mum!" );
 				break;
 			case "reload":
 				return "reload ".$returnDest." ".$messageArray[1];
