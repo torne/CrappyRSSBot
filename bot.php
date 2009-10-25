@@ -28,6 +28,7 @@ class bot
 		$this->initialise();
 		$this->loadRequirements();
 		$this->config->loadConfig();
+		echo $this->countLoadedModules() . " " . $this->listLoadedModules() . "\r\n";
 	}
 
 	/**
@@ -35,8 +36,7 @@ class bot
 	 */
 	public function initialise()
 	{
-		print_r( $this->countLoadedModules() );
-		echo $this->listLoadedModules() . "\r\n";
+		echo $this->countLoadedModules() . " " . $this->listLoadedModules() . "\r\n";
 		$this->config = new config();
 		$this->logger = new botLogger();
 		$this->privmsg = new privmsg();
@@ -93,7 +93,7 @@ class bot
 	 */
 	public function countLoadedModules()
 	{
-		return get_included_files();
+		return count(get_included_files());
 	}
 	
 	/**
