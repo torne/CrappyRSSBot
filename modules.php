@@ -1,6 +1,6 @@
 <?php
 /**
- * @version: xxx - Created on: 26 Oct 2009 - Filename: 
+ * 
  * @author: Gabriel
  * Description: 
  * 

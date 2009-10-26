@@ -34,14 +34,14 @@ class handle_functions
 		$args = array();
 		
 		$messageArray = explode(' ', $message);
-		if ( $count( $messageArray) == 1)
+		if ( count( $messageArray) == 1)
 		{
 			$objectname = $message;
 			$method = $message;
 		}
 		else if ( count( $messageArray) > 1)
 		{
-			$objectname = $messsageArray[0];
+			$objectname = $messageArray[0];
 			$method = $messageArray[1];
 		}
 
@@ -59,7 +59,7 @@ class handle_functions
 			else
 			{
 				$method = $objectname;
-				$args = array_slice($messageArray, 1);
+				$args = array_slice( $messageArray, 1);
 			}
 		}
 		else
@@ -67,7 +67,7 @@ class handle_functions
 			$args = array_slice($messageArray, 2);
 		}
 		$args[] = $bot;
-		call_user_func_array( array($object, $method), $args );
+		call_user_func_array( array( $object, $method), $args);
 	}
 	
 	/**
@@ -76,8 +76,8 @@ class handle_functions
 	 */
 	public function handle_PING( $bot )
 	{
-		$explodedData = explode(" ", $bot->getData() );
-		$bot->putToServer("PONG ".$explodedData[1]."\r\n");
+		$explodedData = explode( " ", $bot->getData());
+		$bot->putToServer( "PONG ".$explodedData[1]."\r\n");
 	}
 	
 	/**
@@ -86,7 +86,7 @@ class handle_functions
 	 */
 	public function handle_254( $bot )
 	{
-		foreach( $bot->doConfigStuff( 'getConfig', array('channels') ) as $channel )
+		foreach( $bot->doConfigStuff( 'getConfig', array('channels')) as $channel )
 		{
 			$bot->putToServer("JOIN $channel\r\n");
 		}
