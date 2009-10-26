@@ -25,7 +25,9 @@ class bot
 	 */
 	function __construct()
 	{
-		$this->loadRequirements();
+		include('modules.php');
+		$modules = new modules();
+		$modules->loadRequirements();
 		$this->initialise();
 		$this->config->loadConfig();
 	}
@@ -63,58 +65,7 @@ class bot
 
 	/**
 	 * 
-	 * @param unknown_type $method
-	 * @param unknown_type $args
-	 * @return mixed
 	 */
-	public function doLoggerStuff( $method, $args=array() )
-	{
-		return call_user_func_array( array($this->logger, $method), $args );
-	}
-
-	/**
-	 * 
-	 */
-	public function listLoadedModules()
-	{
-		$var = get_included_files();
-		$loadedFiles = array();
-		foreach ( $var as $file )
-		{
-			$tokens = explode("/", $file);
-			$module = explode( ".", end($tokens));
-			$loadedFiles[] = $module[0];
-		}
-		return implode(', ', $loadedFiles);
-	}
-
-	/**
-	 * 
-	 */
-	public function countLoadedModules()
-	{
-		return count(get_included_files());
-	}
-
-	/**
-	 * 
-	 */
-	public function loadRequirements()
-	{
-		$curDir = getcwd();
-		$dirList = scandir($curDir);
-		$i=0;
-		foreach( $dirList as $file )
-		{
-			if ( preg_match("/.*\.php/", $file) && $file != "bot.php" )
-			{
-				require($file);
-				$i++;
-			}
-		}
-		return $i;
-	}
-
 	public function loadFile( $filename )
 	{
 		if ( file_exists($filename) )
