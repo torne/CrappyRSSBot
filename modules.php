@@ -8,6 +8,10 @@
  
  class modules
  {
+
+	publc function findClassByMethod( $method )
+	{
+	}
  
  	public function loadModule( $modulename, $bot )
  	{

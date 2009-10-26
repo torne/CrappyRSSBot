@@ -13,11 +13,9 @@ class help
 
 		if ( count($args) == 1 )
 		{
-			$objectname = $args[0];
+			$method = $args[0];
 
-			if ( !class_exists($objectname) )
-				return;
-
+			//find the class that matches the method
 			$object = new $objectname();
 			$object->_help( $bot );
 		}

@@ -34,39 +34,16 @@ class handle_functions
 		$args = array();
 		
 		$messageArray = explode(' ', $message);
-		if ( count( $messageArray) == 1)
-		{
-			$objectname = $message;
-			$method = $message;
-		}
-		else if ( count( $messageArray) > 1)
-		{
-			$objectname = $messageArray[0];
-			$method = $messageArray[1];
-		}
+		$method = $messageArray[0];
+		$args = array_slice( $messageArray, 1);
 
-		if ( !class_exists($objectname) )
-			return;
-			
-		$object = new $objectname();
+		$modules = new modules();
+		$objectname = $modules->findClassByMethod( $method );
 		
-		if ( !method_exists( $object, $method) )
-		{
-			if( !method_exists( $object, $objectname) )
-			{
-				return;
-			}
-			else
-			{
-				$method = $objectname;
-				$args = array_slice( $messageArray, 1);
-			}
-		}
-		else
-		{
-			$args = array_slice($messageArray, 2);
-		}
+		$object = new $objectname();
+
 		$args[] = $bot;
+
 		call_user_func_array( array( $object, $method), $args);
 	}
 	
