@@ -28,30 +28,46 @@ class handle_functions
 			$returnDest = $nick;
 		$messageType = $matches[5];	
 		$message = $matches[6];
+		
+		$objectname = '';
+		$method = '';
+		$args = array();
+		
 		$messageArray = explode(' ', $message);
-	
-		switch ( strtolower($messageArray[0]) )
+		if ( $count( $messageArray) == 1)
 		{
-			case "quit":
-				$quitmessage = 'Crappily made bot';
-				if ( count($messageArray) > 1 )
-					$quitmessage = implode( ' ', array_slice($messageArray, 1));
-				$bot->quit( $quitmessage );
-				break;
-			case "lemons":
-				$bot->sendMsg( $returnDest, "bananas!" );
-				break;
-			case "reload":
-				return "reload ".$returnDest." ".$messageArray[1];
-				break;
-			case "modules":
-				$bot->sendMsg( $returnDest, implode( ", ", get_declared_classes()));
-				break;
-			case "methods":
-				$methods = get_class_methods($messageArray[1]);
-				$bot->sendMsg( $returnDest, implode( ", ", $methods));
-				break;
+			$objectname = $message;
+			$method = $message;
 		}
+		else if ( count( $messageArray) > 1)
+		{
+			$objectname = $messsageArray[0];
+			$method = $messageArray[1];
+		}
+
+		if ( !class_exists($objectname) )
+			return;
+			
+		$object = new $objectname();
+		
+		if ( !method_exists( $object, $method) )
+		{
+			if( !method_exists( $object, $objectname) )
+			{
+				return;
+			}
+			else
+			{
+				$method = $objectname;
+				$args = array_slice($messageArray, 1);
+			}
+		}
+		else
+		{
+			$args = array_slice($messageArray, 2);
+		}
+		$args[] = $bot;
+		call_user_func_array( array($object, $method), $args );
 	}
 	
 	/**
