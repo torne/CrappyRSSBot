@@ -9,15 +9,13 @@
  class modules
  {
 
-	public function findClassByMethod( $method )
+	/**
+	 * 
+	 * @param unknown_type $method
+	 */
+ 	public function _findClassByMethod( $method )
 	{
-		//we know what files are loaded by us
-		//so we assume that each class is the name of its file
-		//so we test each filename to see if it's also a class name
-		//then we get each method from that class and see if that's the one we want
-		if ( $method[0] == "_" )
-			return;
-		$loadedModules = $this->modules();
+		$loadedModules = $this->_modules();
 		foreach ( $loadedModules as $module )
 		{
 			if ( !class_exists($module) )
@@ -25,17 +23,27 @@
 			$methods = get_class_methods($module);
 			if ( !in_array($method, $methods) )
 				continue;
-			//if we're still here we've found the class with the right method
+			return $module;
+				//if we're still here we've found the class with the right method
 		}
+		return false;
 	}
  
- 	public function loadModule( $modulename, $bot )
+	/**
+	 * 
+	 * @param unknown_type $modulename
+	 * @param unknown_type $bot
+	 */
+	public function _loadModule( $modulename, $bot )
  	{
  		$success = include($modulename.".php");
  		return $success;
  	}
- 	
- 	public function loadRequirements()
+
+ 	/**
+ 	 * 
+ 	 */
+ 	public function _loadRequirements()
 	{
 		$curDir = getcwd();
 		$dirList = scandir($curDir);
@@ -51,7 +59,10 @@
 		return $i;
 	}
 	
- 	public function modules(  )
+	/**
+	 * 
+	 */
+	public function _modules(  )
  	{
  		$var = get_included_files();
 		$modules = array();
@@ -63,4 +74,5 @@
 		}
 		return $modules;
  	}
+
  }

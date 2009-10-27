@@ -31,20 +31,29 @@ class handle_functions
 		
 		$objectname = '';
 		$method = '';
+		$object = '';
+
 		$args = array();
-		
+
 		$messageArray = explode(' ', $message);
 		$method = $messageArray[0];
 		$args = array_slice( $messageArray, 1);
 
+		if ( $method[0] == "_" )
+			$bot->sendMsg( $returnDest, 'No such command.');
+		
 		$modules = new modules();
 		$objectname = $modules->findClassByMethod( $method );
-		
+		if ( !$objectname )
+			$bot->sendMsg( $returnDest, 'No such command.');
+
 		$object = new $objectname();
 
+		if ( !count($args) )
+			$args[] = '';
 		$args[] = $bot;
 
-		call_user_func_array( array( $object, $method), $args);
+		$bot->sendMsg( $returnDest, call_user_func_array( array( $object, $method), $args) );
 	}
 	
 	/**

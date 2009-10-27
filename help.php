@@ -3,22 +3,23 @@
 class help
 {
 
-	public function help( $args = array(), $bot)
+	public function help( $method = '', $bot)
 	{
-		if ( !count($args) )
+		if ( !$method )
 		{
 			//msg returnDest default help msg
 			return;
 		}
 
-		if ( count($args) == 1 )
-		{
-			$method = $args[0];
+		$modules = new modules();
+		$objectname = $modules->findClassByMethod( "_help_".$method );
+		if ( !$objectname )
+			return "No help for command $method.";
 
-			//find the class that matches the method
-			$object = new $objectname();
-			$object->_help( $bot );
-		}
+
+		//find the class that matches the method
+		$object = new $objectname();
+		return call_user_func( array($object, "_help_".$method) );
 	}
 	
 }
