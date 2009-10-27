@@ -15,6 +15,8 @@
 		//so we assume that each class is the name of its file
 		//so we test each filename to see if it's also a class name
 		//then we get each method from that class and see if that's the one we want
+		if ( $method[0] == "_" )
+			return;
 		$loadedModules = $this->modules();
 		foreach ( $loadedModules as $module )
 		{
@@ -23,6 +25,7 @@
 			$methods = get_class_methods($module);
 			if ( !in_array($method, $methods) )
 				continue;
+			//if we're still here we've found the class with the right method
 		}
 	}
  
