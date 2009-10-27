@@ -9,8 +9,21 @@
  class modules
  {
 
-	publc function findClassByMethod( $method )
+	public function findClassByMethod( $method )
 	{
+		//we know what files are loaded by us
+		//so we assume that each class is the name of its file
+		//so we test each filename to see if it's also a class name
+		//then we get each method from that class and see if that's the one we want
+		$loadedModules = $this->modules();
+		foreach ( $loadedModules as $module )
+		{
+			if ( !class_exists($module) )
+				continue;
+			$methods = get_class_methods($module);
+			if ( !in_array($method, $methods) )
+				continue;
+		}
 	}
  
  	public function loadModule( $modulename, $bot )
@@ -35,7 +48,7 @@
 		return $i;
 	}
 	
- 	public function modules( $bot )
+ 	public function modules(  )
  	{
  		$var = get_included_files();
 		$modules = array();
