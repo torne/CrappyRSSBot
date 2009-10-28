@@ -9,24 +9,17 @@
  class modules
  {
 
+	function __construct()
+	{
+		return $this;
+	}
+
 	/**
 	 * 
 	 * @param unknown_type $method
 	 */
  	public function _findClassByMethod( $method )
 	{
-		$loadedModules = $this->_modules();
-		foreach ( $loadedModules as $module )
-		{
-			if ( !class_exists($module) )
-				continue;
-			$methods = get_class_methods($module);
-			if ( !in_array($method, $methods) )
-				continue;
-			return $module;
-				//if we're still here we've found the class with the right method
-		}
-		return false;
 	}
  
 	/**
@@ -74,5 +67,40 @@
 		}
 		return $modules;
  	}
+
+	public function _getCommands( $bot )
+	{
+		$methods = array();
+		$loadedModules = $this->_modules();
+		foreach ( $loadedModules as $module )
+		{
+			if ( !class_exists($module) )
+				continue;
+			$classmethods = get_class_methods($module);
+			foreach( $classmethods as $method )
+			{
+				if ( array_key_exists($method, $classmethods) )
+				{
+					//error big time
+				}
+				else
+				{
+					$methods[$method] = $module;
+				}
+			}
+		}
+		$bot->setMethods = $methods;
+	}
+
+	public function commands( $bot )
+	{
+		$publiccommands = array();
+		foreach ( $bot->getCommands as $command )
+		{
+			if ( $command[0] != "_" )
+				$publiccommands[] = $command;
+		}
+		return "Commands available to you are ".implode(", ", $publiccomands);
+	}
 
  }

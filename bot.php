@@ -1,7 +1,7 @@
 <?php
 $bot = new bot();
 ob_implicit_flush(TRUE); 
-echo "I have loaded ".$bot->countLoadedModules." modules. Loaded modules are: ".$bot->listLoadedModules()."\r\n";
+//echo "I have loaded ".$bot->countLoadedModules." modules. Loaded modules are: ".$bot->listLoadedModules()."\r\n";
 //echo $bot ->doLoggerStuff('log', array('test', 'some text'))."\r\n";
 $bot->main();
 
@@ -17,8 +17,8 @@ class bot
 	private $logger;
 	private $socket;
 	private $data;
-	private $privmsg;
 	private $handle_functions;
+	private $commands;
 	
 	/**
 	 * 
@@ -40,6 +40,7 @@ class bot
 		$this->config = new config();
 		$this->logger = new botLogger();
 		$this->handle_functions = new handle_functions();
+		$this->commands = new modules()->_getCommands();
 	}
 
 	/**
