@@ -29,7 +29,7 @@ class botLogger
 	 * 
 	 * @return string 
 	 */
-	function log( $name, $line )
+	function _log( $name, $line )
 	{
 		$filename = "logs/$name";
 		if ( !is_dir("logs") )

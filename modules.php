@@ -68,7 +68,7 @@
 		return $modules;
  	}
 
-	public function _getCommands( $bot )
+	public function _getMethods()
 	{
 		$methods = array();
 		$loadedModules = $this->_modules();
@@ -89,7 +89,7 @@
 				}
 			}
 		}
-		$bot->setMethods = $methods;
+		return $methods;
 	}
 
 	public function commands( $bot )

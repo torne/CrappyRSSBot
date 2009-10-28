@@ -12,7 +12,7 @@ class handle_functions
 	 * 
 	 * @param unknown_type $bot
 	 */
-	public function handle_PRIVMSG( $bot )
+	public function _handle_PRIVMSG( $bot )
 	{
 		$explodedData = explode(" ", $bot->getData() );
 		if ( !preg_match("/(.+)(?:!~|!)(.+)@(.+) PRIVMSG (.+) :(!|.|\+|-)(.+)/", $bot->getData(), $matches) )
@@ -60,7 +60,7 @@ class handle_functions
 	 * 
 	 * @param $bot
 	 */
-	public function handle_PING( $bot )
+	public function _handle_PING( $bot )
 	{
 		$explodedData = explode( " ", $bot->getData());
 		$bot->putToServer( "PONG ".$explodedData[1]."\r\n");
@@ -70,7 +70,7 @@ class handle_functions
 	 * 
 	 * @param unknown_type $bot
 	 */
-	public function handle_254( $bot )
+	public function _handle_254( $bot )
 	{
 		foreach( $bot->doConfigStuff( 'getConfig', array('channels')) as $channel )
 		{
@@ -82,7 +82,7 @@ class handle_functions
 	 * 
 	 * @param unknown_type $bot
 	 */
-	public function handle_433( $bot )
+	public function _handle_433( $bot )
 	{
 		
 	}

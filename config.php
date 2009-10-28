@@ -27,7 +27,7 @@ class config
 	 * load the specified configuration file (or a default) into memory
 	 * 
 	 */
-	public function loadConfig ( $confFile  = null )
+	public function _loadConfig ( $confFile  = null )
 	{
 		if ( !$confFile )
 			$this->curConfigFile = $this->defConfigFile;
@@ -80,7 +80,7 @@ class config
 	 * Set configuration for $name to $value
 	 * 
 	 */
-	public function setConfig ( $name, $value, $section=null )
+	public function _setConfig ( $name, $value, $section=null )
 	{
 		if ( $section )
 			$this->configuration[$section][$name] = $value;
@@ -94,7 +94,7 @@ class config
 	 * @return string
 	 * 
 	 */
-	public function getConfig ( $name, $section=null )
+	public function _getConfig ( $name, $section=null )
 	{
 		if( $section )
 			return $this->configuration[$section][$name];
