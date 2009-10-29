@@ -67,9 +67,9 @@ class config
 			$value = trim($namevalue[1]);
 			if ( strcasecmp($section, 'channels') == 0 )
 			{
-				$this->setConfig($value, $value, $section);
+				$this->_setConfig($value, $value, $section);
 			}
-			$this->setConfig($name, $value);
+			$this->_setConfig($name, $value);
 		}
 	}
 	
@@ -98,6 +98,11 @@ class config
 			return $this->configuration[$section][$name];
 		else
 			return $this->configuration[$name];
+	}
+	
+	public function _getChans()
+	{
+		return $this->configuration['channels'];
 	}
 }
 ?>

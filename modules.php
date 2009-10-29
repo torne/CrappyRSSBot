@@ -42,7 +42,8 @@
 		$i=0;
 		foreach( $dirList as $file )
 		{
-			if ( preg_match("/.*\.php/", $file) && $file != "modules.php" )
+			echo "$file\r\n";
+			if ( preg_match("/.*\.php/", $file) && $file != "modules.php" && $file != "bot.php" )
 			{
 				require($file);
 				$i++;

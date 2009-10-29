@@ -14,8 +14,8 @@ class handle_functions
 	 */
 	public function _handle_PRIVMSG( $bot )
 	{
-		$explodedData = explode(" ", $bot->getData() );
-		if ( !preg_match("/(.+)(?:!~|!)(.+)@(.+) PRIVMSG (.+) :(!|.|\+|-)(.+)/", $bot->getData(), $matches) )
+		$explodedData = explode(" ", $bot->_getData() );
+		if ( !preg_match("/(.+)(?:!~|!)(.+)@(.+) PRIVMSG (.+) :(!|.|\+|-)(.+)/", $bot->_getData(), $matches) )
 		{
 			return;
 		}
@@ -24,7 +24,7 @@ class handle_functions
 		$user = $matches[2];
 		$hostmask = $matches[3];
 		$returnDest = $matches[4];
-		if ( strcasecmp( $returnDest, $bot->getConfig('nick')) == 0 )
+		if ( strcasecmp( $returnDest, $bot->_getConfig('nick')) == 0 )
 			$returnDest = $nick;
 		$messageType = $matches[5];	
 		$message = $matches[6];
@@ -40,20 +40,18 @@ class handle_functions
 		$args = array_slice( $messageArray, 1);
 
 		if ( $method[0] == "_" )
-			$bot->sendMsg( $returnDest, 'No such command.');
+			$bot->_sendMsg( $returnDest, 'No such command.');
 		
 		$modules = new modules();
 		$objectname = $modules->findClassByMethod( $method );
 		if ( !$objectname )
-			$bot->sendMsg( $returnDest, 'No such command.');
+			$bot->_sendMsg( $returnDest, 'No such command.');
 
 		$object = new $objectname();
 
-		if ( !count($args) )
-			$args[] = '';
 		$args[] = $bot;
 
-		$bot->sendMsg( $returnDest, call_user_func_array( array( $object, $method), $args) );
+		$bot->_sendMsg( $returnDest, call_user_func_array( array( $object, $method), $args) );
 	}
 	
 	/**
@@ -62,8 +60,8 @@ class handle_functions
 	 */
 	public function _handle_PING( $bot )
 	{
-		$explodedData = explode( " ", $bot->getData());
-		$bot->putToServer( "PONG ".$explodedData[1]."\r\n");
+		$explodedData = explode( " ", $bot->_getData());
+		$bot->_putToServer( "PONG ".$explodedData[1]."\r\n");
 	}
 	
 	/**
@@ -72,10 +70,7 @@ class handle_functions
 	 */
 	public function _handle_254( $bot )
 	{
-		foreach( $bot->doConfigStuff( 'getConfig', array('channels')) as $channel )
-		{
-			$bot->putToServer("JOIN $channel\r\n");
-		}
+		$bot->_joinChans();
 	}
 	
 	/**

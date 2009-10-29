@@ -25,7 +25,7 @@ class bot
 	 */
 	function __construct()
 	{	
-		set_include_path(get_include_path() . PATH_SEPARATOR . '/Users/gabriel/Zend/workspaces/DefaultWorkspace7/Crappy RSS Bot/CrappyRSSBot');
+		//set_include_path(get_include_path() . PATH_SEPARATOR . '/Users/gabriel/Zend/workspaces/DefaultWorkspace7/Crappy RSS Bot/CrappyRSSBot');
 		include('modules.php');
 		$modules = new modules();
 		$modules->_loadRequirements();
@@ -54,9 +54,12 @@ class bot
 	 * 
 	 * @param $thingToGet
 	 */
-	public function _getConfig( $thingToGet )
+	public function _getConfig(  )
 	{
-		return $this->config->_getConfig( $thingToGet );
+		echo "got here\r\n";
+		print_r( $this->config );
+		echo "got here\r\n";
+		return $this->config;
 	}
 	
 	/**
@@ -77,7 +80,9 @@ class bot
 	 */
 	public function _server()
 	{
-		$this->socket = fsockopen( $this->config->_getConfig('server'), $this->config->_getConfig('port'));
+		$this->socket = @fsockopen( $this->config->_getConfig('server'), $this->config->_getConfig('port'));
+		if ( !$this->socket )
+			die("Unable to connect to server\r\n");
 		fputs($this->socket,"USER ".$this->config->_getConfig('user')." :".$this->config->_getConfig('nick')."\r\n");
 		fputs($this->socket,"NICK ".$this->config->_getConfig('nick')."\r\n");
 	}
@@ -137,6 +142,20 @@ class bot
 	{
 		echo "<========\t\t$string\r\n";
 		fputs($this->socket, "$string\r\n");
+	}
+	
+	public function _joinChan( $chan )
+	{
+		$this->_putToServer("JOIN $chan\r\n");
+	}
+	
+	public function _joinChans()
+	{
+		foreach( $this->config->_getChans() as $channel )
+		{
+			$this->_joinChan($channel);
+		}
+		
 	}
 	
 	/**
