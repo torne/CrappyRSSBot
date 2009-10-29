@@ -42,9 +42,9 @@
 		$i=0;
 		foreach( $dirList as $file )
 		{
-			if ( preg_match("/.*\.php/", $file) )
+			if ( preg_match("/.*\.php/", $file) && $file != "modules.php" )
 			{
-				include($file);
+				require($file);
 				$i++;
 			}
 		}
