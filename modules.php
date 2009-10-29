@@ -11,7 +11,6 @@
 
 	function __construct()
 	{
-		return $this;
 	}
 
 	/**
@@ -81,7 +80,7 @@
 			{
 				if ( array_key_exists($method, $classmethods) )
 				{
-					//error big time
+					die("Multiple modules with the same method $module, ".$methods[$method]);
 				}
 				else
 				{

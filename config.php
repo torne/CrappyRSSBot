@@ -7,7 +7,6 @@
 class config
 {
 	private $defConfigFile = 'config.conf';
-	private $path = '/Users/gabriel/Zend/workspaces/DefaultWorkspace7/Crappy RSS Bot/CrappyRSSBot';
 	private $curConfigFile = '';
 	private $configuration = array();
 	private $comment = '#';
@@ -19,7 +18,6 @@ class config
 	 */
 	public function __construct()
 	{
-		set_include_path(get_include_path() . PATH_SEPARATOR . $this->path);
 	}
 	
 	/**

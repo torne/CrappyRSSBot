@@ -24,7 +24,8 @@ class bot
 	 * 
 	 */
 	function __construct()
-	{
+	{	
+		set_include_path(get_include_path() . PATH_SEPARATOR . '/Users/gabriel/Zend/workspaces/DefaultWorkspace7/Crappy RSS Bot/CrappyRSSBot');
 		include('modules.php');
 		$modules = new modules();
 		$modules->_loadRequirements();
