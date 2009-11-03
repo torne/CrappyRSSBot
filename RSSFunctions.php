@@ -1,8 +1,8 @@
 <?php
 $rss = new RSSFunctions();
-$rss->_checkFeedHeader('http://www.php.net/feed.atom');
-$rss->_getFeed('php.atom');
-
+//$rss->_checkFeedHeader('http://www.php.net/feed.atom');
+$rss->_getFeed('http://www.php.net/feed.atom');
+$rss->_getFeed('http://xkcd.com/rss.xml');
 class RSSFunctions
 {
 	
@@ -13,11 +13,13 @@ class RSSFunctions
 
 	public function _getFeed($url)
 	{
-		$var = simplexml_load_file($url);
-		foreach ( $var->entry as $entry )
+		require_once 'magpie/rss_fetch.inc';
+		$rss = fetch_rss($url);
+		foreach ( $rss->items as $item )
 		{
-			var_dump($entry->title);
+			var_dump($item['title']);
 		}
+		
 	}
 	
 	public function _checkFeedHeader($url)
