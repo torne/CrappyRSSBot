@@ -4,6 +4,9 @@ $rss = new RSSFunctions();
 //$rss->_checkFeedHeader('http://xkcd.com/rss.xml');
 $rss->_getFeed('http://www.php.net/feed.atom');
 $rss->_getFeed('http://xkcd.com/rss.xml');
+$rss->_getFeed('http://pirate.planetarion.com/external.php?type=RSS');
+$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=rss');
+$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom');
 class RSSFunctions
 {
 	
@@ -20,7 +23,7 @@ class RSSFunctions
 		$titles = $rss->xpath('//title');
 		if ( $titles[0] )
 		{
-			echo "Title-main: ".$titles[0]."\r\n";
+			echo "Title-main1: ".$titles[0]."\r\n";
 		}
 		else
 		{
@@ -29,7 +32,7 @@ class RSSFunctions
 				echo $names[""]."\r\n";
 				$children =  $rss->children($names[""]);
 				$title = $children->title;
-				echo "Title-main: ".$title."\r\n";
+				echo "Title-main2: ".$title."\r\n";
 			}
 		}
 		
