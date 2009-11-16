@@ -2,11 +2,12 @@
 $rss = new RSSFunctions();
 //$rss->_checkFeedHeader('http://www.php.net/feed.atom');
 //$rss->_checkFeedHeader('http://xkcd.com/rss.xml');
-$rss->_getFeed('http://www.php.net/feed.atom');
-$rss->_getFeed('http://xkcd.com/rss.xml');
-$rss->_getFeed('http://pirate.planetarion.com/external.php?type=RSS');
-$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=rss');
-$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom');
+//$rss->_getFeed('http://www.php.net/feed.atom');
+//$rss->_getFeed('http://xkcd.com/rss.xml');
+//$rss->_getFeed('http://pirate.planetarion.com/external.php?type=RSS');
+//$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=rss');
+//$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom');
+$rss->_getFeed("http://trac.edgewall.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss");
 class RSSFunctions
 {
 	
@@ -37,13 +38,13 @@ class RSSFunctions
 		}
 		
 		$rss = fetch_rss($url);
-		echo "First sub title: ".$rss->items[0]['title']."\r\n";
-		echo "First sub link: ".$rss->items[0]['link']."\r\n\r\n";
+		//echo "First sub title: ".$rss->items[0]['title']."\r\n";
+		//echo "First sub link: ".$rss->items[0]['link']."\r\n\r\n";
 		//		var_dump($rss);
-//		foreach ( $rss->items as $item )
-//		{
-//			var_dump($item['title']);
-//		}
+		foreach ( $rss->items as $item )
+		{
+			echo "Title: ".$item['title']."\r\n";
+		}
 		
 	}
 	
