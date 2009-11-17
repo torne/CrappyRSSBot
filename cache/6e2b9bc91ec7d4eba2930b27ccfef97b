@@ -1,16 +1,60 @@
-O:9:"MagpieRSS":21:{s:6:"parser";i:0;s:12:"current_item";a:0:{}s:5:"items";a:50:{i:0;a:9:{s:5:"title";s:65:"Ticket #8833 (Cannot create query filter for custom field) closed";s:2:"dc";a:1:{s:7:"creator";s:8:"stodge@?";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 18:58:58 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8833#comment:6";s:4:"guid";s:11:"/1258397938";s:11:"description";s:160:"worksforme: <p>
+O:9:"MagpieRSS":21:{s:6:"parser";i:0;s:12:"current_item";a:0:{}s:5:"items";a:50:{i:0;a:9:{s:5:"title";s:60:"Ticket #8834 (Add a generic IResourceChangeListener) created";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Tue, 17 Nov 2009 21:27:58 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8834";s:4:"guid";s:11:"/1258493278";s:11:"description";s:877:"<p>
+Most individual resources have their own change listener interface,
+with a few more or less gratuitous differences between them and
+a few shortcomings, like not providing the model object to the
+listeners.
+</p>
+<p>
+Some kind of generic notification interface would be helpful,
+mostly for plugins in need to address any kind of changes.
+</p>
+<p>
+See discussion in ticket <a class="new ticket" href="http://trac.edgewall.org/ticket/6543" title="enhancement: Automate milestone-&gt;version (new)">#6543</a>, notably <a class="new ticket" href="http://trac.edgewall.org/ticket/6543#comment:13" title="enhancement: Automate milestone-&gt;version (new)">ticket:6543#comment:13</a> and further clarifications in <a class="new ticket" href="http://trac.edgewall.org/ticket/6543#comment:22" title="enhancement: Automate milestone-&gt;version (new)">ticket:6543#comment:22</a>.
+</p>
+";s:8:"category";s:9:"newticket";s:7:"summary";s:877:"<p>
+Most individual resources have their own change listener interface,
+with a few more or less gratuitous differences between them and
+a few shortcomings, like not providing the model object to the
+listeners.
+</p>
+<p>
+Some kind of generic notification interface would be helpful,
+mostly for plugins in need to address any kind of changes.
+</p>
+<p>
+See discussion in ticket <a class="new ticket" href="http://trac.edgewall.org/ticket/6543" title="enhancement: Automate milestone-&gt;version (new)">#6543</a>, notably <a class="new ticket" href="http://trac.edgewall.org/ticket/6543#comment:13" title="enhancement: Automate milestone-&gt;version (new)">ticket:6543#comment:13</a> and further clarifications in <a class="new ticket" href="http://trac.edgewall.org/ticket/6543#comment:22" title="enhancement: Automate milestone-&gt;version (new)">ticket:6543#comment:22</a>.
+</p>
+";s:14:"date_timestamp";i:1258493278;}i:1;a:9:{s:5:"title";s:16:"InterTrac edited";s:2:"dc";a:1:{s:7:"creator";s:20:"Ryan Ollos <ryano@?>";}s:7:"pubdate";s:29:"Tue, 17 Nov 2009 16:10:08 GMT";s:4:"link";s:50:"http://trac.edgewall.org/wiki/InterTrac?version=40";s:4:"guid";s:11:"/1258474208";s:11:"description";s:234:"<p>
+Comment on behavior of <a class="wiki" href="http://trac.edgewall.org/wiki/TracLink">TracLink</a> enclosed and not enclosed in brackets.
+</p>
+ <a href="http://trac.edgewall.org/wiki/InterTrac?action=diff&amp;version=40">(diff)</a>";s:8:"category";s:4:"wiki";s:7:"summary";s:234:"<p>
+Comment on behavior of <a class="wiki" href="http://trac.edgewall.org/wiki/TracLink">TracLink</a> enclosed and not enclosed in brackets.
+</p>
+ <a href="http://trac.edgewall.org/wiki/InterTrac?action=diff&amp;version=40">(diff)</a>";s:14:"date_timestamp";i:1258474208;}i:2;a:9:{s:5:"title";s:20:"TracMercurial edited";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 23:30:07 GMT";s:4:"link";s:54:"http://trac.edgewall.org/wiki/TracMercurial?version=62";s:4:"guid";s:11:"/1258414207";s:11:"description";s:154:"<p>
+current versions of the plugin support Mercurial 1.4
+</p>
+ <a href="http://trac.edgewall.org/wiki/TracMercurial?action=diff&amp;version=62">(diff)</a>";s:8:"category";s:4:"wiki";s:7:"summary";s:154:"<p>
+current versions of the plugin support Mercurial 1.4
+</p>
+ <a href="http://trac.edgewall.org/wiki/TracMercurial?action=diff&amp;version=62">(diff)</a>";s:14:"date_timestamp";i:1258414207;}i:3;a:9:{s:5:"title";s:18:"TortoiseSvn edited";s:2:"dc";a:1:{s:7:"creator";s:6:"mrelbe";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 20:44:56 GMT";s:4:"link";s:52:"http://trac.edgewall.org/wiki/TortoiseSvn?version=11";s:4:"guid";s:11:"/1258404296";s:11:"description";s:112:"<p>
+Added header
+</p>
+ <a href="http://trac.edgewall.org/wiki/TortoiseSvn?action=diff&amp;version=11">(diff)</a>";s:8:"category";s:4:"wiki";s:7:"summary";s:112:"<p>
+Added header
+</p>
+ <a href="http://trac.edgewall.org/wiki/TortoiseSvn?action=diff&amp;version=11">(diff)</a>";s:14:"date_timestamp";i:1258404296;}i:4;a:9:{s:5:"title";s:65:"Ticket #8833 (Cannot create query filter for custom field) closed";s:2:"dc";a:1:{s:7:"creator";s:8:"stodge@?";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 18:58:58 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8833#comment:6";s:4:"guid";s:11:"/1258397938";s:11:"description";s:160:"worksforme: <p>
 Oh that's embarassing. I didn't even realise I had "requirement" as the type. I changed it to "text" and of course it works.. Oops! Thanks
 </p>
 ";s:8:"category";s:12:"closedticket";s:7:"summary";s:160:"worksforme: <p>
 Oh that's embarassing. I didn't even realise I had "requirement" as the type. I changed it to "text" and of course it works.. Oops! Thanks
 </p>
-";s:14:"date_timestamp";i:1258397938;}i:1;a:9:{s:5:"title";s:67:"Ticket #8833 (Cannot create query filter for custom field) reopened";s:2:"dc";a:1:{s:7:"creator";s:8:"stodge@?";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 18:08:32 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8833#comment:3";s:4:"guid";s:11:"/1258394912";s:11:"description";s:44:"<p>
+";s:14:"date_timestamp";i:1258397938;}i:5;a:9:{s:5:"title";s:67:"Ticket #8833 (Cannot create query filter for custom field) reopened";s:2:"dc";a:1:{s:7:"creator";s:8:"stodge@?";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 18:08:32 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8833#comment:3";s:4:"guid";s:11:"/1258394912";s:11:"description";s:44:"<p>
 Reproduced on 0.11.5 on my laptop.
 </p>
 ";s:8:"category";s:14:"reopenedticket";s:7:"summary";s:44:"<p>
 Reproduced on 0.11.5 on my laptop.
 </p>
-";s:14:"date_timestamp";i:1258394912;}i:2;a:9:{s:5:"title";s:65:"Ticket #8833 (Cannot create query filter for custom field) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 18:06:31 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8833#comment:2";s:4:"guid";s:11:"/1258394791";s:11:"description";s:669:"worksforme: <p>
+";s:14:"date_timestamp";i:1258394912;}i:6;a:9:{s:5:"title";s:65:"Ticket #8833 (Cannot create query filter for custom field) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 18:06:31 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8833#comment:2";s:4:"guid";s:11:"/1258394791";s:11:"description";s:669:"worksforme: <p>
 Replying to <a href="http://trac.edgewall.org/ticket/8833#comment:1" title="Comment 1 for Ticket #8833">stodge@?</a>:
 </p>
 <blockquote class="citation">
@@ -38,13 +82,13 @@ Well, ok, but how do you expect us to fix the issue for you if you remain at 0.1
 <p>
 AFAIK, custom queries work fine with custom fields in current 0.11-stable, so I'm afraid you'll have to update at some point. Please reopen if you can reproduce the issue with a recent version (0.11.5 or 0.11-stable).
 </p>
-";s:14:"date_timestamp";i:1258394791;}i:3;a:9:{s:5:"title";s:25:"CommercialServices edited";s:2:"dc";a:1:{s:7:"creator";s:6:"info@?";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 15:46:28 GMT";s:4:"link";s:59:"http://trac.edgewall.org/wiki/CommercialServices?version=79";s:4:"guid";s:11:"/1258386388";s:11:"description";s:124:"<p>
+";s:14:"date_timestamp";i:1258394791;}i:7;a:9:{s:5:"title";s:25:"CommercialServices edited";s:2:"dc";a:1:{s:7:"creator";s:6:"info@?";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 15:46:28 GMT";s:4:"link";s:59:"http://trac.edgewall.org/wiki/CommercialServices?version=79";s:4:"guid";s:11:"/1258386388";s:11:"description";s:124:"<p>
 added wikihosting
 </p>
  <a href="http://trac.edgewall.org/wiki/CommercialServices?action=diff&amp;version=79">(diff)</a>";s:8:"category";s:4:"wiki";s:7:"summary";s:124:"<p>
 added wikihosting
 </p>
- <a href="http://trac.edgewall.org/wiki/CommercialServices?action=diff&amp;version=79">(diff)</a>";s:14:"date_timestamp";i:1258386388;}i:4;a:9:{s:5:"title";s:66:"Ticket #8833 (Cannot create query filter for custom field) created";s:2:"dc";a:1:{s:7:"creator";s:8:"stodge@?";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 15:31:22 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8833";s:4:"guid";s:11:"/1258385482";s:11:"description";s:439:"<p>
+ <a href="http://trac.edgewall.org/wiki/CommercialServices?action=diff&amp;version=79">(diff)</a>";s:14:"date_timestamp";i:1258386388;}i:8;a:9:{s:5:"title";s:66:"Ticket #8833 (Cannot create query filter for custom field) created";s:2:"dc";a:1:{s:7:"creator";s:8:"stodge@?";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 15:31:22 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8833";s:4:"guid";s:11:"/1258385482";s:11:"description";s:439:"<p>
 I added a custom field to my ticket:
 </p>
 <pre class="wiki">[ticket-custom]
@@ -64,7 +108,7 @@ test_one.format = plain
 </pre><p>
 The field is accessible in my ticket type but I can't create a query filter for it. If I try to add a query filter for this custom field using the combo box, nothing happens. If I add a query filter for an existing ticket field (eg Severity), a new filter is created.
 </p>
-";s:14:"date_timestamp";i:1258385482;}i:5;a:9:{s:5:"title";s:72:"Ticket #8832 (intertrac link to relative link on page is broken) created";s:2:"dc";a:1:{s:7:"creator";s:33:"Bryan Lawrence <bryan.lawrence@?>";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 10:45:14 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8832";s:4:"guid";s:11:"/1258368314";s:11:"description";s:654:"<p>
+";s:14:"date_timestamp";i:1258385482;}i:9;a:9:{s:5:"title";s:72:"Ticket #8832 (intertrac link to relative link on page is broken) created";s:2:"dc";a:1:{s:7:"creator";s:33:"Bryan Lawrence <bryan.lawrence@?>";}s:7:"pubdate";s:29:"Mon, 16 Nov 2009 10:45:14 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8832";s:4:"guid";s:11:"/1258368314";s:11:"description";s:654:"<p>
 Hi Folks
 </p>
 <p>
@@ -104,19 +148,19 @@ and the remote trac asks me to create it. If replace the %23 in the URL to a #, 
 </li></ul><p>
 I hope this isn't a duplicate, I couldn't find it ... but it's hard to parse dozens of tickets ...
 </p>
-";s:14:"date_timestamp";i:1258368314;}i:6;a:9:{s:5:"title";s:87:"Changeset [8817]: 0.11.6dev: Fixed bad SQLite version checks when using pysqlite 1, ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 23:24:47 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8817";s:4:"guid";s:11:"/1258327487";s:11:"description";s:418:"<p>
+";s:14:"date_timestamp";i:1258368314;}i:10;a:9:{s:5:"title";s:87:"Changeset [8817]: 0.11.6dev: Fixed bad SQLite version checks when using pysqlite 1, ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 23:24:47 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8817";s:4:"guid";s:11:"/1258327487";s:11:"description";s:418:"<p>
 0.11.6dev: Fixed bad SQLite version checks when using pysqlite 1, introduced in <a class="changeset" href="http://trac.edgewall.org/changeset/8582" title="0.11-stable: Added a mechanism for database backends to report errors ...">[8582]</a> and <a class="changeset" href="http://trac.edgewall.org/changeset/8590" title="Enable connection pool again on non-Windows platform, for recent SQLite ...">[8590]</a>.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:418:"<p>
 0.11.6dev: Fixed bad SQLite version checks when using pysqlite 1, introduced in <a class="changeset" href="http://trac.edgewall.org/changeset/8582" title="0.11-stable: Added a mechanism for database backends to report errors ...">[8582]</a> and <a class="changeset" href="http://trac.edgewall.org/changeset/8590" title="Enable connection pool again on non-Windows platform, for recent SQLite ...">[8590]</a>.
 </p>
-";s:14:"date_timestamp";i:1258327487;}i:7;a:9:{s:5:"title";s:94:"Changeset [8816]: 0.11.6dev: enforce same policy checks for tabular text alternate formats ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:57:55 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8816";s:4:"guid";s:11:"/1258311475";s:11:"description";s:101:"<p>
+";s:14:"date_timestamp";i:1258327487;}i:11;a:9:{s:5:"title";s:94:"Changeset [8816]: 0.11.6dev: enforce same policy checks for tabular text alternate formats ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:57:55 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8816";s:4:"guid";s:11:"/1258311475";s:11:"description";s:101:"<p>
 0.11.6dev: enforce same policy checks for tabular text alternate formats in report results.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:101:"<p>
 0.11.6dev: enforce same policy checks for tabular text alternate formats in report results.
 </p>
-";s:14:"date_timestamp";i:1258311475;}i:8;a:9:{s:5:"title";s:94:"Changeset [8815]: 0.11.6dev: in the mergeinfo display, tweak the position of the ''(toggle ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:56:00 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8815";s:4:"guid";s:11:"/1258311360";s:11:"description";s:217:"<p>
+";s:14:"date_timestamp";i:1258311475;}i:12;a:9:{s:5:"title";s:94:"Changeset [8815]: 0.11.6dev: in the mergeinfo display, tweak the position of the ''(toggle ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:56:00 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8815";s:4:"guid";s:11:"/1258311360";s:11:"description";s:217:"<p>
 0.11.6dev: in the mergeinfo display, tweak the position of the <i>(toggle deleted)</i> link.
 </p>
 <p>
@@ -128,7 +172,7 @@ Otherwise, it could be read as being one sentence: <i>Property svn:mergeinfo set
 <p>
 Otherwise, it could be read as being one sentence: <i>Property svn:mergeinfo set to (toggle deleted)</i>.
 </p>
-";s:14:"date_timestamp";i:1258311360;}i:9;a:9:{s:5:"title";s:95:"Ticket #8357 (Exception with --http11 when browsing ticket other than last ticket added) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:53:42 GMT";s:4:"link";s:47:"http://trac.edgewall.org/ticket/8357#comment:14";s:4:"guid";s:11:"/1258311222";s:11:"description";s:195:"fixed: <p>
+";s:14:"date_timestamp";i:1258311360;}i:13;a:9:{s:5:"title";s:95:"Ticket #8357 (Exception with --http11 when browsing ticket other than last ticket added) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:53:42 GMT";s:4:"link";s:47:"http://trac.edgewall.org/ticket/8357#comment:14";s:4:"guid";s:11:"/1258311222";s:11:"description";s:195:"fixed: <p>
 Patch applied in <a class="changeset" href="http://trac.edgewall.org/changeset/8814" title="0.11.6dev: Catch `ECONNRESET` and handle it as a closing connection.
  ...">[8814]</a>.
 </p>
@@ -136,7 +180,7 @@ Patch applied in <a class="changeset" href="http://trac.edgewall.org/changeset/8
 Patch applied in <a class="changeset" href="http://trac.edgewall.org/changeset/8814" title="0.11.6dev: Catch `ECONNRESET` and handle it as a closing connection.
  ...">[8814]</a>.
 </p>
-";s:14:"date_timestamp";i:1258311222;}i:10;a:9:{s:5:"title";s:91:"Changeset [8814]: 0.11.6dev: Catch `ECONNRESET` and handle it as a closing connection.  ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:53:10 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8814";s:4:"guid";s:11:"/1258311190";s:11:"description";s:287:"<p>
+";s:14:"date_timestamp";i:1258311222;}i:14;a:9:{s:5:"title";s:91:"Changeset [8814]: 0.11.6dev: Catch `ECONNRESET` and handle it as a closing connection.  ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:53:10 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8814";s:4:"guid";s:11:"/1258311190";s:11:"description";s:287:"<p>
 0.11.6dev: Catch <tt>ECONNRESET</tt> and handle it as a closing connection.
 </p>
 <p>
@@ -148,25 +192,25 @@ Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8357" titl
 <p>
 Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8357" title="defect: Exception with --http11 when browsing ticket other than last ticket added (closed: fixed)">#8357</a>.
 </p>
-";s:14:"date_timestamp";i:1258311190;}i:11;a:9:{s:5:"title";s:95:"Changeset [8813]: 0.11.6dev: Added a missing check for the "raw" role when using docutils < ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:48:39 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8813";s:4:"guid";s:11:"/1258310919";s:11:"description";s:91:"<p>
+";s:14:"date_timestamp";i:1258311190;}i:15;a:9:{s:5:"title";s:95:"Changeset [8813]: 0.11.6dev: Added a missing check for the "raw" role when using docutils < ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 18:48:39 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8813";s:4:"guid";s:11:"/1258310919";s:11:"description";s:91:"<p>
 0.11.6dev: Added a missing check for the "raw" role when using docutils &lt; 0.6.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:91:"<p>
 0.11.6dev: Added a missing check for the "raw" role when using docutils &lt; 0.6.
 </p>
-";s:14:"date_timestamp";i:1258310919;}i:12;a:9:{s:5:"title";s:20:"TracOnWindows edited";s:2:"dc";a:1:{s:7:"creator";s:9:"eugenio@?";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 15:29:37 GMT";s:4:"link";s:55:"http://trac.edgewall.org/wiki/TracOnWindows?version=299";s:4:"guid";s:11:"/1258298977";s:11:"description";s:180:"<p>
+";s:14:"date_timestamp";i:1258310919;}i:16;a:9:{s:5:"title";s:20:"TracOnWindows edited";s:2:"dc";a:1:{s:7:"creator";s:9:"eugenio@?";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 15:29:37 GMT";s:4:"link";s:55:"http://trac.edgewall.org/wiki/TracOnWindows?version=299";s:4:"guid";s:11:"/1258298977";s:11:"description";s:180:"<p>
 Refixed a wrong edit by myself (Python "Scripts" directory is not in "Tools")
 </p>
  <a href="http://trac.edgewall.org/wiki/TracOnWindows?action=diff&amp;version=299">(diff)</a>";s:8:"category";s:4:"wiki";s:7:"summary";s:180:"<p>
 Refixed a wrong edit by myself (Python "Scripts" directory is not in "Tools")
 </p>
- <a href="http://trac.edgewall.org/wiki/TracOnWindows?action=diff&amp;version=299">(diff)</a>";s:14:"date_timestamp";i:1258298977;}i:13;a:9:{s:5:"title";s:59:"Ticket #8831 (ValueError: too many values to unpack) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 13:05:03 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8831#comment:1";s:4:"guid";s:11:"/1258290303";s:11:"description";s:165:"invalid: <p>
+ <a href="http://trac.edgewall.org/wiki/TracOnWindows?action=diff&amp;version=299">(diff)</a>";s:14:"date_timestamp";i:1258298977;}i:17;a:9:{s:5:"title";s:59:"Ticket #8831 (ValueError: too many values to unpack) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 13:05:03 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8831#comment:1";s:4:"guid";s:11:"/1258290303";s:11:"description";s:165:"invalid: <p>
 This is a <a class="wiki" href="http://trac.edgewall.org/wiki/PluginIssue">PluginIssue</a> (svnauthz?), please report it to the plugin maintainer.
 </p>
 ";s:8:"category";s:12:"closedticket";s:7:"summary";s:165:"invalid: <p>
 This is a <a class="wiki" href="http://trac.edgewall.org/wiki/PluginIssue">PluginIssue</a> (svnauthz?), please report it to the plugin maintainer.
 </p>
-";s:14:"date_timestamp";i:1258290303;}i:14;a:9:{s:5:"title";s:60:"Ticket #8831 (ValueError: too many values to unpack) created";s:2:"dc";a:1:{s:7:"creator";s:5:"admin";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 12:55:49 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8831";s:4:"guid";s:11:"/1258289749";s:11:"description";s:2614:"<h4 id="HowtoReproduce">How to Reproduce</h4>
+";s:14:"date_timestamp";i:1258290303;}i:18;a:9:{s:5:"title";s:60:"Ticket #8831 (ValueError: too many values to unpack) created";s:2:"dc";a:1:{s:7:"creator";s:5:"admin";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 12:55:49 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8831";s:4:"guid";s:11:"/1258289749";s:11:"description";s:2614:"<h4 id="HowtoReproduce">How to Reproduce</h4>
 <p>
 While doing a GET operation on <tt>/admin/subversion/svnauthz</tt>, Trac issued an internal error.
 </p>
@@ -268,13 +312,13 @@ User Agent was: <tt>Mozilla/5.0 (Windows; U; Windows NT 6.0; ja; rv:1.9.1.5) Gec
 ValueError: too many values to unpack
 </pre><p>
 </p>
-";s:14:"date_timestamp";i:1258289749;}i:15;a:9:{s:5:"title";s:40:"Ticket #8830 (Registration Error) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 07:41:14 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8830#comment:1";s:4:"guid";s:11:"/1258270874";s:11:"description";s:306:"duplicate: <p>
+";s:14:"date_timestamp";i:1258289749;}i:19;a:9:{s:5:"title";s:40:"Ticket #8830 (Registration Error) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 07:41:14 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8830#comment:1";s:4:"guid";s:11:"/1258270874";s:11:"description";s:306:"duplicate: <p>
 Duplicate of <a class="closed ticket" href="http://trac.edgewall.org/ticket/3446" title="defect: Rate of `database is locked` errors is too high (closed: fixed)">#3446</a>. See also <a class="wiki" href="http://trac.edgewall.org/wiki/MostFrequentDuplicates">MostFrequentDuplicates</a>.
 </p>
 ";s:8:"category";s:12:"closedticket";s:7:"summary";s:306:"duplicate: <p>
 Duplicate of <a class="closed ticket" href="http://trac.edgewall.org/ticket/3446" title="defect: Rate of `database is locked` errors is too high (closed: fixed)">#3446</a>. See also <a class="wiki" href="http://trac.edgewall.org/wiki/MostFrequentDuplicates">MostFrequentDuplicates</a>.
 </p>
-";s:14:"date_timestamp";i:1258270874;}i:16;a:9:{s:5:"title";s:41:"Ticket #8830 (Registration Error) created";s:2:"dc";a:1:{s:7:"creator";s:18:"Avinash.Sharma.2@?";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 04:40:48 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8830";s:4:"guid";s:11:"/1258260048";s:11:"description";s:856:"<p>
+";s:14:"date_timestamp";i:1258270874;}i:20;a:9:{s:5:"title";s:41:"Ticket #8830 (Registration Error) created";s:2:"dc";a:1:{s:7:"creator";s:18:"Avinash.Sharma.2@?";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 04:40:48 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8830";s:4:"guid";s:11:"/1258260048";s:11:"description";s:856:"<p>
 Python Traceback
 Traceback (most recent call last):
 </p>
@@ -356,7 +400,7 @@ db.commit()
 <p>
 <a class="missing wiki" href="http://trac.edgewall.org/wiki/OperationalError" rel="nofollow">OperationalError?</a>: database is locked
 </p>
-";s:14:"date_timestamp";i:1258260048;}i:17;a:9:{s:5:"title";s:93:"Ticket #8829 (trac-admin wiki upgrade fails when user account contains unicode chars) created";s:2:"dc";a:1:{s:7:"creator";s:8:"mikael@?";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 01:49:51 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8829";s:4:"guid";s:11:"/1258249791";s:11:"description";s:831:"<p>
+";s:14:"date_timestamp";i:1258260048;}i:21;a:9:{s:5:"title";s:93:"Ticket #8829 (trac-admin wiki upgrade fails when user account contains unicode chars) created";s:2:"dc";a:1:{s:7:"creator";s:8:"mikael@?";}s:7:"pubdate";s:29:"Sun, 15 Nov 2009 01:49:51 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8829";s:4:"guid";s:11:"/1258249791";s:11:"description";s:831:"<p>
 <i>(This is my very first ticket here, I have scanned for duplicates, to the best of my knowledge, but found none.)</i>
 </p>
 <p>
@@ -394,7 +438,7 @@ t-pages\\SandBox', 37, 38, 'ordinal not in range(128)')
 </pre><p>
 trac-admin seems to be choking on the <tt>ö</tt> letter.
 </p>
-";s:14:"date_timestamp";i:1258249791;}i:18;a:9:{s:5:"title";s:73:"Ticket #8815 (Add anchors to each macro listed by [[MacroList]]) reopened";s:2:"dc";a:1:{s:7:"creator";s:20:"Ryan Ollos <ryano@?>";}s:7:"pubdate";s:29:"Sat, 14 Nov 2009 06:50:23 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8815#comment:8";s:4:"guid";s:11:"/1258181423";s:11:"description";s:447:"<p>
+";s:14:"date_timestamp";i:1258249791;}i:22;a:9:{s:5:"title";s:73:"Ticket #8815 (Add anchors to each macro listed by [[MacroList]]) reopened";s:2:"dc";a:1:{s:7:"creator";s:20:"Ryan Ollos <ryano@?>";}s:7:"pubdate";s:29:"Sat, 14 Nov 2009 06:50:23 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8815#comment:8";s:4:"guid";s:11:"/1258181423";s:11:"description";s:447:"<p>
 Okay, I gave it a shot.  I appreciate any feedback.
 </p>
 <p>
@@ -412,13 +456,13 @@ Changed each macro to be listed as a level 3 heading.  Did the same for the Trac
 <p>
 I hope its alright if I reopen for feedback.  I changed the version to 0.12dev since that is what I developed the patch against.
 </p>
-";s:14:"date_timestamp";i:1258181423;}i:19;a:9:{s:5:"title";s:58:"Changeset [8812]: 0.12dev: Merged [8811] from 0.11-stable.";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 23:55:49 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8812";s:4:"guid";s:11:"/1258156549";s:11:"description";s:208:"<p>
+";s:14:"date_timestamp";i:1258181423;}i:23;a:9:{s:5:"title";s:58:"Changeset [8812]: 0.12dev: Merged [8811] from 0.11-stable.";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 23:55:49 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8812";s:4:"guid";s:11:"/1258156549";s:11:"description";s:208:"<p>
 0.12dev: Merged <a class="changeset" href="http://trac.edgewall.org/changeset/8811" title="0.11.6dev: Allow reusing the `Component`, `Milestone` and `Version` model ...">[8811]</a> from 0.11-stable.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:208:"<p>
 0.12dev: Merged <a class="changeset" href="http://trac.edgewall.org/changeset/8811" title="0.11.6dev: Allow reusing the `Component`, `Milestone` and `Version` model ...">[8811]</a> from 0.11-stable.
 </p>
-";s:14:"date_timestamp";i:1258156549;}i:20;a:9:{s:5:"title";s:80:"Ticket #8817 (Milestone insert() method is not updating _old_name member) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 23:25:10 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8817#comment:2";s:4:"guid";s:11:"/1258154710";s:11:"description";s:390:"fixed: <p>
+";s:14:"date_timestamp";i:1258156549;}i:24;a:9:{s:5:"title";s:80:"Ticket #8817 (Milestone insert() method is not updating _old_name member) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 23:25:10 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8817#comment:2";s:4:"guid";s:11:"/1258154710";s:11:"description";s:390:"fixed: <p>
 Actually, not only milestones, but also components and versions exhibited the same issue. I have added test cases for this use case and fixed the issue in <a class="changeset" href="http://trac.edgewall.org/changeset/8811" title="0.11.6dev: Allow reusing the `Component`, `Milestone` and `Version` model ...">[8811]</a>.
 </p>
 <p>
@@ -430,7 +474,7 @@ Actually, not only milestones, but also components and versions exhibited the sa
 <p>
 Thanks for the bug report and the solution!
 </p>
-";s:14:"date_timestamp";i:1258154710;}i:21;a:9:{s:5:"title";s:95:"Changeset [8811]: 0.11.6dev: Allow reusing the `Component`, `Milestone` and `Version` model ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 23:23:10 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8811";s:4:"guid";s:11:"/1258154590";s:11:"description";s:390:"<p>
+";s:14:"date_timestamp";i:1258154710;}i:25;a:9:{s:5:"title";s:95:"Changeset [8811]: 0.11.6dev: Allow reusing the `Component`, `Milestone` and `Version` model ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 23:23:10 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8811";s:4:"guid";s:11:"/1258154590";s:11:"description";s:390:"<p>
 0.11.6dev: Allow reusing the <tt>Component</tt>, <tt>Milestone</tt> and <tt>Version</tt> model objects used for creation for subsequent updates.
 </p>
 <p>
@@ -442,7 +486,7 @@ Thanks to Andrea Tomasini for the initial patch. Closes <a class="closed ticket"
 <p>
 Thanks to Andrea Tomasini for the initial patch. Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8817" title="defect: Milestone insert() method is not updating _old_name member (closed: fixed)">#8817</a>.
 </p>
-";s:14:"date_timestamp";i:1258154590;}i:22;a:9:{s:5:"title";s:81:"Ticket #8817 (Milestone insert() method is not updating _old_name member) created";s:2:"dc";a:1:{s:7:"creator";s:35:"Andrea Tomasini <andrea.tomasini@?>";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 16:57:04 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8817";s:4:"guid";s:11:"/1258131424";s:11:"description";s:915:"<p>
+";s:14:"date_timestamp";i:1258154590;}i:26;a:9:{s:5:"title";s:81:"Ticket #8817 (Milestone insert() method is not updating _old_name member) created";s:2:"dc";a:1:{s:7:"creator";s:35:"Andrea Tomasini <andrea.tomasini@?>";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 16:57:04 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8817";s:4:"guid";s:11:"/1258131424";s:11:"description";s:915:"<p>
 The current Milestone insert() method is not updating the _old_name member, therefore it is not possible to create and update a milestone without closing it and reopening it. I understand that is not vital to trac, as apparently the creation and the updates are done in different requests, but is an error in the model integrity.
 </p>
 <p>
@@ -482,13 +526,13 @@ The patch is deadly simple:
         if handle_ta:
             db.commit()
         TicketSystem(self.env).reset_ticket_fields()
-</pre>";s:14:"date_timestamp";i:1258131424;}i:23;a:9:{s:5:"title";s:68:"Changeset [8810]: MultiRepos: merged with 0.12dev [8805:8809/trunk].";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 16:18:12 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8810";s:4:"guid";s:11:"/1258129092";s:11:"description";s:207:"<p>
+</pre>";s:14:"date_timestamp";i:1258131424;}i:27;a:9:{s:5:"title";s:68:"Changeset [8810]: MultiRepos: merged with 0.12dev [8805:8809/trunk].";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 16:18:12 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8810";s:4:"guid";s:11:"/1258129092";s:11:"description";s:207:"<p>
 <a class="wiki" href="http://trac.edgewall.org/wiki/MultiRepos">MultiRepos</a>: merged with 0.12dev <a class="source" href="http://trac.edgewall.org/log/trunk?revs=8805-8809">[8805:8809/trunk]</a>.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:207:"<p>
 <a class="wiki" href="http://trac.edgewall.org/wiki/MultiRepos">MultiRepos</a>: merged with 0.12dev <a class="source" href="http://trac.edgewall.org/log/trunk?revs=8805-8809">[8805:8809/trunk]</a>.
 </p>
-";s:14:"date_timestamp";i:1258129092;}i:24;a:9:{s:5:"title";s:40:"Ticket #7823 (import obfuscation) closed";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 16:05:49 GMT";s:4:"link";s:47:"http://trac.edgewall.org/ticket/7823#comment:26";s:4:"guid";s:11:"/1258128349";s:11:"description";s:587:"fixed: <p>
+";s:14:"date_timestamp";i:1258129092;}i:28;a:9:{s:5:"title";s:40:"Ticket #7823 (import obfuscation) closed";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 16:05:49 GMT";s:4:"link";s:47:"http://trac.edgewall.org/ticket/7823#comment:26";s:4:"guid";s:11:"/1258128349";s:11:"description";s:587:"fixed: <p>
 I finally merged the workaround to trunk <a class="changeset" href="http://trac.edgewall.org/changeset/8809" title="0.12dev: finally merged r8335 and its follow-up r8354 from 0.11-stable ...">r8809</a>, learning from cmlenz that he intends to drop the _speedups C extension (which at this date doesn't speed up Genshi as much as it used to do).
 </p>
 <p>
@@ -506,19 +550,19 @@ So the workaround is still there, is still ugly, and we really should (one day) 
 <p>
 If there are still issues with that, I'd suggest opening a new ticket.
 </p>
-";s:14:"date_timestamp";i:1258128349;}i:25;a:9:{s:5:"title";s:92:"Changeset [8809]: 0.12dev: finally merged r8335 and its follow-up r8354 from 0.11-stable ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 16:02:53 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8809";s:4:"guid";s:11:"/1258128173";s:11:"description";s:761:"<p>
+";s:14:"date_timestamp";i:1258128349;}i:29;a:9:{s:5:"title";s:92:"Changeset [8809]: 0.12dev: finally merged r8335 and its follow-up r8354 from 0.11-stable ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 16:02:53 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8809";s:4:"guid";s:11:"/1258128173";s:11:"description";s:761:"<p>
 0.12dev: finally merged <a class="changeset" href="http://trac.edgewall.org/changeset/8335" title="0.11.5dev: Modified the import workaround code for older versions of ...">r8335</a> and its follow-up <a class="changeset" href="http://trac.edgewall.org/changeset/8354" title="0.11.5dev: Fix for workaround for workaround regarding zipped Genshi egg ...">r8354</a> from 0.11-stable (<a class="closed ticket" href="http://trac.edgewall.org/ticket/7823" title="defect: import obfuscation (closed: fixed)">#7823</a>). We might still need that workaround on trunk if Genshi is made zip_safe again (see <a class="ext-link" href="http://genshi.edgewall.org/intertrac/changeset%3A1089" title="changeset:1089 in Genshi"><span class="icon"> </span>[G1089]</a>).
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:761:"<p>
 0.12dev: finally merged <a class="changeset" href="http://trac.edgewall.org/changeset/8335" title="0.11.5dev: Modified the import workaround code for older versions of ...">r8335</a> and its follow-up <a class="changeset" href="http://trac.edgewall.org/changeset/8354" title="0.11.5dev: Fix for workaround for workaround regarding zipped Genshi egg ...">r8354</a> from 0.11-stable (<a class="closed ticket" href="http://trac.edgewall.org/ticket/7823" title="defect: import obfuscation (closed: fixed)">#7823</a>). We might still need that workaround on trunk if Genshi is made zip_safe again (see <a class="ext-link" href="http://genshi.edgewall.org/intertrac/changeset%3A1089" title="changeset:1089 in Genshi"><span class="icon"> </span>[G1089]</a>).
 </p>
-";s:14:"date_timestamp";i:1258128173;}i:26;a:9:{s:5:"title";s:47:"Ticket #8814 (Mercurial closed branches) closed";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 15:45:51 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8814#comment:3";s:4:"guid";s:11:"/1258127151";s:11:"description";s:218:"fixed: <p>
+";s:14:"date_timestamp";i:1258128173;}i:30;a:9:{s:5:"title";s:47:"Ticket #8814 (Mercurial closed branches) closed";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 15:45:51 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8814#comment:3";s:4:"guid";s:11:"/1258127151";s:11:"description";s:218:"fixed: <p>
 Implemented in <a class="changeset" href="http://trac.edgewall.org/changeset/8808" title="MercurialPlugin for 0.12: in the quickjump list, distinguish closed ...">[8808]</a>. Thanks for the suggestion!
 </p>
 ";s:8:"category";s:12:"closedticket";s:7:"summary";s:218:"fixed: <p>
 Implemented in <a class="changeset" href="http://trac.edgewall.org/changeset/8808" title="MercurialPlugin for 0.12: in the quickjump list, distinguish closed ...">[8808]</a>. Thanks for the suggestion!
 </p>
-";s:14:"date_timestamp";i:1258127151;}i:27;a:9:{s:5:"title";s:89:"Changeset [8808]: MercurialPlugin for 0.12: in the quickjump list, distinguish closed ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 15:45:01 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8808";s:4:"guid";s:11:"/1258127101";s:11:"description";s:522:"<p>
+";s:14:"date_timestamp";i:1258127151;}i:31;a:9:{s:5:"title";s:89:"Changeset [8808]: MercurialPlugin for 0.12: in the quickjump list, distinguish closed ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 15:45:01 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8808";s:4:"guid";s:11:"/1258127101";s:11:"description";s:522:"<p>
 <a class="wiki" href="http://trac.edgewall.org/wiki/MercurialPlugin">MercurialPlugin</a> for 0.12: in the quickjump list, distinguish closed branches from opened branches.
 </p>
 <p>
@@ -542,31 +586,31 @@ Suggested by sirexas@?.
 <p>
 Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8814" title="defect: Mercurial closed branches (closed: fixed)">#8814</a>.
 </p>
-";s:14:"date_timestamp";i:1258127101;}i:28;a:9:{s:5:"title";s:68:"Changeset [8807]: 0.12dev: blocked r8799 from being merged on trunk.";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 15:19:05 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8807";s:4:"guid";s:11:"/1258125545";s:11:"description";s:219:"<p>
+";s:14:"date_timestamp";i:1258127101;}i:32;a:9:{s:5:"title";s:68:"Changeset [8807]: 0.12dev: blocked r8799 from being merged on trunk.";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 15:19:05 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8807";s:4:"guid";s:11:"/1258125545";s:11:"description";s:219:"<p>
 0.12dev: blocked <a class="changeset" href="http://trac.edgewall.org/changeset/8799" title="0.11.6dev: Added a deprecation warning for the Enscript and PHP renderers. ...">r8799</a> from being merged on trunk.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:219:"<p>
 0.12dev: blocked <a class="changeset" href="http://trac.edgewall.org/changeset/8799" title="0.11.6dev: Added a deprecation warning for the Enscript and PHP renderers. ...">r8799</a> from being merged on trunk.
 </p>
-";s:14:"date_timestamp";i:1258125545;}i:29;a:9:{s:5:"title";s:75:"Changeset [8806]: 0.12dev: merge some more small bug fixes from 0.11-stable";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 15:12:15 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8806";s:4:"guid";s:11:"/1258125135";s:11:"description";s:67:"<p>
+";s:14:"date_timestamp";i:1258125545;}i:33;a:9:{s:5:"title";s:75:"Changeset [8806]: 0.12dev: merge some more small bug fixes from 0.11-stable";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 15:12:15 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8806";s:4:"guid";s:11:"/1258125135";s:11:"description";s:67:"<p>
 0.12dev: merge some more small bug fixes from 0.11-stable
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:67:"<p>
 0.12dev: merge some more small bug fixes from 0.11-stable
 </p>
-";s:14:"date_timestamp";i:1258125135;}i:30;a:9:{s:5:"title";s:20:"TracOnWindows edited";s:2:"dc";a:1:{s:7:"creator";s:9:"eugenio@?";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 14:53:05 GMT";s:4:"link";s:55:"http://trac.edgewall.org/wiki/TracOnWindows?version=298";s:4:"guid";s:11:"/1258123985";s:11:"description";s:155:"<p>
+";s:14:"date_timestamp";i:1258125135;}i:34;a:9:{s:5:"title";s:20:"TracOnWindows edited";s:2:"dc";a:1:{s:7:"creator";s:9:"eugenio@?";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 14:53:05 GMT";s:4:"link";s:55:"http://trac.edgewall.org/wiki/TracOnWindows?version=298";s:4:"guid";s:11:"/1258123985";s:11:"description";s:155:"<p>
 Python Scripts dir is Python26\Tools\Scripts [Fixed]
 </p>
  <a href="http://trac.edgewall.org/wiki/TracOnWindows?action=diff&amp;version=298">(diff)</a>";s:8:"category";s:4:"wiki";s:7:"summary";s:155:"<p>
 Python Scripts dir is Python26\Tools\Scripts [Fixed]
 </p>
- <a href="http://trac.edgewall.org/wiki/TracOnWindows?action=diff&amp;version=298">(diff)</a>";s:14:"date_timestamp";i:1258123985;}i:31;a:9:{s:5:"title";s:68:"Changeset [8805]: MultiRepos: Merged with 0.12dev [8771:8804/trunk].";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 14:12:42 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8805";s:4:"guid";s:11:"/1258121562";s:11:"description";s:207:"<p>
+ <a href="http://trac.edgewall.org/wiki/TracOnWindows?action=diff&amp;version=298">(diff)</a>";s:14:"date_timestamp";i:1258123985;}i:35;a:9:{s:5:"title";s:68:"Changeset [8805]: MultiRepos: Merged with 0.12dev [8771:8804/trunk].";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 14:12:42 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8805";s:4:"guid";s:11:"/1258121562";s:11:"description";s:207:"<p>
 <a class="wiki" href="http://trac.edgewall.org/wiki/MultiRepos">MultiRepos</a>: Merged with 0.12dev <a class="source" href="http://trac.edgewall.org/log/trunk?revs=8771-8804">[8771:8804/trunk]</a>.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:207:"<p>
 <a class="wiki" href="http://trac.edgewall.org/wiki/MultiRepos">MultiRepos</a>: Merged with 0.12dev <a class="source" href="http://trac.edgewall.org/log/trunk?revs=8771-8804">[8771:8804/trunk]</a>.
 </p>
-";s:14:"date_timestamp";i:1258121562;}i:32;a:9:{s:5:"title";s:71:"Ticket #8815 (Add anchors to each macro listed by [[MacroList]]) closed";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 13:57:08 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8815#comment:4";s:4:"guid";s:11:"/1258120628";s:11:"description";s:247:"worksforme: <p>
+";s:14:"date_timestamp";i:1258121562;}i:36;a:9:{s:5:"title";s:71:"Ticket #8815 (Add anchors to each macro listed by [[MacroList]]) closed";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 13:57:08 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8815#comment:4";s:4:"guid";s:11:"/1258120628";s:11:"description";s:247:"worksforme: <p>
 But even before that, it would be good to check if the feature is not already implemented ;-)
 </p>
 <p>
@@ -578,7 +622,7 @@ But even before that, it would be good to check if the feature is not already im
 <p>
 See e.g. <a class="wiki" href="http://trac.edgewall.org/wiki/WikiMacros#TitleIndex-macro">WikiMacros#TitleIndex-macro</a>.
 </p>
-";s:14:"date_timestamp";i:1258120628;}i:33;a:9:{s:5:"title";s:93:"Ticket #8808 (KeyError: <Option [account-manager] "account_changes_notify_addresses">) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 13:26:31 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8808#comment:5";s:4:"guid";s:11:"/1258118791";s:11:"description";s:538:"fixed: <p>
+";s:14:"date_timestamp";i:1258120628;}i:37;a:9:{s:5:"title";s:93:"Ticket #8808 (KeyError: <Option [account-manager] "account_changes_notify_addresses">) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 13:26:31 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8808#comment:5";s:4:"guid";s:11:"/1258118791";s:11:"description";s:538:"fixed: <p>
 Fixed in <a class="changeset" href="http://trac.edgewall.org/changeset/8804" title="0.12dev: Handle `Option` instances defined in non-`Component` classes ...">[8804]</a>. As we have no way of knowing if an <tt>Option</tt> defined in a non-<tt>Component</tt> class is enabled or not, it will always be shown. Of course, it would be better if AccountManagerPlugin defined that <tt>Option</tt> in e.g. <tt>AccountChangeListener</tt>, so that it can be hidden if the component is disabled.
 </p>
 <p>
@@ -590,7 +634,7 @@ Fixed in <a class="changeset" href="http://trac.edgewall.org/changeset/8804" tit
 <p>
 Thanks for the bug report!
 </p>
-";s:14:"date_timestamp";i:1258118791;}i:34;a:9:{s:5:"title";s:91:"Changeset [8804]: 0.12dev: Handle `Option` instances defined in non-`Component` classes ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 13:22:40 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8804";s:4:"guid";s:11:"/1258118560";s:11:"description";s:377:"<p>
+";s:14:"date_timestamp";i:1258118791;}i:38;a:9:{s:5:"title";s:91:"Changeset [8804]: 0.12dev: Handle `Option` instances defined in non-`Component` classes ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 13:22:40 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8804";s:4:"guid";s:11:"/1258118560";s:11:"description";s:377:"<p>
 0.12dev: Handle <tt>Option</tt> instances defined in non-<tt>Component</tt> classes correctly when retrieving the list of options for enabled components.
 </p>
 <p>
@@ -602,13 +646,13 @@ Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8808" titl
 <p>
 Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8808" title="defect: KeyError: &lt;Option [account-manager] &#34;account_changes_notify_addresses&#34;&gt; (closed: fixed)">#8808</a>.
 </p>
-";s:14:"date_timestamp";i:1258118560;}i:35;a:9:{s:5:"title";s:58:"Changeset [8803]: 0.12dev: Merged [8801] from 0.11-stable.";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 12:32:46 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8803";s:4:"guid";s:11:"/1258115566";s:11:"description";s:204:"<p>
+";s:14:"date_timestamp";i:1258118560;}i:39;a:9:{s:5:"title";s:58:"Changeset [8803]: 0.12dev: Merged [8801] from 0.11-stable.";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 12:32:46 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8803";s:4:"guid";s:11:"/1258115566";s:11:"description";s:204:"<p>
 0.12dev: Merged <a class="changeset" href="http://trac.edgewall.org/changeset/8801" title="0.11.6dev: Added a translation marker for the panel title, missing in ...">[8801]</a> from 0.11-stable.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:204:"<p>
 0.12dev: Merged <a class="changeset" href="http://trac.edgewall.org/changeset/8801" title="0.11.6dev: Added a translation marker for the panel title, missing in ...">[8801]</a> from 0.11-stable.
 </p>
-";s:14:"date_timestamp";i:1258115566;}i:36;a:9:{s:5:"title";s:60:"Ticket #8113 (syntax highlighting dependency cleanup) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 12:27:54 GMT";s:4:"link";s:47:"http://trac.edgewall.org/ticket/8113#comment:10";s:4:"guid";s:11:"/1258115274";s:11:"description";s:290:"fixed: <p>
+";s:14:"date_timestamp";i:1258115566;}i:40;a:9:{s:5:"title";s:60:"Ticket #8113 (syntax highlighting dependency cleanup) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 12:27:54 GMT";s:4:"link";s:47:"http://trac.edgewall.org/ticket/8113#comment:10";s:4:"guid";s:11:"/1258115274";s:11:"description";s:290:"fixed: <p>
 Moved the Enscript and PHP renderers into <tt>tracopt</tt> in <a class="changeset" href="http://trac.edgewall.org/changeset/8802" title="0.12dev: Moved the Enscript and PHP renderers into `tracopt`.
 Closes ...">[8802]</a>, together with the test suite for the PHP renderer.
 </p>
@@ -616,7 +660,7 @@ Closes ...">[8802]</a>, together with the test suite for the PHP renderer.
 Moved the Enscript and PHP renderers into <tt>tracopt</tt> in <a class="changeset" href="http://trac.edgewall.org/changeset/8802" title="0.12dev: Moved the Enscript and PHP renderers into `tracopt`.
 Closes ...">[8802]</a>, together with the test suite for the PHP renderer.
 </p>
-";s:14:"date_timestamp";i:1258115274;}i:37;a:9:{s:5:"title";s:91:"Changeset [8802]: 0.12dev: Moved the Enscript and PHP renderers into `tracopt`.  Closes ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 12:25:10 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8802";s:4:"guid";s:11:"/1258115110";s:11:"description";s:245:"<p>
+";s:14:"date_timestamp";i:1258115274;}i:41;a:9:{s:5:"title";s:91:"Changeset [8802]: 0.12dev: Moved the Enscript and PHP renderers into `tracopt`.  Closes ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 12:25:10 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8802";s:4:"guid";s:11:"/1258115110";s:11:"description";s:245:"<p>
 0.12dev: Moved the Enscript and PHP renderers into <tt>tracopt</tt>.
 </p>
 <p>
@@ -628,7 +672,7 @@ Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8113" titl
 <p>
 Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8113" title="defect: syntax highlighting dependency cleanup (closed: fixed)">#8113</a>.
 </p>
-";s:14:"date_timestamp";i:1258115110;}i:38;a:9:{s:5:"title";s:70:"Ticket #8816 (Rename a milestone instead of create a new one.) created";s:2:"dc";a:1:{s:7:"creator";s:18:"Sondoar <ismael@?>";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 11:57:19 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8816";s:4:"guid";s:11:"/1258113439";s:11:"description";s:720:"<p>
+";s:14:"date_timestamp";i:1258115110;}i:42;a:9:{s:5:"title";s:70:"Ticket #8816 (Rename a milestone instead of create a new one.) created";s:2:"dc";a:1:{s:7:"creator";s:18:"Sondoar <ismael@?>";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 11:57:19 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8816";s:4:"guid";s:11:"/1258113439";s:11:"description";s:720:"<p>
 Steps:
 - Create a new milestone with an existing milestone name.
 - After the warning of there is already an existing milestone with that name, I change the name to a new one, and submit.
@@ -662,19 +706,19 @@ Pygments:         0.10
 Subversion:         1.4.6 (<a class="missing changeset" title="No changeset 28521 in the repository">r28521</a>)
 jQuery:        1.2.6
 </p>
-";s:14:"date_timestamp";i:1258113439;}i:39;a:9:{s:5:"title";s:91:"Changeset [8801]: 0.11.6dev: Added a translation marker for the panel title, missing in ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 11:43:46 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8801";s:4:"guid";s:11:"/1258112626";s:11:"description";s:261:"<p>
+";s:14:"date_timestamp";i:1258113439;}i:43;a:9:{s:5:"title";s:91:"Changeset [8801]: 0.11.6dev: Added a translation marker for the panel title, missing in ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 11:43:46 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8801";s:4:"guid";s:11:"/1258112626";s:11:"description";s:261:"<p>
 0.11.6dev: Added a translation marker for the panel title, missing in <a class="changeset" href="http://trac.edgewall.org/changeset/8798" title="0.12dev: Renamed the &#34;Pygments&#34; preferences tab to &#34;Syntax Highlighting&#34;, ...">[8798]</a>.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:261:"<p>
 0.11.6dev: Added a translation marker for the panel title, missing in <a class="changeset" href="http://trac.edgewall.org/changeset/8798" title="0.12dev: Renamed the &#34;Pygments&#34; preferences tab to &#34;Syntax Highlighting&#34;, ...">[8798]</a>.
 </p>
-";s:14:"date_timestamp";i:1258112626;}i:40;a:9:{s:5:"title";s:84:"Changeset [8800]: Another follow-up to r8792, simply store the attribute name in ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 11:33:13 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8800";s:4:"guid";s:11:"/1258111993";s:11:"description";s:254:"<p>
+";s:14:"date_timestamp";i:1258112626;}i:44;a:9:{s:5:"title";s:84:"Changeset [8800]: Another follow-up to r8792, simply store the attribute name in ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 11:33:13 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8800";s:4:"guid";s:11:"/1258111993";s:11:"description";s:254:"<p>
 Another follow-up to <a class="changeset" href="http://trac.edgewall.org/changeset/8792" title="Move `default_...` field value Options from !TicketModule to ...">r8792</a>, simply store the attribute name in <tt>_warn_for_default_attr</tt> set.
 </p>
 ";s:8:"category";s:9:"changeset";s:7:"summary";s:254:"<p>
 Another follow-up to <a class="changeset" href="http://trac.edgewall.org/changeset/8792" title="Move `default_...` field value Options from !TicketModule to ...">r8792</a>, simply store the attribute name in <tt>_warn_for_default_attr</tt> set.
 </p>
-";s:14:"date_timestamp";i:1258111993;}i:41;a:9:{s:5:"title";s:96:"Changeset [8799]: 0.11.6dev: Added a deprecation warning for the Enscript and PHP renderers. ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 11:10:59 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8799";s:4:"guid";s:11:"/1258110659";s:11:"description";s:252:"<p>
+";s:14:"date_timestamp";i:1258111993;}i:45;a:9:{s:5:"title";s:96:"Changeset [8799]: 0.11.6dev: Added a deprecation warning for the Enscript and PHP renderers. ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 11:10:59 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8799";s:4:"guid";s:11:"/1258110659";s:11:"description";s:252:"<p>
 0.11.6dev: Added a deprecation warning for the Enscript and PHP renderers.
 </p>
 <p>
@@ -686,13 +730,13 @@ Part of <a class="closed ticket" href="http://trac.edgewall.org/ticket/8113" tit
 <p>
 Part of <a class="closed ticket" href="http://trac.edgewall.org/ticket/8113" title="defect: syntax highlighting dependency cleanup (closed: fixed)">#8113</a>.
 </p>
-";s:14:"date_timestamp";i:1258110659;}i:42;a:9:{s:5:"title";s:60:"Ticket #8810 (Clarifications with regard to Pygments) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:56:09 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8810#comment:7";s:4:"guid";s:11:"/1258109769";s:11:"description";s:253:"fixed: <p>
+";s:14:"date_timestamp";i:1258110659;}i:46;a:9:{s:5:"title";s:60:"Ticket #8810 (Clarifications with regard to Pygments) closed";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:56:09 GMT";s:4:"link";s:46:"http://trac.edgewall.org/ticket/8810#comment:7";s:4:"guid";s:11:"/1258109769";s:11:"description";s:253:"fixed: <p>
 Patch applied in <a class="changeset" href="http://trac.edgewall.org/changeset/8798" title="0.12dev: Renamed the &#34;Pygments&#34; preferences tab to &#34;Syntax Highlighting&#34;, ...">[8798]</a>. Documentation update is good. Thanks!
 </p>
 ";s:8:"category";s:12:"closedticket";s:7:"summary";s:253:"fixed: <p>
 Patch applied in <a class="changeset" href="http://trac.edgewall.org/changeset/8798" title="0.12dev: Renamed the &#34;Pygments&#34; preferences tab to &#34;Syntax Highlighting&#34;, ...">[8798]</a>. Documentation update is good. Thanks!
 </p>
-";s:14:"date_timestamp";i:1258109769;}i:43;a:9:{s:5:"title";s:95:"Changeset [8798]: 0.12dev: Renamed the "Pygments" preferences tab to "Syntax Highlighting", ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:54:03 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8798";s:4:"guid";s:11:"/1258109643";s:11:"description";s:370:"<p>
+";s:14:"date_timestamp";i:1258109769;}i:47;a:9:{s:5:"title";s:95:"Changeset [8798]: 0.12dev: Renamed the "Pygments" preferences tab to "Syntax Highlighting", ...";s:2:"dc";a:1:{s:7:"creator";s:6:"rblank";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:54:03 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8798";s:4:"guid";s:11:"/1258109643";s:11:"description";s:370:"<p>
 0.12dev: Renamed the "Pygments" preferences tab to "Syntax Highlighting", and used "style" instead of "theme", for consistency with the Pygments documentation.
 </p>
 <p>
@@ -704,13 +748,13 @@ Patch by Ryan Ollos, thanks! Closes <a class="closed ticket" href="http://trac.e
 <p>
 Patch by Ryan Ollos, thanks! Closes <a class="closed ticket" href="http://trac.edgewall.org/ticket/8810" title="enhancement: Clarifications with regard to Pygments (closed: fixed)">#8810</a>.
 </p>
-";s:14:"date_timestamp";i:1258109643;}i:44;a:9:{s:5:"title";s:25:"TracSyntaxColoring edited";s:2:"dc";a:1:{s:7:"creator";s:20:"Ryan Ollos <ryano@?>";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:37:09 GMT";s:4:"link";s:59:"http://trac.edgewall.org/wiki/TracSyntaxColoring?version=45";s:4:"guid";s:11:"/1258108629";s:11:"description";s:299:"<p>
+";s:14:"date_timestamp";i:1258109643;}i:48;a:9:{s:5:"title";s:25:"TracSyntaxColoring edited";s:2:"dc";a:1:{s:7:"creator";s:20:"Ryan Ollos <ryano@?>";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:37:09 GMT";s:4:"link";s:59:"http://trac.edgewall.org/wiki/TracSyntaxColoring?version=45";s:4:"guid";s:11:"/1258108629";s:11:"description";s:299:"<p>
 Documentation updates in reference to <a class="closed ticket" href="http://trac.edgewall.org/ticket/8810" title="enhancement: Clarifications with regard to Pygments (closed: fixed)">#8810</a>
 </p>
  <a href="http://trac.edgewall.org/wiki/TracSyntaxColoring?action=diff&amp;version=45">(diff)</a>";s:8:"category";s:4:"wiki";s:7:"summary";s:299:"<p>
 Documentation updates in reference to <a class="closed ticket" href="http://trac.edgewall.org/ticket/8810" title="enhancement: Clarifications with regard to Pygments (closed: fixed)">#8810</a>
 </p>
- <a href="http://trac.edgewall.org/wiki/TracSyntaxColoring?action=diff&amp;version=45">(diff)</a>";s:14:"date_timestamp";i:1258108629;}i:45;a:9:{s:5:"title";s:72:"Ticket #8815 (Add anchors to each macro listed by [[MacroList]]) created";s:2:"dc";a:1:{s:7:"creator";s:20:"Ryan Ollos <ryano@?>";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:16:17 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8815";s:4:"guid";s:11:"/1258107377";s:11:"description";s:1037:"<p>
+ <a href="http://trac.edgewall.org/wiki/TracSyntaxColoring?action=diff&amp;version=45">(diff)</a>";s:14:"date_timestamp";i:1258108629;}i:49;a:9:{s:5:"title";s:72:"Ticket #8815 (Add anchors to each macro listed by [[MacroList]]) created";s:2:"dc";a:1:{s:7:"creator";s:20:"Ryan Ollos <ryano@?>";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:16:17 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8815";s:4:"guid";s:11:"/1258107377";s:11:"description";s:1037:"<p>
 I have found that it would be useful to have anchors for each of the macros listed by the <a class="wiki" href="http://trac.edgewall.org/wiki/WikiMacros">WikiMacros</a> macro.  I'd find this useful for cases were I am referring a user to a particular macro.  Rather than writing <i>See <a class="wiki" href="http://trac.edgewall.org/wiki/TicketQuery">TicketQuery</a> at <a class="wiki" href="http://trac.edgewall.org/wiki/WikiMacros#AvailableMacros">WikiMacros#AvailableMacros</a></i>, it would be useful to have a direct link to the macro, such as <a class="wiki" href="http://trac.edgewall.org/wiki/WikiMacros#TicketQuery">WikiMacros#TicketQuery</a>.
 </p>
 <p>
@@ -722,64 +766,4 @@ I have found that it would be useful to have anchors for each of the macros list
 <p>
 This seems simple enough that I could probably implement it if the maintainers agree it would be a useful patch.  I'd work on this over the weekend after <a class="closed ticket" href="http://trac.edgewall.org/ticket/8810" title="enhancement: Clarifications with regard to Pygments (closed: fixed)">#8810</a> is closed so that it could be added to the 0.12 release.
 </p>
-";s:14:"date_timestamp";i:1258107377;}i:46;a:9:{s:5:"title";s:92:"Changeset [8797]: svn blame: for some situations (files below a copied dir which haven't ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:08:09 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8797";s:4:"guid";s:11:"/1258106889";s:11:"description";s:239:"<p>
-svn blame: for some situations (files below a copied dir which haven't changed since the copy), we need to start with the requested rev, not the last changed rev.
-</p>
-<p>
-See <a class="missing ticket">ticket:/7744#comment:2</a>.
-</p>
-";s:8:"category";s:9:"changeset";s:7:"summary";s:239:"<p>
-svn blame: for some situations (files below a copied dir which haven't changed since the copy), we need to start with the requested rev, not the last changed rev.
-</p>
-<p>
-See <a class="missing ticket">ticket:/7744#comment:2</a>.
-</p>
-";s:14:"date_timestamp";i:1258106889;}i:47;a:9:{s:5:"title";s:95:"Changeset [8796]: mod_wsgi web front-end: display WSGIProcessGroup and WSGIApplicationGroup ...";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 10:07:56 GMT";s:4:"link";s:39:"http://trac.edgewall.org/changeset/8796";s:4:"guid";s:11:"/1258106876";s:11:"description";s:151:"<p>
-mod_wsgi web front-end: display WSGIProcessGroup and WSGIApplicationGroup information in the about page, in addition to the mod_wsgi version.
-</p>
-";s:8:"category";s:9:"changeset";s:7:"summary";s:151:"<p>
-mod_wsgi web front-end: display WSGIProcessGroup and WSGIApplicationGroup information in the about page, in addition to the mod_wsgi version.
-</p>
-";s:14:"date_timestamp";i:1258106876;}i:48;a:9:{s:5:"title";s:48:"Ticket #8814 (Mercurial closed branches) created";s:2:"dc";a:1:{s:7:"creator";s:9:"sirexas@?";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 09:13:20 GMT";s:4:"link";s:36:"http://trac.edgewall.org/ticket/8814";s:4:"guid";s:11:"/1258103600";s:11:"description";s:443:"<p>
-Mercurial version 1.2 introduced ability to close a branch:
-<a class="ext-link" href="http://mercurial.selenic.com/wiki/PruningDeadBranches#Closing_branches"><span class="icon"> </span>http://mercurial.selenic.com/wiki/PruningDeadBranches#Closing_branches</a>
-</p>
-<p>
-But those closed branches are still visible in ?Browse Source?, ?Visit? select list.
-</p>
-<p>
-It would be great if closed branches will not be visible in that list.
-</p>
-";s:8:"category";s:9:"newticket";s:7:"summary";s:443:"<p>
-Mercurial version 1.2 introduced ability to close a branch:
-<a class="ext-link" href="http://mercurial.selenic.com/wiki/PruningDeadBranches#Closing_branches"><span class="icon"> </span>http://mercurial.selenic.com/wiki/PruningDeadBranches#Closing_branches</a>
-</p>
-<p>
-But those closed branches are still visible in ?Browse Source?, ?Visit? select list.
-</p>
-<p>
-It would be great if closed branches will not be visible in that list.
-</p>
-";s:14:"date_timestamp";i:1258103600;}i:49;a:9:{s:5:"title";s:59:"Ticket #7490 (Trac 0.11 really slow, high cpu usage) closed";s:2:"dc";a:1:{s:7:"creator";s:5:"cboos";}s:7:"pubdate";s:29:"Fri, 13 Nov 2009 09:12:08 GMT";s:4:"link";s:48:"http://trac.edgewall.org/ticket/7490#comment:124";s:4:"guid";s:11:"/1258103528";s:11:"description";s:1247:"fixed: <p>
-Let's summarize and close the ticket, which is too "big" to be of any further usefulness, at this point.
-</p>
-<p>
-The outcome of the various contributions to this ticket are numerous, thanks to all who have given feedback.
-</p>
-<ul><li>a lot of possible trouble with installation and configuration issues have been identified, refer to the <a class="wiki" href="http://trac.edgewall.org/wiki/TracPerformance">TracPerformance</a> checklist,
-</li><li>for Trac <a class="milestone" href="http://trac.edgewall.org/milestone/0.11.6">0.11.6</a>, a few improvements have been committed, mainly <a class="source" href="http://trac.edgewall.org/log/?revs=8644-8645">r8644:8645</a>, which should help to reduce startup time, and <a class="changeset" href="http://trac.edgewall.org/changeset/8795" title="Display an `-------- environment startup --------` line in the log, when ...">[8795]</a> which should help detect excessive environment restarts
-</li></ul><p>
-<strong>Please leave this ticket closed, rather follow-up on <a class="new ticket" href="http://trac.edgewall.org/ticket/8813" title="defect: Trac 0.11 really slow, high cpu usage (continued) (new)">#8813</a>- <i>Trac 0.11 really slow, high cpu usage (continued)</i> </strong>.
-</p>
-";s:8:"category";s:12:"closedticket";s:7:"summary";s:1247:"fixed: <p>
-Let's summarize and close the ticket, which is too "big" to be of any further usefulness, at this point.
-</p>
-<p>
-The outcome of the various contributions to this ticket are numerous, thanks to all who have given feedback.
-</p>
-<ul><li>a lot of possible trouble with installation and configuration issues have been identified, refer to the <a class="wiki" href="http://trac.edgewall.org/wiki/TracPerformance">TracPerformance</a> checklist,
-</li><li>for Trac <a class="milestone" href="http://trac.edgewall.org/milestone/0.11.6">0.11.6</a>, a few improvements have been committed, mainly <a class="source" href="http://trac.edgewall.org/log/?revs=8644-8645">r8644:8645</a>, which should help to reduce startup time, and <a class="changeset" href="http://trac.edgewall.org/changeset/8795" title="Display an `-------- environment startup --------` line in the log, when ...">[8795]</a> which should help detect excessive environment restarts
-</li></ul><p>
-<strong>Please leave this ticket closed, rather follow-up on <a class="new ticket" href="http://trac.edgewall.org/ticket/8813" title="defect: Trac 0.11 really slow, high cpu usage (continued) (new)">#8813</a>- <i>Trac 0.11 really slow, high cpu usage (continued)</i> </strong>.
-</p>
-";s:14:"date_timestamp";i:1258103528;}}s:7:"channel";a:6:{s:5:"title";s:16:"The Trac Project";s:4:"link";s:33:"http://trac.edgewall.org/timeline";s:11:"description";s:13:"Trac Timeline";s:8:"language";s:5:"en-US";s:9:"generator";s:23:"Trac 0.11.6stable-r8797";s:7:"tagline";s:13:"Trac Timeline";}s:9:"textinput";a:0:{}s:5:"image";a:3:{s:5:"title";s:16:"The Trac Project";s:3:"url";s:41:"http://www.edgewall.org/gfx/trac_logo.png";s:4:"link";s:33:"http://trac.edgewall.org/timeline";}s:9:"feed_type";s:3:"RSS";s:12:"feed_version";s:3:"2.0";s:8:"encoding";s:10:"ISO-8859-1";s:16:"_source_encoding";s:0:"";s:5:"ERROR";s:0:"";s:7:"WARNING";s:0:"";s:19:"_CONTENT_CONSTRUCTS";a:6:{i:0;s:7:"content";i:1;s:7:"summary";i:2;s:4:"info";i:3;s:5:"title";i:4;s:7:"tagline";i:5;s:9:"copyright";}s:16:"_KNOWN_ENCODINGS";a:3:{i:0;s:5:"UTF-8";i:1;s:8:"US-ASCII";i:2;s:10:"ISO-8859-1";}s:5:"stack";a:0:{}s:9:"inchannel";b:0;s:6:"initem";b:0;s:9:"incontent";b:0;s:11:"intextinput";b:0;s:7:"inimage";b:0;s:17:"current_namespace";b:0;}
+";s:14:"date_timestamp";i:1258107377;}}s:7:"channel";a:6:{s:5:"title";s:16:"The Trac Project";s:4:"link";s:33:"http://trac.edgewall.org/timeline";s:11:"description";s:13:"Trac Timeline";s:8:"language";s:5:"en-US";s:9:"generator";s:23:"Trac 0.11.6stable-r8797";s:7:"tagline";s:13:"Trac Timeline";}s:9:"textinput";a:0:{}s:5:"image";a:3:{s:5:"title";s:16:"The Trac Project";s:3:"url";s:41:"http://www.edgewall.org/gfx/trac_logo.png";s:4:"link";s:33:"http://trac.edgewall.org/timeline";}s:9:"feed_type";s:3:"RSS";s:12:"feed_version";s:3:"2.0";s:8:"encoding";s:10:"ISO-8859-1";s:16:"_source_encoding";s:0:"";s:5:"ERROR";s:0:"";s:7:"WARNING";s:0:"";s:19:"_CONTENT_CONSTRUCTS";a:6:{i:0;s:7:"content";i:1;s:7:"summary";i:2;s:4:"info";i:3;s:5:"title";i:4;s:7:"tagline";i:5;s:9:"copyright";}s:16:"_KNOWN_ENCODINGS";a:3:{i:0;s:5:"UTF-8";i:1;s:8:"US-ASCII";i:2;s:10:"ISO-8859-1";}s:5:"stack";a:0:{}s:9:"inchannel";b:0;s:6:"initem";b:0;s:9:"incontent";b:0;s:11:"intextinput";b:0;s:7:"inimage";b:0;s:17:"current_namespace";b:0;}

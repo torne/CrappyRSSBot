@@ -3,11 +3,15 @@ $dbtest = new DBFunctions();
 $dbtest->_connect();
 //$dbtest->_createTable();
 //$dbtest->_describeTable();
-$dbtest->_addFeed( null, 'url', 'title', 'lastTitle');
+//$dbtest->_addFeed( 'url', 'title', 'lastTitle');
+echo $dbtest->_getIdForUrl('url');
+echo $dbtest->_getIdForUrl('lol');
 class DBFunctions
 {
 	private $db;
-
+	private $message='';
+	private $tablename='rss_table';
+	
 	function __construct()
 	{
 		
@@ -25,44 +29,93 @@ class DBFunctions
 		return $this->db;
 	}
 
-	function _describeTable( $tablename='rss_table')
+	function _getMessage()
 	{
-		$result =  $this->db->query("SELECT * FROM sqlite_master WHERE name = '$tablename'");
+		return $this->message;
+	}
+	
+	function _describeTable()
+	{
+		$result =  $this->db->query("SELECT * FROM sqlite_master WHERE name = '$this->tablename'");
 		//var_dump ( $result->fetchArray() );
-		$result =  $this->db->query("PRAGMA table_info($tablename)");
+		$result =  $this->db->query("PRAGMA table_info($this->tablename)");
 		while ( $row = $result->fetchArray() )
 			print_r($row);
 		//var_dump( $this->db->arrayQuery("table_info($tablename)") );
 	}
 
-	function _createTable( $tablename='rss_table' )
+	function _createTable()
 	{
-		$string = "create table $tablename(feedid INTEGER PRIMARY KEY ASC, url varchar(256), title varchar(256), lastTitle varchar(256))";
+		$string = "create table $this->tablename(feedid INTEGER PRIMARY KEY ASC, url varchar(256), title varchar(256), lastTitle varchar(256))";
 		$this->db->exec($string);		
 	}
 
-	function _getLastForFeed( $feedid, $tablename='rss_table' )
+	function _getIdForUrl( $url )
 	{
-		$result =  $this->db->query("SELECT * FROM $tablename");
-		while ( $row = $result->fetchArray() )
-			print_r($row);
-		
-	}
-	
-	function _updateLastForFeed( $feedid, $tablename='rss_table', $lastTitle )
-	{
-		$query = "UPDATE $tablename SET lastTitle = $lastTitle";
-		$query = $this->db->escapeString($query);
-		$success = $this->db->exec($query);
-		print_r($success);
-	}
-	
-	function _addFeed( $tablename='rss_table', $url, $title, $lastTitle )
-	{
-		$stmt = $this->db->prepare("SELECT * FROM $tablename WHERE url=:url");
+		$stmt =  $this->db->prepare("SELECT * FROM $this->tablename WHERE url=:url");
 		$stmt->bindValue( ':url', $url);
 		$result = $stmt->execute();
-		var_dump($result);
+		if ( !$result )
+		{
+			$this->message = 'No such feed is stored.';
+			return false;
+		}
+		$array = $result->fetchArray();
+		return $array['feedid'];
+	}
+	
+	function _getLastForFeed( $feedid )
+	{
+		$stmt =  $this->db->prepare("SELECT * FROM $this->tablename WHERE id=:feedid");
+		$stmt->bindValue( ':feedid', $feedid);
+		$result = $stmt->execute();
+		if ( !$result )
+		{
+			$this->message = "No such feed id.";
+			return false;
+		}
+		var_dump($result->fetchArray());
+	}
+
+	function _updateLastForFeed( $feedid, $lastTitle )
+	{
+		$stmt = $this->db->prepare("SELECT * FROM $this->tablename WHERE id=:feedid");
+		$stmt->bindValue( ':feedid', $feedid);
+		$result = $stmt->execute();
+		if ( !$result )
+		{
+			$this->message = "No such feed id.";
+			return false;
+		}
+
+		$query = "UPDATE $this->tablename SET lastTitle = $lastTitle";
+		$success = $this->db->exec($query);
+		return $success;
+	}
+	
+	function _addFeed( $url, $title, $lastTitle )
+	{
+		$stmt = $this->db->prepare("SELECT * FROM $this->tablename WHERE url=:url");
+		$stmt->bindValue( ':url', $url);
+		$result = $stmt->execute();
+
+		if ( $result )
+		{
+			$this->message = "That URL is already stored.";
+			return false;
+		}
+		
+		if ( !$result->fetchArray() )
+		{
+			$result = $this->db->exec("INSERT INTO $this->tablename (url, title, lastTitle) VALUES ('$url', '$title', '$lastTitle')");
+			if ( !$result )
+			{
+				$this->message = "Could not insert into table";
+				return false;
+			}
+			return $this->db->lastInsertRowID();
+		}
+
 	}
 	
 //		$filename = $bot->_getConfig()->_getConfig( "dbname", "database");
