@@ -64,7 +64,7 @@ class DBFunctions
 		return $array['feedid'];
 	}
 	
-	function _getLastForFeed( $feedid )
+	function _getFeedDetailsForFeedid( $feedid )
 	{
 		$stmt =  $this->db->prepare("SELECT * FROM $this->tablename WHERE id=:feedid");
 		$stmt->bindValue( ':feedid', $feedid);
@@ -74,9 +74,27 @@ class DBFunctions
 			$this->message = "No such feed id.";
 			return false;
 		}
-		var_dump($result->fetchArray());
+		return $result->fetchArray();
 	}
+	
+	function _getFeedDetailsForURL( $url )
+	{
+		$feedid = $this->_getIdForUrl($url);
 
+		if ( !$feedid )
+			return false;
+
+		$stmt =  $this->db->prepare("SELECT * FROM $this->tablename WHERE id=:feedid");
+		$stmt->bindValue( ':feedid', $feedid);
+		$result = $stmt->execute();
+		if ( !$result )
+		{
+			$this->message = "No such feed id.";
+			return false;
+		}
+		return $result->fetchArray();
+	}
+	
 	function _updateLastForFeed( $feedid, $lastTitle )
 	{
 		$stmt = $this->db->prepare("SELECT * FROM $this->tablename WHERE id=:feedid");
@@ -98,14 +116,14 @@ class DBFunctions
 		$stmt = $this->db->prepare("SELECT * FROM $this->tablename WHERE url=:url");
 		$stmt->bindValue( ':url', $url);
 		$result = $stmt->execute();
-
-		if ( $result )
+var_dump($result->fetchArray());
+		if ( @$result->fetchArray() )
 		{
 			$this->message = "That URL is already stored.";
 			return false;
 		}
 		
-		if ( !$result->fetchArray() )
+		if ( @!$result->fetchArray() )
 		{
 			$result = $this->db->exec("INSERT INTO $this->tablename (url, title, lastTitle) VALUES ('$url', '$title', '$lastTitle')");
 			if ( !$result )
