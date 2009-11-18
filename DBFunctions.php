@@ -113,17 +113,14 @@ class DBFunctions
 	
 	function _addFeed( $url, $title, $lastTitle )
 	{
-		$stmt = $this->db->prepare("SELECT * FROM $this->tablename WHERE url=:url");
-		$stmt->bindValue( ':url', $url);
-		$result = $stmt->execute();
-var_dump($result->fetchArray());
-		if ( @$result->fetchArray() )
+		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE url='$url'");
+		if ( $result )
 		{
 			$this->message = "That URL is already stored.";
 			return false;
 		}
 		
-		if ( @!$result->fetchArray() )
+		if ( !$result )
 		{
 			$result = $this->db->exec("INSERT INTO $this->tablename (url, title, lastTitle) VALUES ('$url', '$title', '$lastTitle')");
 			if ( !$result )
