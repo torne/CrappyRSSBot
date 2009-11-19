@@ -52,9 +52,8 @@ class DBFunctions
 
 	function _getIdForUrl( $url )
 	{
-		$stmt =  $this->db->prepare("SELECT * FROM $this->tablename WHERE url=:url");
-		$stmt->bindValue( ':url', $url);
-		$result = $stmt->execute();
+		$url = $this->db->escapeString($url);
+		$result =  $this->db->query("SELECT * FROM $this->tablename WHERE url='$url'");
 		if ( !$result )
 		{
 			$this->message = 'No such feed is stored.';
@@ -66,9 +65,8 @@ class DBFunctions
 	
 	function _getFeedDetailsForFeedid( $feedid )
 	{
-		$stmt =  $this->db->prepare("SELECT * FROM $this->tablename WHERE id=:feedid");
-		$stmt->bindValue( ':feedid', $feedid);
-		$result = $stmt->execute();
+		$feedid = $this->db->escapeString($feedid);
+		$result =  $this->db->querySingle("SELECT * FROM $this->tablename WHERE feedid=$feedid");
 		if ( !$result )
 		{
 			$this->message = "No such feed id.";
@@ -80,13 +78,11 @@ class DBFunctions
 	function _getFeedDetailsForURL( $url )
 	{
 		$feedid = $this->_getIdForUrl($url);
-
+		
 		if ( !$feedid )
 			return false;
 
-		$stmt =  $this->db->prepare("SELECT * FROM $this->tablename WHERE id=:feedid");
-		$stmt->bindValue( ':feedid', $feedid);
-		$result = $stmt->execute();
+		$result =  $this->db->query("SELECT * FROM $this->tablename WHERE feedid=$feedid");
 		if ( !$result )
 		{
 			$this->message = "No such feed id.";
@@ -97,9 +93,7 @@ class DBFunctions
 	
 	function _updateLastForFeed( $feedid, $lastTitle )
 	{
-		$stmt = $this->db->prepare("SELECT * FROM $this->tablename WHERE id=:feedid");
-		$stmt->bindValue( ':feedid', $feedid);
-		$result = $stmt->execute();
+		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE feedid=$feedid");
 		if ( !$result )
 		{
 			$this->message = "No such feed id.";
@@ -113,6 +107,9 @@ class DBFunctions
 	
 	function _addFeed( $url, $title, $lastTitle )
 	{
+		$url = $this->db->escapeString($url);
+		$title = $this->db->escapeString($title);
+		$lastTitle = $this->db->escapeString($lastTitle);
 		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE url='$url'");
 		if ( $result )
 		{

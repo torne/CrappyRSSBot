@@ -7,7 +7,13 @@ $rss = new RSSFunctions();
 //$rss->_getFeed('http://pirate.planetarion.com/external.php?type=RSS');
 //$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=rss');
 //$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom');
-$rss->_addFeed("http://trac.edgewall.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss");
+$url = "http://trac.edgewall.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss";
+//$rss->_addFeed( $url );
+//$rss->_getMainTitle( $url );
+//$url = "http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom";
+//$rss->_getMainTitle( $url );
+//$rss->_addFeed( $url );
+$rss->_getItemsUntilPrevTitle( $url );
 class RSSFunctions
 {
 	private $db;	
@@ -15,36 +21,27 @@ class RSSFunctions
 	{
 		require_once('magpie/rss_fetch.inc');
 		require_once('DBFunctions.php');
+		define('MAGPIE_CACHE_ON', false);
 		$this->db = new DBFunctions();
 		$this->db->_connect();
 	}
 
 	public function _getMainTitle($url)
 	{
-		$rss = simplexml_load_file($url);
-		$names = $rss->getNamespaces();
-		$titles = $rss->xpath('//title');
-		if ( $titles[0] )
-		{
-			return $titles[0];
-		}
-		else
-		{
-			if ( $names )
-			{
-				//echo $names[""]."\r\n";
-				$children =  $rss->children($names[""]);
-				$title = $children->title;
-				return $title;
-			}
-			return false;
-		}
+		$rss = fetch_rss($url);
+		return $rss->channel['title'];
 	}
 
 	public function _getItemsUntilPrevTitle( $url )
 	{
 		$details = $this->db->_getFeedDetailsForURL( $url );
-		var_dump( $details );
+		$rss = fetch_rss($url);
+		foreach ( $rss->items as $item )
+		{
+			if ( $item['title'] == $details['lastTitle'])
+				break;
+			var_dump($item['title']);
+		}
 	}
 	
 	public function _getFeed($url)
@@ -102,9 +99,9 @@ class RSSFunctions
 	public function _addFeed( $url )
 	{
 		$title = $this->_getMainTitle( $url );
-		var_dump($title);
+		//var_dump($title);
 		$lastTitle = $this->_getLastFeedItem( $url );
-		var_dump($lastTitle);
+		//var_dump($lastTitle);
 		$rowID = $this->db->_addFeed( $url, $title, $lastTitle );
 		if ( !$rowID )
 		{
