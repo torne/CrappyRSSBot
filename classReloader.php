@@ -2,13 +2,13 @@
 
 class classReloader
 {
-	
+
 	function __construct()
 	{
-	
+
 	}
 
-	public function reload( $filename )
+	public function reload( $bot, $filename)
 	{
 		if ( !is_file( $filename ) )
 		{
@@ -19,9 +19,11 @@ class classReloader
 		{
 			return "$filename failed to pass syntax checking.";
 		}
-*/		
+*/
 		if ( runkit_import($filename) )
 		{
+		    $modules = new modules();
+		    $modules->_loadMethodMap($bot);
 			return "$filename reloaded.";
 		}
 		else
@@ -29,7 +31,7 @@ class classReloader
 			return "$filename failed to reload.";
 		}
 	}
-	
+
 }
 
 ?>

@@ -1,106 +1,121 @@
 <?php
 /**
- * 
+ *
  * @author: Gabriel
- * Description: 
- * 
- */ 
- 
+ * Description:
+ *
+ */
+
  class modules
  {
 
+ 	private $methodMap;
+ 	private $modules;
+
 	function __construct()
 	{
+		$this->modules = array();
 	}
 
 	/**
-	 * 
+	 *
 	 * @param unknown_type $method
 	 */
- 	public function _findClassByMethod( $method )
+ 	public function _findClassByMethod( $bot, $method )
 	{
+		var_dump($method);
+		//var_dump($this->methodMap);
+		$methodMap = $bot->_getMethodmap();
+		return $methodMap[$method];
 	}
- 
-	/**
-	 * 
-	 * @param unknown_type $modulename
-	 * @param unknown_type $bot
-	 */
-	public function _loadModule( $modulename, $bot )
- 	{
- 		$success = include($modulename.".php");
- 		return $success;
- 	}
 
  	/**
- 	 * 
+ 	 *
  	 */
- 	public function _loadRequirements()
+ 	public function _loadRequirements( $bot )
 	{
+	    $modules = array();
 		$curDir = getcwd();
 		$dirList = scandir($curDir);
 		$i=0;
 		foreach( $dirList as $file )
 		{
 			echo "$file\r\n";
-			if ( preg_match("/.*\.php/", $file) && $file != "modules.php" && $file != "bot.php" )
+			if ( preg_match("/(.*)\.php/", $file, $matches) && $file != "modules.php" && $file != "bot.php" )
 			{
+				$modules[] = $matches[1];
 				require($file);
 				$i++;
 			}
 		}
+		$modules[] = get_class($this);
+		$bot->_setModules($modules);
+		$this->_loadMethodMap( $bot );
 		return $i;
 	}
-	
+
 	/**
-	 * 
+	 *
+	 * @param unknown_type $modulename
 	 */
-	public function _modules(  )
+	public function _loadModule( $bot, $modulename )
  	{
- 		$var = get_included_files();
-		$modules = array();
-		foreach ( $var as $file )
-		{
-			$tokens = explode("/", $file);
-			$module = explode( ".", end($tokens));
-			$modules[] = $module[0];
-		}
-		return $modules;
+ 		$success = include($modulename.".php");
+ 		if ( $success )
+ 		{
+     		$modules = $bot->_getModules;
+     		$modules[] = $modulename;
+     		$bot->_setModules($modules);
+ 		}
+ 		return $success;
  	}
 
-	public function _getMethods()
+ 	/**
+ 	 *
+ 	 * @param unknown_type $bot
+ 	 *
+ 	 */
+ 	public function _loadMethodMap( $bot )
 	{
-		$methods = array();
-		$loadedModules = $this->_modules();
-		foreach ( $loadedModules as $module )
+		$methodMap = array();
+		foreach ( $bot->_getModules() as $module )
 		{
 			if ( !class_exists($module) )
 				continue;
 			$classmethods = get_class_methods($module);
 			foreach( $classmethods as $method )
 			{
-				if ( array_key_exists($method, $classmethods) )
+				if ( $method[0] == "_" && $method[1] == "_" )
+					continue;
+				if ( array_key_exists( $method, $methodMap) )
 				{
-					die("Multiple modules with the same method $module, ".$methods[$method]);
+					die("Multiple modules with the same method $module, ".$methodMap[$method].", $method\r\n");
 				}
 				else
 				{
-					$methods[$method] = $module;
+					$methodMap[$method] = $module;
 				}
 			}
 		}
-		return $methods;
+		$bot->_setMethodmap($methodMap);
+		return true;
 	}
 
+	/**
+	 *
+	 * @param unknown_type $bot
+	 * @return string
+	 *
+	 */
 	public function commands( $bot )
 	{
 		$publiccommands = array();
-		foreach ( $bot->getCommands as $command )
+		foreach ( $bot->_getMethodmap() as $command=>$module )
 		{
 			if ( $command[0] != "_" )
 				$publiccommands[] = $command;
 		}
-		return "Commands available to you are ".implode(", ", $publiccomands);
+		return "Commands available to you are ".implode(", ", $publiccommands);
 	}
 
  }

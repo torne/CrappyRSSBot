@@ -50,6 +50,14 @@ class DBFunctions
 		$this->db->exec($string);		
 	}
 
+	function _getFeeds()
+	{
+		$result =  $this->db->query("SELECT * FROM $this->tablename");
+		$feeds = array();
+		while ( $feeds[] = $result->fetchArray() );
+		return $feeds;
+	}
+	
 	function _getIdForUrl( $url )
 	{
 		$url = $this->db->escapeString($url);
@@ -100,7 +108,9 @@ class DBFunctions
 			return false;
 		}
 
-		$query = "UPDATE $this->tablename SET lastTitle = $lastTitle";
+		$lastTitle = $this->db->escapeString($lastTitle);
+		$query = "UPDATE $this->tablename SET lastTitle = '$lastTitle' WHERE feedid = $feedid";
+		var_dump($query);
 		$success = $this->db->exec($query);
 		return $success;
 	}

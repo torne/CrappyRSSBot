@@ -1,5 +1,5 @@
 <?php
-$rss = new RSSFunctions();
+//$rss = new RSSFunctions();
 //$rss->_checkFeedHeader('http://www.php.net/feed.atom');
 //$rss->_checkFeedHeader('http://xkcd.com/rss.xml');
 //$rss->_getFeed('http://www.php.net/feed.atom');
@@ -7,16 +7,16 @@ $rss = new RSSFunctions();
 //$rss->_getFeed('http://pirate.planetarion.com/external.php?type=RSS');
 //$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=rss');
 //$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom');
-$url = "http://trac.edgewall.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss";
+//$url = "http://trac.edgewall.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss";
 //$rss->_addFeed( $url );
 //$rss->_getMainTitle( $url );
 //$url = "http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom";
 //$rss->_getMainTitle( $url );
 //$rss->_addFeed( $url );
-$rss->_getItemsUntilPrevTitle( $url );
+//$rss->_getItemsUntilPrevTitle( $url );
 class RSSFunctions
 {
-	private $db;	
+	private $db;
 	function __construct()
 	{
 		require_once('magpie/rss_fetch.inc');
@@ -36,14 +36,24 @@ class RSSFunctions
 	{
 		$details = $this->db->_getFeedDetailsForURL( $url );
 		$rss = fetch_rss($url);
+		if ( $rss->items[0]['title'] == $details['lastTitle'])
+			return;
+
+		$this->db->_updateLastForFeed( $details['feedid'], $rss->items[0]['title']);
+
 		foreach ( $rss->items as $item )
 		{
-			if ( $item['title'] == $details['lastTitle'])
+			extract($item);
+			if ( $title == $details['lastTitle'])
 				break;
-			var_dump($item['title']);
+			if (strlen($description) >= 100)
+			{
+				$description = substr($description,0,99)."...";
+			}
+			return $title." - ".$link." - ".$description;
 		}
 	}
-	
+
 	public function _getFeed($url)
 	{
 		$rss = simplexml_load_file($url);
@@ -63,7 +73,7 @@ class RSSFunctions
 				echo "Title-main2: ".$title."\r\n";
 			}
 		}
-		
+
 		$rss = fetch_rss($url);
 		//echo "First sub title: ".$rss->items[0]['title']."\r\n";
 		//echo "First sub link: ".$rss->items[0]['link']."\r\n\r\n";
@@ -72,7 +82,7 @@ class RSSFunctions
 		{
 			echo "Title: ".$item['title']."\r\n";
 		}
-		
+
 	}
 
 	public function _getLastFeedItem( $url )
@@ -85,18 +95,19 @@ class RSSFunctions
 	{
 		var_dump( get_headers($url) );
 	}
-	
+
 	public function _getCurFeeds()
 	{
-		
+		foreach ( $this->db->_getFeeds() as $feed )
+			$this->_getItemsUntilPrevTitle( $feed['url'] );
 	}
-	
+
 	public function listFeeds()
 	{
-		
+
 	}
-	
-	public function _addFeed( $url )
+
+	public function addFeed( $url )
 	{
 		$title = $this->_getMainTitle( $url );
 		//var_dump($title);
@@ -110,32 +121,32 @@ class RSSFunctions
 		}
 		echo $rowID;
 	}
-	
+
 	public function remFeed()
 	{
-		
+		return "I don't work, but if I did I'd remove a feed";
 	}
 
 	public function _getFeeders()
 	{
-		
+
 	}
-	
+
 	public function listFeeders()
 	{
-		
+		return "I don't work, but if I did I'd list feed admins";
 	}
-	
+
 	public function addFeeder()
 	{
-		
+		return "I don't work, but if I did I'd add a feed admin";
 	}
-	
+
 	public function remFeeder()
 	{
-		
+		return "I don't work, but if I did I'd remove a feed admin";
 	}
-	
+
 }
 
 ?>

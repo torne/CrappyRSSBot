@@ -3,16 +3,15 @@
 class help
 {
 
-	public function help( $method = '', $bot)
+	public function help( $bot, $method = null)
 	{
 		if ( !$method )
 		{
-			//msg returnDest default help msg
-			return;
+			return "A default message";
 		}
 
 		$modules = new modules();
-		$objectname = $modules->findClassByMethod( "_help_".$method );
+		$objectname = $modules->_findClassByMethod( $bot, "_help_".$method );
 		if ( !$objectname )
 			return "No help for command $method.";
 
@@ -21,7 +20,7 @@ class help
 		$object = new $objectname();
 		return call_user_func( array($object, "_help_".$method) );
 	}
-	
+
 }
 
 ?>
