@@ -25,11 +25,11 @@ class handle_functions
 		$hostmask = $matches[3];
 		$returnDest = $matches[4];
 		if ( strcasecmp( $returnDest, $bot->_getConfig('nick')) == 0 )
-			$returnDest = $nick;
+		$returnDest = $nick;
 		$messageType = $matches[5];
 		$message = $matches[6];
-        if ( $message[0] == "_" )
-            return;
+		if ( $message[0] == "_" )
+		return;
 
 		if ( preg_match("/reload (.+)/", $message, $matches) )
 		{

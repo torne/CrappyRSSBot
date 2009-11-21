@@ -13,7 +13,7 @@ class help
 		$modules = new modules();
 		$objectname = $modules->_findClassByMethod( $bot, "_help_".$method );
 		if ( !$objectname )
-			return "No help for command $method.";
+		return "No help for command $method.";
 
 
 		//find the class that matches the method

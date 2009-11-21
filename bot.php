@@ -99,7 +99,7 @@ class bot
 	{
 		$this->socket = @fsockopen( $this->config->_getConfig('server'), $this->config->_getConfig('port'));
 		if ( !$this->socket )
-			die("Unable to connect to server\r\n");
+		die("Unable to connect to server\r\n");
 		fputs($this->socket,"USER ".$this->config->_getConfig('user')." :".$this->config->_getConfig('nick')."\r\n");
 		fputs($this->socket,"NICK ".$this->config->_getConfig('nick')."\r\n");
 	}
@@ -120,7 +120,7 @@ class bot
 	public function _parseInput()
 	{
 		if ( !$this->data )
-			return;
+		return;
 		if ( $this->rss_time+120 < time() )
 		{
 			//do rss stuff

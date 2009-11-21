@@ -14,16 +14,16 @@ class classReloader
 		{
 			return "$filename is not a file.";
 		}
-/*
-		if ( !runkit_lint_file($filename) )
-		{
+		/*
+		 if ( !runkit_lint_file($filename) )
+		 {
 			return "$filename failed to pass syntax checking.";
-		}
-*/
+			}
+			*/
 		if ( runkit_import($filename) )
 		{
-		    $modules = new modules();
-		    $modules->_loadMethodMap($bot);
+			$modules = new modules();
+			$modules->_loadMethodMap($bot);
 			return "$filename reloaded.";
 		}
 		else

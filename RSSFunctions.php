@@ -37,7 +37,7 @@ class RSSFunctions
 		$details = $this->db->_getFeedDetailsForURL( $url );
 		$rss = fetch_rss($url);
 		if ( $rss->items[0]['title'] == $details['lastTitle'])
-			return;
+		return;
 
 		$this->db->_updateLastForFeed( $details['feedid'], $rss->items[0]['title']);
 
@@ -45,7 +45,7 @@ class RSSFunctions
 		{
 			extract($item);
 			if ( $title == $details['lastTitle'])
-				break;
+			break;
 			if (strlen($description) >= 100)
 			{
 				$description = substr($description,0,99)."...";
@@ -99,7 +99,7 @@ class RSSFunctions
 	public function _getCurFeeds()
 	{
 		foreach ( $this->db->_getFeeds() as $feed )
-			$this->_getItemsUntilPrevTitle( $feed['url'] );
+		$this->_getItemsUntilPrevTitle( $feed['url'] );
 	}
 
 	public function listFeeds()
