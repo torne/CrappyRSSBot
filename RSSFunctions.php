@@ -45,24 +45,34 @@ class RSSFunctions
 
 	public function _getItemsUntilPrevTitle ($bot, $url)
 	{
+		//echo "$url\r\n";
 		$details = $this->db->_getFeedDetailsForURL($url);
 		$rss = fetch_rss($url);
+		//var_dump($rss->items);
 		if ($rss->items[0]['title'] == $details['lastTitle'])
 			return;
 
 		$this->db->_updateLastForFeed($details['feedid'], $rss->items[0]['title']);
-
+		foreach ($bot->_getConfig()->_getChans() as $channel)
+		{
+			$bot->_sendMsg( $channel, $details['title'] . " - " . $details['url']);
+		}
 		foreach ($rss->items as $item)
 		{
+			//var_dump($item);
 			extract($item);
 			if ($title == $details['lastTitle'])
 				break;
-			if (strlen($description) >= 100)
+//			if (strlen($description) >= 100)
+//			{
+//				$description = substr($description, 0, 99) . "...";
+//			}
+//			$bot->_sendMsg( $bot->_getReturnDest(), $title . " - " . $link . " - " . $description);
+			foreach ($bot->_getConfig()->_getChans() as $channel)
 			{
-				$description = substr($description, 0, 99) . "...";
+				$bot->_sendMsg( $channel, $title . " - " . $link);
 			}
-			$bot->_sendMsg( $bot->_getReturnDest(), $title . " - " . $link . " - " . $description);
-			echo $bot->_getReturnDest().", $title - $link - $description\r\n";
+			echo $bot->_getReturnDest().", $title - $link\r\n";
 			return null;
 		}
 	}

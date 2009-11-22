@@ -137,9 +137,11 @@ class bot
 	/**
 	 *
 	 */
-	public function _getConfig ($name)
+	public function _getConfig ($name = null)
 	{
 		//print_r( $this->config );
+		if ( !$name )
+			return $this->config;
 		return $this->config->_getConfig($name);
 	}
 
