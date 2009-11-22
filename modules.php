@@ -80,12 +80,12 @@ class modules
 		foreach ($bot->_getModules() as $module)
 		{
 			if (! class_exists($module))
-			continue;
+				continue;
 			$classmethods = get_class_methods($module);
 			foreach ($classmethods as $method)
 			{
 				if ($method[0] == "_" && $method[1] == "_")
-				continue;
+					continue;
 				if (array_key_exists($method, $methodMap))
 				{
 					die("Multiple modules with the same method $module, " . $methodMap[$method] . ", $method\r\n");
@@ -112,7 +112,7 @@ class modules
 		foreach ($bot->_getMethodmap() as $command => $module)
 		{
 			if ($command[0] != "_")
-			$publiccommands[] = $command;
+				$publiccommands[] = $command;
 		}
 		return "Commands available to you are " . implode(", ", $publiccommands);
 	}

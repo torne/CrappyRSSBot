@@ -28,8 +28,8 @@ class handle_functions
 		$returnDest = $nick;
 		$messageType = $matches[5];
 		$message = $matches[6];
-		if ( $message[0] == "_" )
-		return;
+		$bot->_setPrivmsg( $nick, $user, $hostmask, $returnDest, $messageType, $message );
+
 
 		if ( preg_match("/reload (.+)/", $message, $matches) )
 		{
@@ -51,16 +51,17 @@ class handle_functions
 
 		$modules = new modules();
 		$objectname = $modules->_findClassByMethod( $bot, $method );
-		if ( !$objectname )
+		if ( !$objectname || $message[0] == "_" )
 		{
 			$bot->_sendMsg( $returnDest, 'No such command.');
 			return;
 		}
 
 		$object = new $objectname();
-
-
-		$bot->_sendMsg( $returnDest, call_user_func_array( array( $object, $method), $args) );
+		$returnMsg = call_user_func_array( array( $object, $method), $args);
+		if ( $returnMsg )
+			$bot->_sendMsg( $returnDest, $returnMsg );
+		$bot->_setPrivmsg( null, null, null, null, null, null );
 	}
 
 	/**
