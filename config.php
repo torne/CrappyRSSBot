@@ -100,6 +100,9 @@ class config
 		return $this->configuration[$name];
 	}
 
+	/**
+	 *
+	 */
 	public function _getChans()
 	{
 		return $this->configuration['channels'];

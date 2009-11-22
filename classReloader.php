@@ -3,11 +3,19 @@
 class classReloader
 {
 
+	/**
+	 *
+	 */
 	function __construct()
 	{
 
 	}
 
+	/**
+	 *
+	 * @param unknown_type $bot
+	 * @param unknown_type $module
+	 */
 	public function reload( $bot, $module)
 	{
 		$filename = $module.".php";

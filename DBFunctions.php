@@ -12,11 +12,18 @@ class DBFunctions
 	private $message='';
 	private $tablename='rss_table';
 
+	/**
+	 *
+	 */
 	function __construct()
 	{
 
 	}
 
+	/**
+	 *
+	 * @param unknown_type $filename
+	 */
 	function _connect($filename='rss_db')
 	{
 		$err = '';
@@ -29,11 +36,17 @@ class DBFunctions
 		return $this->db;
 	}
 
+	/**
+	 *
+	 */
 	function _getMessage()
 	{
 		return $this->message;
 	}
 
+	/**
+	 *
+	 */
 	function _describeTable()
 	{
 		$result =  $this->db->query("SELECT * FROM sqlite_master WHERE name = '$this->tablename'");
@@ -44,12 +57,18 @@ class DBFunctions
 		//var_dump( $this->db->arrayQuery("table_info($tablename)") );
 	}
 
+	/**
+	 *
+	 */
 	function _createTable()
 	{
 		$string = "create table $this->tablename(feedid INTEGER PRIMARY KEY ASC, url varchar(256), title varchar(256), lastTitle varchar(256))";
 		$this->db->exec($string);
 	}
 
+	/**
+	 *
+	 */
 	function _getFeeds()
 	{
 		$result =  $this->db->query("SELECT * FROM $this->tablename");
@@ -58,6 +77,10 @@ class DBFunctions
 		return $feeds;
 	}
 
+	/**
+	 *
+	 * @param unknown_type $url
+	 */
 	function _getIdForUrl( $url )
 	{
 		$url = $this->db->escapeString($url);
@@ -71,6 +94,10 @@ class DBFunctions
 		return $array['feedid'];
 	}
 
+	/**
+	 *
+	 * @param $feedid
+	 */
 	function _getFeedDetailsForFeedid( $feedid )
 	{
 		$feedid = $this->db->escapeString($feedid);
@@ -83,6 +110,10 @@ class DBFunctions
 		return $result->fetchArray();
 	}
 
+	/**
+	 *
+	 * @param $url
+	 */
 	function _getFeedDetailsForURL( $url )
 	{
 		$feedid = $this->_getIdForUrl($url);
@@ -99,6 +130,11 @@ class DBFunctions
 		return $result->fetchArray();
 	}
 
+	/**
+	 *
+	 * @param $feedid
+	 * @param $lastTitle
+	 */
 	function _updateLastForFeed( $feedid, $lastTitle )
 	{
 		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE feedid=$feedid");
@@ -115,6 +151,12 @@ class DBFunctions
 		return $success;
 	}
 
+	/**
+	 *
+	 * @param unknown_type $url
+	 * @param unknown_type $title
+	 * @param unknown_type $lastTitle
+	 */
 	function _addFeed( $url, $title, $lastTitle )
 	{
 		$url = $this->db->escapeString($url);

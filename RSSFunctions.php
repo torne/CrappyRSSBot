@@ -19,6 +19,9 @@ class RSSFunctions
 {
 	private $db;
 
+	/**
+	 *
+	 */
 	function __construct ()
 	{
 		require_once ('magpie/rss_fetch.inc');
@@ -37,12 +40,21 @@ class RSSFunctions
 		$this->_getCurFeeds($bot);
 	}
 
+	/**
+	 *
+	 * @param unknown_type $url
+	 */
 	public function _getMainTitle ($url)
 	{
 		$rss = fetch_rss($url);
 		return $rss->channel['title'];
 	}
 
+	/**
+	 *
+	 * @param unknown_type $bot
+	 * @param unknown_type $url
+	 */
 	public function _getItemsUntilPrevTitle ($bot, $url)
 	{
 		//echo "$url\r\n";
@@ -53,10 +65,10 @@ class RSSFunctions
 			return;
 
 		$this->db->_updateLastForFeed($details['feedid'], $rss->items[0]['title']);
-		foreach ($bot->_getConfig()->_getChans() as $channel)
-		{
-			$bot->_sendMsg( $channel, $details['title'] . " - " . $details['url']);
-		}
+//		foreach ($bot->_getConfig()->_getChans() as $channel)
+//		{
+//			$bot->_sendMsg( $channel, $details['title'] . " - " . $details['url']);
+//		}
 		foreach ($rss->items as $item)
 		{
 			//var_dump($item);
@@ -70,13 +82,17 @@ class RSSFunctions
 //			$bot->_sendMsg( $bot->_getReturnDest(), $title . " - " . $link . " - " . $description);
 			foreach ($bot->_getConfig()->_getChans() as $channel)
 			{
-				$bot->_sendMsg( $channel, $title . " - " . $link);
+				$bot->_sendMsg( $channel,  $details['title'] . " - $title - $link");
 			}
-			echo $bot->_getReturnDest().", $title - $link\r\n";
+			echo $bot->_getReturnDest().", ".$details['title']." - $title - $link\r\n";
 			return null;
 		}
 	}
 
+	/**
+	 *
+	 * @param unknown_type $url
+	 */
 	public function _getFeed ($url)
 	{
 		$rss = simplexml_load_file($url);
@@ -108,23 +124,39 @@ class RSSFunctions
 
 	}
 
+	/**
+	 *
+	 * @param unknown_type $url
+	 */
 	public function _getLastFeedItem ($url)
 	{
 		$rss = fetch_rss($url);
 		return $rss->items[0]['title'];
 	}
 
+	/**
+	 *
+	 * @param unknown_type $url
+	 */
 	public function _checkFeedHeader ($url)
 	{
 		var_dump(get_headers($url));
 	}
 
+	/**
+	 *
+	 * @param unknown_type $bot
+	 */
 	public function _getCurFeeds ($bot)
 	{
 		foreach ($this->db->_getFeeds() as $feed)
 			$this->_getItemsUntilPrevTitle($bot, $feed['url']);
 	}
 
+	/**
+	 *
+	 * @param unknown_type $bot
+	 */
 	public function listFeeds ( $bot )
 	{
 		$feedfun = array();
@@ -140,6 +172,11 @@ class RSSFunctions
 		return null;
 	}
 
+	/**
+	 *
+	 * @param unknown_type $bot
+	 * @param unknown_type $url
+	 */
 	public function addFeed ($bot, $url)
 	{
 		$title = $this->_getMainTitle($url);
@@ -154,31 +191,54 @@ class RSSFunctions
 		return $rowID;
 	}
 
+	/**
+	 *
+	 */
 	public function remFeed ()
 	{
 		return "I don't work, but if I did I'd remove a feed";
 	}
 
+	/**
+	 *
+	 */
 	public function _getFeeders ()
 	{
 
 	}
 
+	/**
+	 *
+	 */
 	public function listFeeders ()
 	{
 		return "I don't work, but if I did I'd list feed admins";
 	}
 
+	/**
+	 *
+	 */
 	public function addFeeder ()
 	{
 		return "I don't work, but if I did I'd add a feed admin";
 	}
 
+	/**
+	 *
+	 */
 	public function remFeeder ()
 	{
 		return "I don't work, but if I did I'd remove a feed admin";
 	}
 
+	/**
+	 *
+	 * @param unknown_type $bot
+	 */
+	public function _checkFeederAccess( $bot )
+	{
+
+	}
 }
 
 ?>

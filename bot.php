@@ -56,6 +56,15 @@ class bot
 		$this->rss_time = time();
 	}
 
+	/**
+	 *
+	 * @param $nick
+	 * @param $user
+	 * @param $hostmask
+	 * @param $returnDest
+	 * @param $messageType
+	 * @param $message
+	 */
 	function _setPrivmsg( $nick, $user, $hostmask, $returnDest, $messageType, $message )
 	{
 		$this->nick = $nick;
@@ -113,22 +122,35 @@ class bot
 		return $this->nick;
 	}
 
-
+	/**
+	 *
+	 */
 	function _getModules ()
 	{
 		return $this->modules;
 	}
 
+	/**
+	 *
+	 * @param $modules
+	 */
 	function _setModules ($modules)
 	{
 		$this->modules = $modules;
 	}
 
+	/**
+	 *
+	 */
 	function _getMethodmap ()
 	{
 		return $this->methodMap;
 	}
 
+	/**
+	 *
+	 * @param $methodMap
+	 */
 	function _setMethodmap ($methodMap)
 	{
 		$this->methodMap = $methodMap;

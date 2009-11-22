@@ -11,6 +11,9 @@ class modules
 	private $methodMap;
 	private $modules;
 
+	/**
+	 *
+	 */
 	function __construct ()
 	{
 		$this->modules = array();

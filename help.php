@@ -3,6 +3,11 @@
 class help
 {
 
+	/**
+	 *
+	 * @param $bot
+	 * @param $method
+	 */
 	public function help( $bot, $method = null)
 	{
 		if ( !$method )
