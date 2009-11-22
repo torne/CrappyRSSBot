@@ -57,7 +57,6 @@ class RSSFunctions
 	 */
 	public function _getItemsUntilPrevTitle ($bot, $url)
 	{
-		//echo "$url\r\n";
 		$details = $this->db->_getFeedDetailsForURL($url);
 		$rss = fetch_rss($url);
 		//var_dump($rss->items);
@@ -150,7 +149,11 @@ class RSSFunctions
 	public function _getCurFeeds ($bot)
 	{
 		foreach ($this->db->_getFeeds() as $feed)
+		{
+			if ( !$feed['url'] || empty($feed['url']) )
+				continue;
 			$this->_getItemsUntilPrevTitle($bot, $feed['url']);
+		}
 	}
 
 	/**
@@ -194,7 +197,7 @@ class RSSFunctions
 	/**
 	 *
 	 */
-	public function remFeed ()
+	public function remFeed ( $bot, $url )
 	{
 		return "I don't work, but if I did I'd remove a feed";
 	}
