@@ -28,6 +28,7 @@ class DBFunctions
 	{
 		$err = '';
 		$this->db = new SQLite3($filename);
+
 		if ( !$this->db )
 		{
 			die($err);
