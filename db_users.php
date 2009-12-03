@@ -1,7 +1,7 @@
 <?php
-//$dbtest = new DBFunctions();
-//$dbtest->_connect();
-//$dbtest->_createTable();
+$dbtest = new db_users();
+$dbtest->_connectUsers();
+$dbtest->_createTable();
 //$dbtest->_describeTable();
 //$dbtest->_addFeed( 'url', 'title', 'lastTitle');
 //echo $dbtest->_getIdForUrl('url');
@@ -40,34 +40,34 @@ class db_users
 	/**
 	 *
 	 */
-	function _getMessage()
+	function _getUserMessage()
 	{
 		return $this->message;
 	}
+//
+//	/**
+//	 *
+//	 */
+//	function _describeTable()
+//	{
+//		$result =  $this->db->query("SELECT * FROM sqlite_master WHERE name = '$this->tablename'");
+//		//var_dump ( $result->fetchArray() );
+//		$result =  $this->db->query("PRAGMA table_info($this->tablename)");
+//		while ( $row = $result->fetchArray() )
+//			print_r($row);
+//		//var_dump( $this->db->arrayQuery("table_info($tablename)") );
+//	}
 
-	/**
-	 *
-	 */
-	function _describeTable()
-	{
-		$result =  $this->db->query("SELECT * FROM sqlite_master WHERE name = '$this->tablename'");
-		//var_dump ( $result->fetchArray() );
-		$result =  $this->db->query("PRAGMA table_info($this->tablename)");
-		while ( $row = $result->fetchArray() )
-			print_r($row);
-		//var_dump( $this->db->arrayQuery("table_info($tablename)") );
-	}
-
-	/**
-	 *
-	 */
-	function _createTable()
-	{
-		$string = "drop table if exists $this->tablename";
-		$this->db->exec($string);
-		$string = "create table $this->tablename(user_id INTEGER PRIMARY KEY ASC, username varchar(256) unique, password varchar(256), email varchar(256), lasthost varchar(256))";
-		$this->db->exec($string);
-	}
+//	/**
+//	 *
+//	 */
+//	function _createTable()
+//	{
+//		$string = "drop table if exists $this->tablename";
+//		$this->db->exec($string);
+//		$string = "create table $this->tablename(user_id INTEGER PRIMARY KEY ASC, username varchar(256) unique, password varchar(256), email varchar(256), lasthost varchar(256))";
+//		$this->db->exec($string);
+//	}
 
 	/**
 	 *

@@ -189,7 +189,7 @@ class RSSFunctions
 		$rowID = $this->db->_addFeed($url, $title, $lastTitle);
 		if (! $rowID)
 		{
-			return $this->db->_getMessage();
+			return $this->db->_getRSSMessage();
 		}
 		return $rowID;
 	}

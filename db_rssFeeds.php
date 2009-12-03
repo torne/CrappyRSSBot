@@ -40,32 +40,32 @@ class db_rssFeeds
 	/**
 	 *
 	 */
-	function _getMessage()
+	function _getRSSMessage()
 	{
 		return $this->message;
 	}
 
-	/**
-	 *
-	 */
-	function _describeTable()
-	{
-		$result =  $this->db->query("SELECT * FROM sqlite_master WHERE name = '$this->tablename'");
-		//var_dump ( $result->fetchArray() );
-		$result =  $this->db->query("PRAGMA table_info($this->tablename)");
-		while ( $row = $result->fetchArray() )
-			print_r($row);
-		//var_dump( $this->db->arrayQuery("table_info($tablename)") );
-	}
+//	/**
+//	 *
+//	 */
+//	function _describeTable()
+//	{
+//		$result =  $this->db->query("SELECT * FROM sqlite_master WHERE name = '$this->tablename'");
+//		//var_dump ( $result->fetchArray() );
+//		$result =  $this->db->query("PRAGMA table_info($this->tablename)");
+//		while ( $row = $result->fetchArray() )
+//			print_r($row);
+//		//var_dump( $this->db->arrayQuery("table_info($tablename)") );
+//	}
 
-	/**
-	 *
-	 */
-	function _createTable()
-	{
-		$string = "create table $this->tablename(feedid INTEGER PRIMARY KEY ASC, url varchar(256), title varchar(256), lastTitle varchar(256))";
-		$this->db->exec($string);
-	}
+//	/**
+//	 *
+//	 */
+//	function _createTable()
+//	{
+//		$string = "create table $this->tablename(feedid INTEGER PRIMARY KEY ASC, url varchar(256), title varchar(256), lastTitle varchar(256))";
+//		$this->db->exec($string);
+//	}
 
 	/**
 	 *

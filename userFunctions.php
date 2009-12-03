@@ -24,11 +24,11 @@ class userFunctions
 	{
 		if ( $this->db->_checkUsernameExists( $username ) )
 		{
-			echo $this->db->_getMessage();
+			echo $this->db->_getUserMessage();
 		}
 		if ( $this->db->_checkEmailExists( $email ) )
 		{
-			echo $this->db->_getMessage();
+			echo $this->db->_getUserMessage();
 		}
 	}
 
@@ -42,7 +42,7 @@ class userFunctions
 	{
 		if ( !$this->db->_checkUsernamePassword( $username, $password) )
 		{
-			echo $this->db->_getMessage();
+			echo $this->db->_getUserMessage();
 		}
 	}
 
