@@ -1,7 +1,7 @@
 <?php
-$dbtest = new db_users();
-$dbtest->_connectUsers();
-$dbtest->_createTable();
+//$dbtest = new db_users();
+//$dbtest->_connectUsers();
+//$dbtest->_createTable();
 //$dbtest->_describeTable();
 //$dbtest->_addFeed( 'url', 'title', 'lastTitle');
 //echo $dbtest->_getIdForUrl('url');
