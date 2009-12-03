@@ -25,9 +25,9 @@ class RSSFunctions
 	function __construct ()
 	{
 		require_once ('magpie/rss_fetch.inc');
-		require_once ('DBFunctions.php');
+		require_once ('db_rssFeeds.php');
 		define('MAGPIE_CACHE_ON', false);
-		$this->db = new DBFunctions();
+		$this->db = new db_rssFeeds();
 		$this->db->_connect();
 	}
 
