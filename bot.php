@@ -212,6 +212,7 @@ class bot
 		if ($this->rss_time + 120 < time())
 		{
 			//do rss stuff
+			echo "Time to check for feed updates\r\n";
 			$this->rss->_checkForUpdates($this);
 			$this->rss_time = time();
 		}
