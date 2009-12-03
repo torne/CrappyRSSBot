@@ -24,7 +24,7 @@ class db_rssFeeds
 	 *
 	 * @param unknown_type $filename
 	 */
-	function _connect($filename='rss_db')
+	function _connectRSS($filename='rss_db')
 	{
 		$err = '';
 		$this->db = new SQLite3($filename);

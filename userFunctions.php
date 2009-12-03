@@ -10,7 +10,7 @@ class userFunctions
 	function __construct ()
 	{
 		$this->db = new db_users();
-		$this->db->_connect();
+		$this->db->_connectUsers();
 	}
 
 	/**
