@@ -20,12 +20,19 @@ class db_rssFeeds
 
 	}
 
+	function _destruct()
+	{
+		echo "destruction\r\n";
+		$this->db->close();
+	}
+
 	/**
 	 *
 	 * @param unknown_type $filename
 	 */
 	function _connectRSS($filename='rss_db')
 	{
+		$this->filename = $filename;
 		$err = '';
 		$this->db = new SQLite3($filename);
 
