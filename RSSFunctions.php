@@ -64,12 +64,11 @@ class RSSFunctions
 		if ($rss->items[0]['title'] == $details['lastTitle'])
 			return;
 
-		if ( !$this->db->_updateLastForFeed($details['feedid'], $rss->items[0]['title']) )
+		$success = $this->db->_updateLastForFeed($details['feedid'], $rss->items[0]['title']);
+		echo "success? $success\r\n";
+		if ( !$success )
 		{
-			foreach ($bot->_getConfig()->_getChans() as $channel)
-			{
-				$bot->_sendMsg( $channel,  $this->db->_getRSSMessage() );
-			}
+			echo $this->db->_getRSSMessage()."\r\n";
 		}
 //		foreach ($bot->_getConfig()->_getChans() as $channel)
 //		{
@@ -90,7 +89,7 @@ class RSSFunctions
 			{
 				$bot->_sendMsg( $channel,  $details['title'] . " - $title - $link");
 			}
-			echo $bot->_getReturnDest().", ".$details['title']." - $title - $link\r\n";
+			//echo $bot->_getReturnDest().", ".$details['title']." - $title - $link\r\n";
 			return null;
 		}
 	}
@@ -156,11 +155,11 @@ class RSSFunctions
 	public function _getCurFeeds ($bot)
 	{
 		echo "got here\r\n";
-		var_dump($this->db->_getFeeds());
+		//var_dump($this->db->_getFeeds());
 		echo "got here too\r\n";
 		foreach ($this->db->_getFeeds() as $feed)
 		{
-			var_dump($feed);
+			//var_dump($feed);
 			if ( !$feed['url'] || empty($feed['url']) )
 				continue;
 			$this->_getItemsUntilPrevTitle($bot, $feed['url']);

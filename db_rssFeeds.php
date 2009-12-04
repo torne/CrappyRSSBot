@@ -75,7 +75,7 @@ class db_rssFeeds
 		$result =  $this->db->query("SELECT * FROM $this->tablename");
 		$feeds = array();
 		while ( $feeds[] = $result->fetchArray() );
-		return $feeds;
+			return $feeds;
 	}
 
 	/**
@@ -147,6 +147,7 @@ class db_rssFeeds
 
 		$lastTitle = $this->db->escapeString($lastTitle);
 		$query = "UPDATE $this->tablename SET lastTitle = '$lastTitle' WHERE feedid = $feedid";
+		echo "update query\r\n";
 		var_dump($query);
 		$success = $this->db->exec($query);
 		return $success;
