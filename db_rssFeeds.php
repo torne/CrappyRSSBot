@@ -157,6 +157,7 @@ class db_rssFeeds
 		echo "update query\r\n";
 		var_dump($query);
 		$success = $this->db->exec($query);
+		$this->__destruct();
 		return $success;
 	}
 
