@@ -84,8 +84,8 @@ class RSSFunctions
 				$bot->_sendMsg( $channel,  $details['title'] . " - $title - $link");
 			}
 			//echo $bot->_getReturnDest().", ".$details['title']." - $title - $link\r\n";
-			return null;
 		}
+		return null;
 	}
 
 	/**
