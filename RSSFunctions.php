@@ -59,25 +59,19 @@ class RSSFunctions
 	{
 		$details = $this->db->_getFeedDetailsForURL($url);
 		$rss = fetch_rss($url);
-		var_dump($rss->items[0]);
-		var_dump($details);
 		if ($rss->items[0]['title'] == $details['lastTitle'])
 			return;
 
 		$success = $this->db->_updateLastForFeed($details['feedid'], $rss->items[0]['title']);
-		echo "success? $success\r\n";
 		if ( !$success )
 		{
 			echo $this->db->_getRSSMessage()."\r\n";
 		}
-//		foreach ($bot->_getConfig()->_getChans() as $channel)
-//		{
-//			$bot->_sendMsg( $channel, $details['title'] . " - " . $details['url']);
-//		}
 		foreach ($rss->items as $item)
 		{
 			//var_dump($item);
 			extract($item);
+			echo "$title == ".$details['lastTitle']."\r\n";
 			if ($title == $details['lastTitle'])
 				break;
 //			if (strlen($description) >= 100)
