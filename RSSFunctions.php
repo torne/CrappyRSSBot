@@ -69,21 +69,24 @@ class RSSFunctions
 		}
 		foreach ($rss->items as $item)
 		{
-			//var_dump($item);
 			extract($item);
-			echo "$title == ".$details['lastTitle']."\r\n";
-			if ($title == $details['lastTitle'])
+			if ($item['title'] == $details['lastTitle'])
 				break;
-//			if (strlen($description) >= 100)
-//			{
-//				$description = substr($description, 0, 99) . "...";
-//			}
-//			$bot->_sendMsg( $bot->_getReturnDest(), $title . " - " . $link . " - " . $description);
 			foreach ($bot->_getConfig()->_getChans() as $channel)
 			{
-				$bot->_sendMsg( $channel,  $details['title'] . " - $title - $link");
+				if ( $description )
+				{
+					if (strlen($description) >= 100)
+					{
+						$description = substr($description, 0, 99) . "...";
+					}
+					$bot->_sendMsg( $channel, $details['title'] . " - $title - $link - $description");
+				}
+				else
+				{
+					$bot->_sendMsg( $channel, $details['title'] . " - $title - $link");
+				}
 			}
-			//echo $bot->_getReturnDest().", ".$details['title']." - $title - $link\r\n";
 		}
 		return null;
 	}

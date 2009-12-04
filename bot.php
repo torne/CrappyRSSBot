@@ -252,6 +252,7 @@ class bot
 	public function _sendMsg ($destination, $message)
 	{
 		$this->_putToServer("PRIVMSG $destination :$message");
+		sleep(2);
 	}
 
 	/**
