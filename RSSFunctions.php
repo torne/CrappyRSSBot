@@ -31,6 +31,13 @@ class RSSFunctions
 		$this->db->_connectRSS();
 	}
 
+	function __destruct()
+	{
+		echo "destruction of RSSFunctions\r\n";
+		$this->db->__destruct();
+	}
+
+
 	/**
 	 * @param unknown_type $bot
 	 */

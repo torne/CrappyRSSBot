@@ -22,7 +22,7 @@ class db_rssFeeds
 
 	function __destruct()
 	{
-		echo "destruction\r\n";
+		echo "destruction of db_rssFeeds\r\n";
 		$this->db->close();
 	}
 
