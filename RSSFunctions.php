@@ -45,6 +45,7 @@ class RSSFunctions
 	{
 		echo "checking for updates\r\n";
 		$this->_getCurFeeds($bot);
+		$this->db->__destruct();
 	}
 
 	/**
@@ -88,7 +89,7 @@ class RSSFunctions
 				{
 					if (strlen($description) >= 100)
 					{
-						$description = substr($description, 0, 99) . "...";
+						$description = substr(strip_tags(implode(', ', $description)), 0, 99) . "...";
 					}
 					$messageArray[] = $details['title'] . " - $title - $link - $description";
 				}
@@ -96,7 +97,7 @@ class RSSFunctions
 				{
 					if (strlen($atom_content) >= 100)
 					{
-						$atom_content = substr($atom_content, 0, 99) . "...";
+						$atom_content = substr(strip_tags(implode(', ', $atom_content)), 0, 99) . "...";
 					}
 					$messageArray[] = $details['title'] . " - $title - $link - $atom_content";
 				}
@@ -198,6 +199,7 @@ class RSSFunctions
 		}
 		foreach ( $feedfun as $feed )
 			$bot->_sendMsg( $bot->_getReturnDest(), $feed);
+		$this->db->__destruct();
 		return null;
 	}
 
@@ -215,6 +217,7 @@ class RSSFunctions
 		{
 			return $this->db->_getRSSMessage();
 		}
+		$this->db->__destruct();
 		return $rowID;
 	}
 
@@ -223,6 +226,7 @@ class RSSFunctions
 	 */
 	public function remFeed ( $bot, $url )
 	{
+		$this->db->__destruct();
 		return "I don't work, but if I did I'd remove a feed";
 	}
 
@@ -239,6 +243,7 @@ class RSSFunctions
 	 */
 	public function listFeeders ()
 	{
+		$this->db->__destruct();
 		return "I don't work, but if I did I'd list feed admins";
 	}
 
@@ -247,6 +252,7 @@ class RSSFunctions
 	 */
 	public function addFeeder ()
 	{
+		$this->db->__destruct();
 		return "I don't work, but if I did I'd add a feed admin";
 	}
 
@@ -255,6 +261,7 @@ class RSSFunctions
 	 */
 	public function remFeeder ()
 	{
+		$this->db->__destruct();
 		return "I don't work, but if I did I'd remove a feed admin";
 	}
 
