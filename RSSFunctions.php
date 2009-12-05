@@ -95,9 +95,9 @@ class RSSFunctions
 			{
 				$combine = $description;
 			}
-			echo "$description\r\n";
-			echo "$atom_content\r\n";
-			echo "$combine\r\n";
+			echo "description $description\r\n";
+			echo "atom_content $atom_content\r\n";
+			echo "combine $combine\r\n";
 			if ( $combine )
 			{
 				$split = preg_split("/\w+/", $atom_content);
