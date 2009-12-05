@@ -92,6 +92,14 @@ class RSSFunctions
 					}
 					$messageArray[] = $details['title'] . " - $title - $link - $description";
 				}
+				else if ( $atom_content )
+				{
+					if (strlen($atom_content) >= 100)
+					{
+						$atom_content = substr($atom_content, 0, 99) . "...";
+					}
+					$messageArray[] = $details['title'] . " - $title - $link - $atom_content";
+				}
 				else
 				{
 					$messageArray[] = $details['title'] . " - $title - $link";
