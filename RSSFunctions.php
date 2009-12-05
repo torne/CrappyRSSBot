@@ -90,6 +90,7 @@ class RSSFunctions
 					if (strlen($description) >= 100)
 					{
 						$split = preg_split("/\w+/", $description, null, PREG_SPLIT_NO_EMPTY);
+						var_dump($split);
 						$combine = implode(", ", $split);
 						$description = substr(strip_tags($combine), 0, 99) . "...";
 					}
@@ -100,6 +101,7 @@ class RSSFunctions
 					if (strlen($atom_content) >= 100)
 					{
 						$split = preg_split("/\w+/", $atom_content, null, PREG_SPLIT_NO_EMPTY);
+						var_dump($split);
 						$combine = implode(", ", $split);
 						$atom_content = substr(strip_tags($combine), 0, 99) . "...";
 					}
