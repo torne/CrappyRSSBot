@@ -1,20 +1,4 @@
 <?php
-
-//$rss = new RSSFunctions();
-//$rss->_checkFeedHeader('http://www.php.net/feed.atom');
-//$rss->_checkFeedHeader('http://xkcd.com/rss.xml');
-//$rss->_getFeed('http://www.php.net/feed.atom');
-//$rss->_getFeed('http://xkcd.com/rss.xml');
-//$rss->_getFeed('http://pirate.planetarion.com/external.php?type=RSS');
-//$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=rss');
-//$rss->_getFeed('http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom');
-//$url = "http://trac.edgewall.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss";
-//$rss->_addFeed( $url );
-//$rss->_getMainTitle( $url );
-//$url = "http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom";
-//$rss->_getMainTitle( $url );
-//$rss->_addFeed( $url );
-//$rss->_getItemsUntilPrevTitle( $url );
 class RSSFunctions
 {
 	private $db;
@@ -25,8 +9,11 @@ class RSSFunctions
 	function __construct ()
 	{
 		require_once ('magpie/rss_fetch.inc');
-		require_once ('db_rssFeeds.php');
-		define('MAGPIE_CACHE_ON', false);
+		if ( !defined('MAGPIE_CACHE_ON') )
+		{
+			echo "gonna define it'".constant('MAGPIE_CACHE_ON')."'\r\n";
+			define('MAGPIE_CACHE_ON', false);
+		}
 		$this->db = new db_rssFeeds();
 		$this->db->_connectRSS();
 	}
@@ -34,8 +21,7 @@ class RSSFunctions
 	function __destruct()
 	{
 		echo "destruction of RSSFunctions\r\n";
-		$this->db->__destruct();
-	}
+ 	}
 
 
 	/**
@@ -45,8 +31,7 @@ class RSSFunctions
 	{
 		echo "checking for updates\r\n";
 		$this->_getCurFeeds($bot);
-		$this->db->__destruct();
-	}
+ 	}
 
 	/**
 	 *
@@ -69,7 +54,9 @@ class RSSFunctions
 		$rss = fetch_rss($url);
 
 		if ($rss->items[0]['title'] == $details['lastTitle'])
+		{
 			return;
+		}
 
 		$success = $this->db->_updateLastForFeed($details['feedid'], $rss->items[0]['title']);
 		if ( !$success )
@@ -87,30 +74,25 @@ class RSSFunctions
 			}
 
 			$combine = '';
-			if ( $description )
+			if ( isset($description) )
 			{
 				$combine = $description;
 			}
-			else if ( $atom_content )
+			else if ( isset($atom_content) )
 			{
 				$combine = $atom_content;
 			}
-			echo "description $description\r\n";
-			echo "atom_content $atom_content\r\n";
-			echo "combine $combine\r\n";
 			if ( $combine )
 			{
-				$split = preg_split("/\w+/", $atom_content);
-				//var_dump($split);
-				$combine = implode(", ", $split);
+				$split = preg_split("/[\f\n\r\t\v]+/", strip_tags($combine));
+				$combine = " - ".implode(", ", $split);
 
 				if (strlen($combine) >= 100)
 				{
-					$combine = " - ".substr(strip_tags($combine), 0, 99) . "...";
+					$combine = substr($combine, 0, 99) . "...";
 				}
 
 			}
-
 			$messageArray[] = $details['title'] . " - $title - $link$combine";
 		}
 		foreach ( $messageArray as $message )
@@ -148,9 +130,6 @@ class RSSFunctions
 		}
 
 		$rss = fetch_rss($url);
-		//echo "First sub title: ".$rss->items[0]['title']."\r\n";
-		//echo "First sub link: ".$rss->items[0]['link']."\r\n\r\n";
-		//		var_dump($rss);
 		foreach ($rss->items as $item)
 		{
 			echo "Title: " . $item['title'] . "\r\n";
@@ -186,7 +165,9 @@ class RSSFunctions
 		foreach ($this->db->_getFeeds() as $feed)
 		{
 			if ( !$feed['url'] || empty($feed['url']) )
+			{
 				continue;
+			}
 			$this->_getItemsUntilPrevTitle($bot, $feed['url']);
 		}
 	}
@@ -202,12 +183,15 @@ class RSSFunctions
 		foreach ($this->db->_getFeeds() as $feed)
 		{
 			if ( !empty($feed['title']) )
+			{
 				$feedfun[] = $feed['title'] . " - " . $feed['url'] . " - " . $feed['lastTitle'];
+			}
 		}
 		foreach ( $feedfun as $feed )
+		{
 			$bot->_sendMsg( $bot->_getReturnDest(), $feed);
-		$this->db->__destruct();
-		return null;
+		}
+ 		return null;
 	}
 
 	/**
@@ -224,8 +208,7 @@ class RSSFunctions
 		{
 			return $this->db->_getRSSMessage();
 		}
-		$this->db->__destruct();
-		return $rowID;
+ 		return $rowID;
 	}
 
 	/**
@@ -233,8 +216,7 @@ class RSSFunctions
 	 */
 	public function remFeed ( $bot, $url )
 	{
-		$this->db->__destruct();
-		return "I don't work, but if I did I'd remove a feed";
+ 		return "I don't work, but if I did I'd remove a feed";
 	}
 
 	/**
@@ -250,8 +232,7 @@ class RSSFunctions
 	 */
 	public function listFeeders ()
 	{
-		$this->db->__destruct();
-		return "I don't work, but if I did I'd list feed admins";
+ 		return "I don't work, but if I did I'd list feed admins";
 	}
 
 	/**
@@ -259,8 +240,7 @@ class RSSFunctions
 	 */
 	public function addFeeder ()
 	{
-		$this->db->__destruct();
-		return "I don't work, but if I did I'd add a feed admin";
+ 		return "I don't work, but if I did I'd add a feed admin";
 	}
 
 	/**
@@ -268,8 +248,7 @@ class RSSFunctions
 	 */
 	public function remFeeder ()
 	{
-		$this->db->__destruct();
-		return "I don't work, but if I did I'd remove a feed admin";
+ 		return "I don't work, but if I did I'd remove a feed admin";
 	}
 
 	/**

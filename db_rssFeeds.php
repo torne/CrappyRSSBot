@@ -1,11 +1,4 @@
 <?php
-//$dbtest = new db_rssFeeds();
-//$dbtest->_connect();
-//$dbtest->_createTable();
-//$dbtest->_describeTable();
-//$dbtest->_addFeed( 'url', 'title', 'lastTitle');
-//echo $dbtest->_getIdForUrl('url');
-//echo $dbtest->_getIdForUrl('lol');
 class db_rssFeeds
 {
 	private $db;
@@ -82,7 +75,8 @@ class db_rssFeeds
 		$result =  $this->db->query("SELECT * FROM $this->tablename");
 		$feeds = array();
 		while ( $feeds[] = $result->fetchArray() );
-			return $feeds;
+
+		return $feeds;
 	}
 
 	/**

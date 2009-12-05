@@ -18,7 +18,6 @@ class bot
 	private $socket;
 	private $data;
 	private $handle_functions;
-	private $rss;
 	private $rss_time;
 	private $modules;
 	private $methodMap;
@@ -52,7 +51,6 @@ class bot
 		$this->config->_loadConfig();
 		$this->logger = new botLogger();
 		$this->handle_functions = new handle_functions();
-		$this->rss = new RSSFunctions();
 		$this->rss_time = time();
 	}
 
@@ -161,9 +159,10 @@ class bot
 	 */
 	public function _getConfig ($name = null)
 	{
-		//print_r( $this->config );
 		if ( !$name )
+		{
 			return $this->config;
+		}
 		return $this->config->_getConfig($name);
 	}
 
@@ -173,8 +172,15 @@ class bot
 	public function _main ()
 	{
 		$this->_server();
-		while (! feof($this->socket))
+		while ( !feof($this->socket) )
 		{
+			if ($this->rss_time + 120 < time())
+			{
+				echo "Time to check for feed updates\r\n";
+				$rss = new RSSFunctions();
+				$rss->_checkForUpdates($this);
+				$this->rss_time = time();
+			}
 			$this->_getFromServer();
 			$this->_parseInput();
 		}
@@ -186,8 +192,10 @@ class bot
 	public function _server ()
 	{
 		$this->socket = @fsockopen($this->config->_getConfig('server'), $this->config->_getConfig('port'));
-		if (! $this->socket)
+		if ( !$this->socket )
+		{
 			die("Unable to connect to server\r\n");
+		}
 		fputs($this->socket, "USER " . $this->config->_getConfig('user') . " :" . $this->config->_getConfig('nick') . "\r\n");
 		fputs($this->socket, "NICK " . $this->config->_getConfig('nick') . "\r\n");
 	}
@@ -197,9 +205,11 @@ class bot
 	 */
 	public function _getFromServer ()
 	{
-		$this->data = trim(fgets($this->socket));
-		if (! $this->data)
+		$this->data = trim( fgets($this->socket) );
+		if ( !$this->data )
+		{
 			return;
+		}
 		echo "========>\t\t" . $this->data . "\r\n";
 		return;
 	}
@@ -209,15 +219,10 @@ class bot
 	 */
 	public function _parseInput ()
 	{
-		if ($this->rss_time + 120 < time())
-		{
-			//do rss stuff
-			echo "Time to check for feed updates\r\n";
-			$this->rss->_checkForUpdates($this);
-			$this->rss_time = time();
-		}
 		if ( !$this->data )
+		{
 			return;
+		}
 
 		$explodedData = explode(" ", $this->data);
 		if ($this->data[0] == ":")
