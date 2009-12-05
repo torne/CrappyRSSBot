@@ -68,8 +68,6 @@ class RSSFunctions
 		$details = $this->db->_getFeedDetailsForURL($url);
 		$rss = fetch_rss($url);
 
-		var_dump($rss->items[0]);
-
 		if ($rss->items[0]['title'] == $details['lastTitle'])
 			return;
 

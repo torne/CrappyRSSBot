@@ -127,7 +127,7 @@ class db_rssFeeds
 		$feedid = $this->_getIdForUrl($url);
 
 		if ( !$feedid )
-		return false;
+			return false;
 
 		$result =  $this->db->query("SELECT * FROM $this->tablename WHERE feedid=$feedid");
 		if ( !$result )
@@ -154,10 +154,7 @@ class db_rssFeeds
 
 		$lastTitle = $this->db->escapeString($lastTitle);
 		$query = "UPDATE $this->tablename SET lastTitle = '$lastTitle' WHERE feedid = $feedid";
-		echo "update query\r\n";
-		var_dump($query);
 		$success = $this->db->exec($query);
-		//$this->__destruct();
 		return $success;
 	}
 
