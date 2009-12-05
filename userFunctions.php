@@ -15,14 +15,15 @@ class userFunctions
 
 	/**
 	 *
-	 * @param unknown_type $username
+	 * @param unknown_type $nick
 	 * @param unknown_type $password
 	 * @param unknown_type $email
 	 *
 	 */
-	public function register( $username, $password, $email )
+	public function register( $bot, $password, $email )
 	{
-		if ( $this->db->_checkUsernameExists( $username ) )
+
+		if ( $this->db->_checkNickExists( $bot->_getNick() ) )
 		{
 			echo $this->db->_getUserMessage();
 		}
@@ -34,13 +35,13 @@ class userFunctions
 
 	/**
 	 *
-	 * @param unknown_type $username
+	 * @param unknown_type $nick
 	 * @param unknown_type $password
 	 *
 	 */
-	public function login( $username, $password )
+	public function login( $nick, $password )
 	{
-		if ( !$this->db->_checkUsernamePassword( $username, $password) )
+		if ( !$this->db->_checkNickPassword( $nick, $password) )
 		{
 			echo $this->db->_getUserMessage();
 		}

@@ -59,6 +59,9 @@ class RSSFunctions
 	{
 		$details = $this->db->_getFeedDetailsForURL($url);
 		$rss = fetch_rss($url);
+
+		var_dump($rss->items[0]);
+
 		if ($rss->items[0]['title'] == $details['lastTitle'])
 			return;
 
@@ -66,26 +69,32 @@ class RSSFunctions
 		if ( !$success )
 		{
 			echo $this->db->_getRSSMessage()."\r\n";
+			break;
 		}
+		$messageArray = array();
 		foreach ($rss->items as $item)
 		{
 			extract($item);
 			if ($item['title'] == $details['lastTitle'])
 				break;
-			foreach ($bot->_getConfig()->_getChans() as $channel)
-			{
 				if ( $description )
 				{
 					if (strlen($description) >= 100)
 					{
 						$description = substr($description, 0, 99) . "...";
 					}
-					$bot->_sendMsg( $channel, $details['title'] . " - $title - $link - $description");
+					$messageArray[] = $details['title'] . " - $title - $link - $description";
 				}
 				else
 				{
-					$bot->_sendMsg( $channel, $details['title'] . " - $title - $link");
+					$messageArray[] = $details['title'] . " - $title - $link";
 				}
+		}
+		foreach ( $messageArray as $message )
+		{
+			foreach ($bot->_getConfig()->_getChans() as $channel)
+			{
+				$bot->_sendMsg( $channel, $message);
 			}
 		}
 		return null;
@@ -151,12 +160,8 @@ class RSSFunctions
 	 */
 	public function _getCurFeeds ($bot)
 	{
-		echo "got here\r\n";
-		//var_dump($this->db->_getFeeds());
-		echo "got here too\r\n";
 		foreach ($this->db->_getFeeds() as $feed)
 		{
-			//var_dump($feed);
 			if ( !$feed['url'] || empty($feed['url']) )
 				continue;
 			$this->_getItemsUntilPrevTitle($bot, $feed['url']);
@@ -177,7 +182,6 @@ class RSSFunctions
 				$feedfun[] = $feed['title'] . " - " . $feed['url'] . " - " . $feed['lastTitle'];
 		}
 		foreach ( $feedfun as $feed )
-			//echo $feed."\r\n";
 			$bot->_sendMsg( $bot->_getReturnDest(), $feed);
 		return null;
 	}
@@ -190,9 +194,7 @@ class RSSFunctions
 	public function addFeed ($bot, $url)
 	{
 		$title = $this->_getMainTitle($url);
-		//var_dump($title);
 		$lastTitle = $this->_getLastFeedItem($url);
-		//var_dump($lastTitle);
 		$rowID = $this->db->_addFeed($url, $title, $lastTitle);
 		if (! $rowID)
 		{

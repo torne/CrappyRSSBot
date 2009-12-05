@@ -65,20 +65,20 @@ class db_users
 //	{
 //		$string = "drop table if exists $this->tablename";
 //		$this->db->exec($string);
-//		$string = "create table $this->tablename(user_id INTEGER PRIMARY KEY ASC, username varchar(256) unique, password varchar(256), email varchar(256), lasthost varchar(256))";
+//		$string = "create table $this->tablename(user_id INTEGER PRIMARY KEY ASC, nick varchar(256) unique, password varchar(256), email varchar(256), lasthost varchar(256))";
 //		$this->db->exec($string);
 //	}
 
 	/**
 	 *
-	 * @param unknown_type $username
+	 * @param unknown_type $nick
 	 */
-	function _checkUsernameExists( $username )
+	function _checkNickExists( $nick )
 	{
-		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE username=$username");
+		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE nick=$nick");
 		if ( $result )
 		{
-			$this->message = "Username exists.";
+			$this->message = "Nick exists.";
 			return true;
 		}
 		return false;
@@ -97,22 +97,32 @@ class db_users
 
 	/**
 	 *
-	 * @param unknown_type $username
+	 * @param unknown_type $nick
 	 * @param unknown_type $password
 	 */
-	function _checkUsernamePassword( $username, $password )
+	function _checkNickPassword( $nick, $password )
 	{
-		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE username=$username AND password=$password");
+		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE nick=$nick AND password=$password");
 		if ( !$result )
 		{
-			$this->message = "Username or password incorrect.";
+			$this->message = "Nick or password incorrect.";
 			return false;
 		}
 		return true;
 	}
 
-	function _registerUser( $username, $password, $email )
+	function _registerUser( $nick, $password, $email )
 	{
+		if ( $this->_checkNickExists() )
+		{
+			return false;
+		}
+		$result = $this->db->exec("INSERT INTO $this->tablename (url, title, lastTitle) VALUES ('$url', '$title', '$lastTitle')");
+		if ( !$result )
+		{
+			$this->message = "Could not insert into table";
+			return false;
+		}
 
 	}
 }
