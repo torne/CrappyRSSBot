@@ -93,7 +93,7 @@ class RSSFunctions
 			}
 			else if ( $atom_content )
 			{
-				$combine = $description;
+				$combine = $atom_content;
 			}
 			echo "description $description\r\n";
 			echo "atom_content $atom_content\r\n";
