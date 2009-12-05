@@ -89,7 +89,7 @@ class RSSFunctions
 				{
 					if (strlen($description) >= 100)
 					{
-						$description = substr(strip_tags(implode(', ', $description)), 0, 99) . "...";
+						$description = substr(strip_tags(nl2br($description)), 0, 99) . "...";
 					}
 					$messageArray[] = $details['title'] . " - $title - $link - $description";
 				}
@@ -97,7 +97,7 @@ class RSSFunctions
 				{
 					if (strlen($atom_content) >= 100)
 					{
-						$atom_content = substr(strip_tags(implode(', ', $atom_content)), 0, 99) . "...";
+						$atom_content = substr(strip_tags(nl2br($atom_content)), 0, 99) . "...";
 					}
 					$messageArray[] = $details['title'] . " - $title - $link - $atom_content";
 				}
