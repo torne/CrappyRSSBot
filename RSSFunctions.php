@@ -82,33 +82,34 @@ class RSSFunctions
 		{
 			extract($item);
 			if ($item['title'] == $details['lastTitle'])
+			{
 				break;
-				if ( $description )
+			}
+
+			$combine = '';
+			if ( $description )
+			{
+				$combine = $description;
+			}
+			else if ( $atom_content )
+			{
+				$combine = $description;
+			}
+
+			if ( $combine )
+			{
+				$split = preg_split("/\w+/", $atom_content);
+				var_dump($split);
+				$combine = implode(", ", $split);
+
+				if (strlen($combine) >= 100)
 				{
-					if (strlen($description) >= 100)
-					{
-						$split = preg_split("/\w+/", $description, null, PREG_SPLIT_NO_EMPTY);
-						var_dump($split);
-						$combine = implode(", ", $split);
-						$description = substr(strip_tags($combine), 0, 99) . "...";
-					}
-					$messageArray[] = $details['title'] . " - $title - $link - $description";
+					$combine = " - ".substr(strip_tags($combine), 0, 99) . "...";
 				}
-				else if ( $atom_content )
-				{
-					if (strlen($atom_content) >= 100)
-					{
-						$split = preg_split("/\w+/", $atom_content, null, PREG_SPLIT_NO_EMPTY);
-						var_dump($split);
-						$combine = implode(", ", $split);
-						$atom_content = substr(strip_tags($combine), 0, 99) . "...";
-					}
-					$messageArray[] = $details['title'] . " - $title - $link - $atom_content";
-				}
-				else
-				{
-					$messageArray[] = $details['title'] . " - $title - $link";
-				}
+
+			}
+
+			$messageArray[] = $details['title'] . " - $title - $link$combine";
 		}
 		foreach ( $messageArray as $message )
 		{
