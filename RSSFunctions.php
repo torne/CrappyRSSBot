@@ -89,7 +89,9 @@ class RSSFunctions
 				{
 					if (strlen($description) >= 100)
 					{
-						$description = substr(strip_tags(nl2br($description)), 0, 99) . "...";
+						$split = preg_split("/\w+/", $description, null, PREG_SPLIT_NO_EMPTY);
+						$combine = implode(", ", $split);
+						$description = substr(strip_tags($combine), 0, 99) . "...";
 					}
 					$messageArray[] = $details['title'] . " - $title - $link - $description";
 				}
@@ -97,7 +99,9 @@ class RSSFunctions
 				{
 					if (strlen($atom_content) >= 100)
 					{
-						$atom_content = substr(strip_tags(nl2br($atom_content)), 0, 99) . "...";
+						$split = preg_split("/\w+/", $atom_content, null, PREG_SPLIT_NO_EMPTY);
+						$combine = implode(", ", $split);
+						$atom_content = substr(strip_tags($combine), 0, 99) . "...";
 					}
 					$messageArray[] = $details['title'] . " - $title - $link - $atom_content";
 				}
