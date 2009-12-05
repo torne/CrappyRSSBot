@@ -95,11 +95,13 @@ class RSSFunctions
 			{
 				$combine = $description;
 			}
-
+			echo "$description\r\n";
+			echo "$atom_content\r\n";
+			echo "$combine\r\n";
 			if ( $combine )
 			{
 				$split = preg_split("/\w+/", $atom_content);
-				var_dump($split);
+				//var_dump($split);
 				$combine = implode(", ", $split);
 
 				if (strlen($combine) >= 100)
