@@ -39,6 +39,11 @@ class RSSFunctions
 	 */
 	public function _getMainTitle ($url)
 	{
+		if ( empty($url) )
+		{
+			echo "url is empty\r\n";
+			return;
+		}
 		$rss = fetch_rss($url);
 		return $rss->channel['title'];
 	}
@@ -50,6 +55,11 @@ class RSSFunctions
 	 */
 	public function _getItemsUntilPrevTitle ($bot, $url)
 	{
+		if ( empty($bot) || empty($url) )
+		{
+			echo "bot or url is empty\r\n";
+			return;
+		}
 		$details = $this->db->_getFeedDetailsForURL($url);
 		$rss = fetch_rss($url);
 
@@ -117,6 +127,11 @@ class RSSFunctions
 	 */
 	public function _getFeed ($url)
 	{
+		if ( empty($url) )
+		{
+			echo "url is empty\r\n";
+			return;
+		}
 		$rss = simplexml_load_file($url);
 		$names = $rss->getNamespaces();
 		$titles = $rss->xpath('//title');
@@ -149,6 +164,11 @@ class RSSFunctions
 	 */
 	public function _getLastFeedItem ($url)
 	{
+		if ( empty($url) )
+		{
+			echo "url is empty\r\n";
+			return;
+		}
 		$rss = fetch_rss($url);
 		return $rss->items[0]['title'];
 	}
@@ -168,6 +188,11 @@ class RSSFunctions
 	 */
 	public function _getCurFeeds ($bot)
 	{
+		if ( empty($bot) )
+		{
+			echo "bot is empty\r\n";
+			return;
+		}
 		foreach ($this->db->_getFeeds() as $feed)
 		{
 			if ( !$feed['url'] || empty($feed['url']) )
@@ -184,6 +209,11 @@ class RSSFunctions
 	 */
 	public function listFeeds ( $bot )
 	{
+		if ( empty($bot) )
+		{
+			echo "bot is empty\r\n";
+			return;
+		}
 		$feedfun = array();
 		$feedfun[] = "Currently stored feeds: Title - URL - Last Entry Title";
 		foreach ($this->db->_getFeeds() as $feed)
@@ -207,6 +237,11 @@ class RSSFunctions
 	 */
 	public function addFeed ($bot, $url)
 	{
+		if ( empty($bot) || empty($url) )
+		{
+			echo "bot or url is empty\r\n";
+			return;
+		}
 		$title = $this->_getMainTitle($url);
 		$lastTitle = $this->_getLastFeedItem($url);
 		$rowID = $this->db->_addFeed($url, $title, $lastTitle);
