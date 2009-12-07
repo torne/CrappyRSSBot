@@ -90,7 +90,7 @@ class RSSFunctions
 			}
 			if ( $combine )
 			{
-				$split = preg_split("/[\f\n\r\t\v]+/", strip_tags($combine));
+				$split = preg_split("/[\f\n\r\t\v]+/", strip_tags($combine), null, PREG_SPLIT_NO_EMPTY);
 				$combine = " - ".implode(", ", $split);
 
 				if (strlen($combine) >= 100)
