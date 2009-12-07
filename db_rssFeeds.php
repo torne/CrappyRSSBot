@@ -85,6 +85,11 @@ class db_rssFeeds
 	 */
 	function _getIdForUrl( $url )
 	{
+		if ( empty($url) )
+		{
+			echo "no url\r\n";
+			return;
+		}
 		$url = $this->db->escapeString($url);
 		$result =  $this->db->query("SELECT * FROM $this->tablename WHERE url='$url'");
 		if ( !$result )
@@ -102,6 +107,11 @@ class db_rssFeeds
 	 */
 	function _getFeedDetailsForFeedid( $feedid )
 	{
+		if ( empty($feedid) )
+		{
+			echo "no feedid\r\n";
+			return;
+		}
 		$feedid = $this->db->escapeString($feedid);
 		$result =  $this->db->querySingle("SELECT * FROM $this->tablename WHERE feedid=$feedid");
 		if ( !$result )
@@ -118,6 +128,11 @@ class db_rssFeeds
 	 */
 	function _getFeedDetailsForURL( $url )
 	{
+		if ( empty($url) )
+		{
+			echo "no url\r\n";
+			return;
+		}
 		$feedid = $this->_getIdForUrl($url);
 
 		if ( !$feedid )
@@ -132,6 +147,11 @@ class db_rssFeeds
 		return $result->fetchArray();
 	}
 
+	
+	
+
+	
+	
 	/**
 	 *
 	 * @param $feedid
@@ -139,6 +159,11 @@ class db_rssFeeds
 	 */
 	function _updateLastForFeed( $feedid, $lastTitle )
 	{
+		if ( empty($feedid) || empty($lastTitle) )
+		{
+			echo 'No feedid or lastTitle\r\n';
+			return;
+		}
 		$result = $this->db->querySingle("SELECT * FROM $this->tablename WHERE feedid=$feedid");
 		if ( !$result )
 		{
@@ -160,6 +185,11 @@ class db_rssFeeds
 	 */
 	function _addFeed( $url, $title, $lastTitle )
 	{
+		if ( empty($url) || empty($lastTitle) || empty($title) )
+		{
+			echo 'No url or lastTitle or title\r\n';
+			return;
+		}
 		$url = $this->db->escapeString($url);
 		$title = $this->db->escapeString($title);
 		$lastTitle = $this->db->escapeString($lastTitle);

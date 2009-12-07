@@ -53,6 +53,12 @@ class RSSFunctions
 		$details = $this->db->_getFeedDetailsForURL($url);
 		$rss = fetch_rss($url);
 
+		if ( !isset($rss->items) || !is_array($rss->items) )
+		{
+			echo "Something wrong with feed, rss->items is nothing\r\n";
+			return;
+		}
+		
 		if ($rss->items[0]['title'] == $details['lastTitle'])
 		{
 			return;
